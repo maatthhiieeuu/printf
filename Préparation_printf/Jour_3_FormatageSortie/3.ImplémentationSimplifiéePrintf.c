@@ -5,31 +5,30 @@
 
 int	ft_atoi(const char *s)	/************************************/
 {
-	int	i;
-	int	sign;
-	int	result;
+	int    i;
+    int    sign;
+    int    result;
 
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
-	{
-		i++;
-	}
-	if (s[i] == '-' || s[i] == '+')
-	{
-		if (s[i] == '-')
-		{
-			sign *= -1;
-		}
-		i++;
-	}
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		result = (result * 10) + (s[i] - 48);
-		i++;
-	}
-	return (result * sign);
+    result = 0;
+    sign = 1;
+    i = 0;
+
+    while ((s[i] >= 0 && s[i] <= 47) || (s[i] >= 58 && s[i] <= 127))
+    {     
+      if (s[i] == '-' || s[i] == '+')
+      {
+          if (s[i] == '-')
+              sign *= -1;
+          i++;
+      }
+      i++;
+    }
+    while (s[i] >= '0' && s[i] <= '9')
+    {
+        result = (result * 10) + (s[i] - 48);
+        i++;
+    }
+    return (result * sign);
 }
 
 
@@ -103,10 +102,18 @@ bool	is_number(const char *format, va_list args, int *i)
 
 /*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
 
+void	
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
 void	decimalManagement(const char *format, va_list args, int **i)
 {
 	bool flag;
 
+
+	if (!format)
+		return;
 	if (format[**i + 1] == '0')
 		flag = true;
 	if (flag && ft_isdigit(format[**i + 2]) && format[**i + 3] == 'd')
@@ -117,21 +124,24 @@ void	decimalManagement(const char *format, va_list args, int **i)
 		int 	numberCpy;
 
 		displayFormat = ft_atoi(&format[**i]);
-		nbrDigit = 0;
+		nbrDigit = 1;
 		number = va_arg(args, int);
 		numberCpy = number;
-		printf("test valeur atoi = %d", displayFormat);
 		while (numberCpy > 9)
 		{
 			numberCpy /= 10;
 			nbrDigit++;
 		}
-		while (nbrDigit <= displayFormat)
+		while (nbrDigit < displayFormat)
 		{
 			ft_putchar('0');
 			nbrDigit++;
 		}
+		ft_putnbr(number);
 	}
+	if (flag && ft_isdigit(format[**i + 2]) && format[**i + 3] == 'd')
+		**i += 3;
+
 }
 
 /*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
@@ -141,7 +151,7 @@ void	ft_format(const char *format, va_list args, int *i)
 {
 	if (!format)//	format = NULL;
 		return;
-	if (format[*i + 1] == 'd' || format[*i + 1] == 'd' || format[*i + 1] == 'd')	// %d
+	if (format[*i + 1] == 'd' || format[*i + 2] == 'd' || format[*i + 3] == 'd')	// %d
 	{
 			decimalManagement(format, args, &i);
 	}
@@ -210,7 +220,7 @@ int main(void)
 	char c = 'G';
 	char b = '%';
 
-	ft_printfSimplifie("FONCTION FT\nTest des chaines de caracteres : %s\nTest des entiers : %06d\nTest des caractere : %c\nTest de symbole = %c\n", s, d, c, b);
+	ft_printfSimplifie("FONCTION FT\nTest des chaines de caracteres : %s\nTest des entiers : %6d\nTest des caractere : %c\nTest de symbole = %c\n", s, d, c, b);
 
 	printf("\n\nFONCTION ORIGINAL\nTest des chaines de caracteres : %s\nTest des entiers : %06d\nTest des caractere : %c\nTest de symbole = %c\n", s, d, c, b);
 	
