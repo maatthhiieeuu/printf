@@ -3,12 +3,58 @@
 #include <stdarg.h>
 #include <stdbool.h>
 
-void	ft_putchar(int c)
+int	ft_atoi(const char *s)	/************************************/
+{
+	int	i;
+	int	sign;
+	int	result;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	while (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
+	{
+		i++;
+	}
+	if (s[i] == '-' || s[i] == '+')
+	{
+		if (s[i] == '-')
+		{
+			sign *= -1;
+		}
+		i++;
+	}
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		result = (result * 10) + (s[i] - 48);
+		i++;
+	}
+	return (result * sign);
+}
+
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
+int	ft_isdigit(int c) /*********************************************/
+{
+	return (c >= '0' && c <= '9');
+}
+
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
+void	ft_putchar(int c)/*******************************************/
 {
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int n)
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
+void	ft_putnbr(int n)/********************************************/
 {
 	char	c;
 
@@ -30,7 +76,11 @@ void	ft_putnbr(int n)
 	ft_putchar(c);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
+void	ft_putstr_fd(char *s, int fd)/*******************************/
 {
 	if (!s)
 		return ;
@@ -41,22 +91,59 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
 bool	is_number(const char *format, va_list args, int *i)
 {
 	return (format[*i] >= 0 && format[*i] <= 2147483647);
 }
 
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+void	decimalManagement(const char *format, va_list args, int **i)
+{
+	bool flag;
+
+	if (format[**i + 1] == '0')
+		flag = true;
+	if (flag && ft_isdigit(format[**i + 2]) && format[**i + 3] == 'd')
+	{
+		int 	displayFormat;
+		int 	nbrDigit;
+		int 	number;
+		int 	numberCpy;
+
+		displayFormat = ft_atoi(&format[**i]);
+		nbrDigit = 0;
+		number = va_arg(args, int);
+		numberCpy = number;
+		printf("test valeur atoi = %d", displayFormat);
+		while (numberCpy > 9)
+		{
+			numberCpy /= 10;
+			nbrDigit++;
+		}
+		while (nbrDigit <= displayFormat)
+		{
+			ft_putchar('0');
+			nbrDigit++;
+		}
+	}
+}
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
 void	ft_format(const char *format, va_list args, int *i)
 {
-	if (!format)
+	if (!format)//	format = NULL;
 		return;
-	if (format[*i + 1] == 'd')
+	if (format[*i + 1] == 'd' || format[*i + 1] == 'd' || format[*i + 1] == 'd')	// %d
 	{
-		int temp;
-
-		temp = va_arg(args, int);
-		ft_putnbr(temp);
-		*i += 2;
+			decimalManagement(format, args, &i);
 	}
 	else if (format[*i + 1] == 'c')
 	{
@@ -80,10 +167,13 @@ void	ft_format(const char *format, va_list args, int *i)
 	{
 		ft_putchar(10);
 	}
-	if (format[*i] == )
 	else
 		return;	
 }
+
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
 
 void	ft_printfSimplifie(const char *format, ...)
 {
@@ -109,6 +199,10 @@ void	ft_printfSimplifie(const char *format, ...)
 	va_end(args);
 }
 
+
+/*8888888888888888888888888888888888888888888888888888888888888888888888888888*/
+
+
 int main(void)
 {
 	char s[] = "La mie du pain";
@@ -116,9 +210,9 @@ int main(void)
 	char c = 'G';
 	char b = '%';
 
-	ft_printfSimplifie("FONCTION FT\nTest des chaines de caracteres : %s\nTest des entiers : %10d\nTest des caractere : %c\nTest de symbole = %c\n", s, d, c, b);
+	ft_printfSimplifie("FONCTION FT\nTest des chaines de caracteres : %s\nTest des entiers : %06d\nTest des caractere : %c\nTest de symbole = %c\n", s, d, c, b);
 
-	printf("\n\nFONCTION ORIGINAL\nTest des chaines de caracteres : %s\nTest des entiers : %d\nTest des caractere : %c\nTest de symbole = %c\n", s, d, c, b);
+	printf("\n\nFONCTION ORIGINAL\nTest des chaines de caracteres : %s\nTest des entiers : %06d\nTest des caractere : %c\nTest de symbole = %c\n", s, d, c, b);
 	
 
 	return (0);	
