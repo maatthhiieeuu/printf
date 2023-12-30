@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdbool.h>
 
 int	ft_atoi(const char *s)	/************************************/
 {
@@ -365,11 +366,12 @@ int main(void)
 	//printf("\nFONCTION OR\n\nTest des string = %s\nTest des int = %d\nTest des intsapce = %9d\nTest des intzero = %09d\nTest des char = %c\nTest des symbole = %c\nTest des floatspace = %9f\nTest des floatzero = %09f\nTest des float = %f\nTest des floatprecision = %.3f\nXX\n", s, d, d, d, c, b, a, a, a, a);
 	//printf("Test des caractere : %c\nTest de symbole = %c\n", c, b);
 */
-	int i = 100;
-  printf("i = %d\n", i);
-  int *pointer = &i;
-  printf("adresse de i = %p\n", &i);
-  printf("adresse de i dans le pointeur  = %p\n", pointer);
-  printf("adresse de i dans le pointeur  = %p\n", &pointer);
+	int i = 10;
+  printf("or i = %p\n", i);
+  ft_printfSimplifie("ft i = %p\n", i);
+ // int *pointer = &i;
+  //printf("adresse de i = %c\n", &i);
+ // printf("adresse de i dans le pointeur  = %p\n", pointer);
+  //printf("adresse de i dans le pointeur  = %p\n", &pointer);
 	return (0);	
 }

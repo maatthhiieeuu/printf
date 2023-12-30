@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   i_manage.c                                         :+:      :+:    :+:   */
+/*   c_manage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 15:18:17 by mboegler          #+#    #+#             */
-/*   Updated: 2023/12/22 15:18:31 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 14:58:13 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 14:58:32 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdarg.h>
 #include "libft.h"
+#include "ft_printf.h"
 
-void	i_manage(const char *format, va_list args, int **i)
+void	c_manage(const char *format, va_list args, int **i)
 {
-	
+	if (format[**i + 1] == 'c')
+	{
+		char recovery_number;
+
+		recovery_number = va_arg(args, int);
+		ft_putchar_fd(recovery_number, 1);
+		**i += 2;
+	}
 }
 
 /*
-	%i - Entier signé (identique à %d)
+%c - Caractère
 
     '#' : Non applicable.
-    ' ' : Ajoute un espace si le nombre est positif.
-    '+' : Affiche le signe (+ ou -) du nombre.
+    ' ' : Non applicable.
+    '+' : Non applicable.
 */

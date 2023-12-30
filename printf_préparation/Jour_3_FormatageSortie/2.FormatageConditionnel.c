@@ -40,14 +40,17 @@ void	formatZero(int n, int size, bool flag)
 	int	count;
 
 	nCpy = n;
-	nbrDigit = 0;
+	nbrDigit = 1;
 	count = 0;
+	if (n < 0)
+		nbrDigit = 2;
 	while (nCpy > 0)
 	{
+		
 		nCpy /= 10;
 		nbrDigit++;
 	}
-	while ((flag == true) && ((nbrDigit + count) < size))
+	while ((flag == true) && (nbrDigit < size) && (count < (size - nbrDigit)))
 	{
 		ft_putchar_fd('0', 1);
 		count++;
@@ -60,19 +63,29 @@ void	formatZero(int n, int size, bool flag)
 int main(void)
 {
 	formatZero(-52, 2, false);
-	ft_putchar_fd('\n', 1);
+	printf("\n");
 	formatZero(-52, 2, true);
-	ft_putchar_fd('\n', 1);
-	formatZero(-52, 9, false);
-	ft_putchar_fd('\n', 1);
-	formatZero(-52, 9, true);
-	ft_putchar_fd('\n', 1);
-	formatZero(-52, 500, false);
-	ft_putchar_fd('\n', 1);
-	formatZero(-52, 500, true);
-	ft_putchar_fd('\n', 1);
+	printf("\n");
+	formatZero(-52, 3, false);
+	printf("\n");
+	formatZero(-52, 3, true);
+	printf("\n");
+	formatZero(-52, 4, false);
+	printf("\n");
+	formatZero(-52, 4, true);
+	printf("\n");
 	formatZero(-52, -200, false);
-	ft_putchar_fd('\n', 1);
+	printf("\n");
 	formatZero(-52, -200, true);
-	ft_putchar_fd('\n', 1);
 }
+
+/*
+1:"-52"
+2:"-52"
+3:"-52"
+4:"-52"
+5:" -52"
+6:"-052"
+7:"-52 
+8: null
+*/

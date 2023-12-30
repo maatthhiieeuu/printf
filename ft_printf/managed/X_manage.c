@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_manage.c                                         :+:      :+:    :+:   */
+/*   x_manage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 15:14:58 by mboegler          #+#    #+#             */
-/*   Updated: 2023/12/22 15:15:01 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 15:20:27 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 15:20:42 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <stdarg.h>
 #include "libft.h"
+#include "ft_printf.h"
 
-void	p_manage(const char *format, va_list args, int **i)
+void	X_manage(const char *format, va_list args, int **i)
 {
-	if (format[**i + 1] == 'p')
-	{
-		
-	}
+	int recovery_number;
+
+    recovery_number = va_arg(args, int);
+    if (format[**i + 1] == 'x')
+    {
+        dectohex(recovery_number, 'm');
+        **i += 2;
+    }
+}
 
 /*
-	%p - Pointeur (affiché en hexadécimal)
+	%x - Entier non signé en hexadécimal (minuscules)
 
-    '#' : Non applicable, %p affiche déjà 0x par défaut.
-    ' ' : Non applicable.
-    '+' : Non applicable.
+    # : Ajoute le préfixe 0x si le nombre n'est pas zéro.
+    : Non applicable.
+    + : Non applicable.
 */

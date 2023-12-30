@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   x_manage.c                                         :+:      :+:    :+:   */
+/*   s_manage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 15:20:27 by mboegler          #+#    #+#             */
-/*   Updated: 2023/12/22 15:20:42 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 14:57:57 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 14:57:59 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "libft.h"
+#include "ft_printf.h"
 
-void	x_manage(const char *format, va_list args, int **i)
+void	s_manage(const char *format, va_list args, int **i)
 {
-	
+	if (format[**i + 1] == 's')
+	{
+		ft_putstr_fd(va_arg(args, char *), 1);
+		**i += 2;
+	}
 }
 
 /*
-	%x - Entier non signé en hexadécimal (minuscules)
+%s - Chaîne de caractères
 
-    # : Ajoute le préfixe 0x si le nombre n'est pas zéro.
-    : Non applicable.
-    + : Non applicable.
+    '#' : Non applicable.
+    ' ' : Non applicable.
+    '+' : Non applicable.
 */

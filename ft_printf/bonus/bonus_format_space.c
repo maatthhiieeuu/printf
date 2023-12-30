@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_manage.c                                         :+:      :+:    :+:   */
+/*   unsigned_utility.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 14:57:57 by mboegler          #+#    #+#             */
-/*   Updated: 2023/12/22 14:57:59 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 14:57:16 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 14:57:20 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
-#include "libft.h"
+#include <stdbool.h>
+#include "libft/libft.h"
+#include "ft_printf.h"
 
-void	s_manage(const char *format, va_list args, int **i)
+void	format_space(int n, int size, bool flag)
 {
-	else if (format[**i + 1] == 's')
+	int nCpy;
+	int	nbrDigit;
+	int	count;
+
+	nCpy = n;
+	nbrDigit = 0;
+	count = 0;
+	while (nCpy > 0)
 	{
-		ft_putstr_fd(va_arg(args, char *), 1);
-		**i += 2;
+		nCpy /= 10;
+		nbrDigit++;
 	}
+	while ((flag == true) && (count < (size - nbrDigit)))
+	{
+		ft_putchar_fd(' ', 1);
+		count++;
+	}
+	ft_putnbr_fd(n, 1);
 }
-
-/*
-%s - Chaîne de caractères
-
-    '#' : Non applicable.
-    ' ' : Non applicable.
-    '+' : Non applicable.
-*/

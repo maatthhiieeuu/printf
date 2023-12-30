@@ -14,14 +14,16 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "libft.h"
+#include "ft_printf.h"
 
 void	d_manage(const char *format, va_list args, int **i)
 {
 	if (format[**i + 1] == 'd')
 	{
 		int recovery_number;
+		
 		recovery_number = va_arg(args, int);
-		ft_putnbr(recovery_number);
+		ft_putnbr_fd(recovery_number, 1);
 		**i += 2;
 	}
 }

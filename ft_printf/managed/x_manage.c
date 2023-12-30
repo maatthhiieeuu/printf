@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unsigned_utility.c                                 :+:      :+:    :+:   */
+/*   x_manage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 14:57:16 by mboegler          #+#    #+#             */
-/*   Updated: 2023/12/22 14:57:20 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 15:20:27 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 15:20:42 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "libft.h"
+#include "ft_printf.h"
 
-void	putunbr(int n)
+void	x_manage(const char *format, va_list args, int **i)
 {
-	char	c;
+	int recovery_number;
 
-	if (n < 0)
-		return;
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-	}
-	c = n % 10 + 48;
-	ft_putchar(c);
+    recovery_number = va_arg(args, int);
+    if (format[**i + 1] == 'x')
+    {
+        dectohex(recovery_number, 'm');
+        **i += 2;
+    }
 }
+
+/*
+	%x - Entier non signé en hexadécimal (minuscules)
+
+    # : Ajoute le préfixe 0x si le nombre n'est pas zéro.
+    : Non applicable.
+    + : Non applicable.
+*/
