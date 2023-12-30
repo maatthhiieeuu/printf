@@ -33,11 +33,9 @@ void	x_manage(const char *format, va_list args, int **i);
 void	dectohex(int num, char minmax);
 void	put_adress(uintptr_t num);
 void	put_unbr(int n);
-
-/*
-void	zero_manage(const char *format, va_list args, int **i);
-void	format_Zero(int n, int size, bool flag);
+char	format_search(const char *format, int **i);
+void	format_zero(int n, int size, bool flag);
 void	format_space(int n, int size, bool flag);
-*/
+
 
 #endif

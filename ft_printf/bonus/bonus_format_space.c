@@ -14,11 +14,12 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "ft_printf.h"
 
 void	format_space(int n, int size, bool flag)
 {
+	printf("Début de fonction de format_space\n");
 	int nCpy;
 	int	nbrDigit;
 	int	count;

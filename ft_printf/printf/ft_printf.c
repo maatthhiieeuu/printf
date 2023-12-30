@@ -26,12 +26,18 @@ static	void	ft_format(const char *format, va_list args, int *i)
 		X_manage(format, args, &i);
 	else if (format[*i + 1] == '%')
 		percent_manage(format, &i);
+	else
+	{
+		//printf("\nEnvoie à format_search\n");
+		format_search(format, &i);
+	}
 }
 
 /*----------------------------------------------------------------------------*/
 
 int ft_printf(const char *format, ...)
 {
+	//printf("\nDébut de fonction de ft_printf\n");
 	int	i;
 
 	i = 0;

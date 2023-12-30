@@ -6,7 +6,7 @@
 
 int main(void)
 {
-	printf("debut de programme!\n");
+	printf("debut de main!\n");
 	int nombre;
 	char lettre;
 	char phrase[] = "";
@@ -15,9 +15,9 @@ int main(void)
 	nombre = 24;
 	lettre = 'a';
 	adresse = &nombre;
-	ft_printf("Ft lettre = |%c***\n", lettre);
-	printf("Or lettre = |%c***\n", lettre);
-	ft_printf("Ft phrase = |%s***\n", phrase);
+	ft_printf("Ft lettre = |%#05.7X***\n", lettre);
+	printf("Or lettre = |%#05.7X***\n", lettre);
+	/*ft_printf("Ft phrase = |%s***\n", phrase);
 	printf("Or phrase = |%s***\n", phrase);
 	ft_printf("Ft adresse = |%p|***\n", adresse);
 	printf("Or adresse = |%p|***\n", adresse);
@@ -34,7 +34,7 @@ int main(void)
 	ft_printf("Ft pourcent = |%%|***\n");
 	printf("Or pourcent = |%%|***\n");
 	ft_printf("");
-	printf("");
+	printf("");*/
 	printf("fin de programme!\n");
 	return (0);
 }

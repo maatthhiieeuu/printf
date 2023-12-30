@@ -31,7 +31,7 @@ SRCS = $(PRINTF_DIR)ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 
 # Fichiers sources et objets pour les bonus
-BONUS_SRCS = $(BONUS_DIR)bonus_format_option.c \
+BONUS_SRCS = $(BONUS_DIR)bonus_format_search.c \
              $(BONUS_DIR)bonus_format_space.c \
              $(BONUS_DIR)bonus_format_zero.c
 
