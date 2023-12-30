@@ -37,6 +37,7 @@ void	dectohex(int num, char minmax)
 	while (i >= 0)
 	{
 		ft_putchar_fd(tableHexadecimal[hexaNum[i]], 1);
+		i--;
 	}
-	i--;
+	
 }

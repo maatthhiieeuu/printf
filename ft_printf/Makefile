@@ -5,6 +5,7 @@ TEST_NAME = test
 # Compiler et flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Ilibft -Iprintf
+CFLAGS_TEST = -g -Ilibft -Iprintf
 
 # Dossiers
 MANAGED_DIR = managed/
@@ -59,7 +60,7 @@ test: $(OBJS) test.o libft.a libftprintf.a
 
 
 $(TEST_NAME).o: $(TEST_NAME).c
-	gcc $(CFLAGS) -c $(TEST_NAME).c -o $(TEST_NAME).o
+	gcc $(CFLAGS_TEST) -c $(TEST_NAME).c -o $(TEST_NAME).o
 
 # Règle pour les bonus
 bonus: $(BONUS_OBJS) libft.a

@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdint.h>
 #include "libft.h"
 #include "ft_printf.h"
 
@@ -23,8 +24,12 @@ void	p_manage(const char *format, va_list args, int **i)
 	recovery_adress = va_arg(args, uintptr_t);
 	if (format[**i + 1] == 'p')
 	{
-		put_adress(recovery_adress);
-		**i += 2;
+		if (recovery_adress != 0)
+		{
+			put_adress(recovery_adress);
+			**i += 1;
+		}
+		
 	}
 }
 

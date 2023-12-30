@@ -6,7 +6,6 @@
 
 static	void	ft_format(const char *format, va_list args, int *i)
 {
-
 	if (!format)
 		return;
 	if (format[*i + 1] == 'c')
@@ -27,7 +26,6 @@ static	void	ft_format(const char *format, va_list args, int *i)
 		X_manage(format, args, &i);
 	else if (format[*i + 1] == '%')
 		percent_manage(format, &i);
-
 }
 
 /*----------------------------------------------------------------------------*/
@@ -35,10 +33,8 @@ static	void	ft_format(const char *format, va_list args, int *i)
 int ft_printf(const char *format, ...)
 {
 	int	i;
-	//int *ptr_i;
 
 	i = 0;
-	//ptr_i = &i;
 	va_list args;
 	va_start(args, format);
 	while(format[i])

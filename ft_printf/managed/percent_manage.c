@@ -21,6 +21,6 @@ void	percent_manage(const char *format, int **i)
 	if (format[**i + 1] == '%')
 	{
 		ft_putchar_fd('%', 1);
-		**i += 2;
+		**i += 1;
 	}
 }

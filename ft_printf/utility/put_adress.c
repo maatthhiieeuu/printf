@@ -35,6 +35,6 @@ void	put_adress(uintptr_t num)
 	while (i >= 0)
 	{
 		ft_putchar_fd(hexadecimalMin[hexaNum[i]], 1);
+		i--;
 	}
-	i--;
 }

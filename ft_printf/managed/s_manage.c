@@ -21,7 +21,7 @@ void	s_manage(const char *format, va_list args, int **i)
 	if (format[**i + 1] == 's')
 	{
 		ft_putstr_fd(va_arg(args, char *), 1);
-		**i += 2;
+		**i += 1;
 	}
 }
 

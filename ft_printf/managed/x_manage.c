@@ -24,7 +24,7 @@ void	x_manage(const char *format, va_list args, int **i)
     if (format[**i + 1] == 'x')
     {
         dectohex(recovery_number, 'm');
-        **i += 2;
+        **i += 1;
     }
 }
 

@@ -21,10 +21,10 @@ void	X_manage(const char *format, va_list args, int **i)
 	int recovery_number;
 
     recovery_number = va_arg(args, int);
-    if (format[**i + 1] == 'x')
+    if (format[**i + 1] == 'X')
     {
-        dectohex(recovery_number, 'm');
-        **i += 2;
+        dectohex(recovery_number, 'M');
+        **i += 1;
     }
 }
 

@@ -24,7 +24,7 @@ void	c_manage(const char *format, va_list args, int **i)
 
 		recovery_number = va_arg(args, int);
 		ft_putchar_fd(recovery_number, 1);
-		**i += 2;
+		**i += 1;
 	}
 }
 

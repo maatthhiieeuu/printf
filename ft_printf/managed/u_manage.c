@@ -24,7 +24,7 @@ void	u_manage(const char *format, va_list args, int **i)
 
 		recovery_number = va_arg(args, unsigned int);
 		put_unbr(recovery_number);
-		**i += 2;
+		**i += 1;
 	}
 }
 
