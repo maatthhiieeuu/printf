@@ -13,40 +13,51 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "libft.h"
 #include "ft_printf.h"
 
-char	format_search(const char *format, int **i)
+void    init_struct_format(const char *format, int **i, t_format *option)    
+{
+    option->specifier = 0;
+    option->space_array = 0;
+    option->large_zero = 0;
+    option->precision = -1;
+    option->hash = false;
+    option->minus = false;
+    option->plus = false;
+    printf("\nEnvoie à format_search\n");
+    format_search(format, i, option);
+}
+char	format_search(const char *format, int **i, t_format *option)
 {
     //printf("Début de fonction de format_search\n");
     int j;
-    int count;
+    //int count;
     int index;
-    char specifier;
-    char tab_char[] = "cspdiuxXA";
+    char tab_char[] = "cspdiuxX";
 
-    
-    count = 0;
+    //count = 0;
     index = **i;
-    specifier = 'A';
-	while (format[index] && count < 6)
+	while (format[index])
     {
         //printf("Début de boucle principale\n");
         j = 0;
         while (j < 9)
         {
             //printf("Début de boucle secondaire\n");
-            if (ft_strchr(format + index, tab_char[j]))
+            ft_strchr(format + index, tab_char[j]);
+            if (format)
             {
-                specifier = tab_char[j];
-                printf("format_search a trouvé le caractère %c\n!", specifier);
-                return (specifier);
+                option->specifier = tab_char[j];
+                printf("format_search a trouvé le caractère %c\n!", option->specifier);
+                return (option->specifier);
             }
             j++;
         }
         index++;
     }
     //printf("format_search n'a pas trouvé le caractère !\n");
-    return (specifier);
+    return (option->specifier);
 }
 

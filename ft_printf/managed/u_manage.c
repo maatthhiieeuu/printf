@@ -35,3 +35,25 @@ void	u_manage(const char *format, va_list args, int **i)
     ' ' : Non applicable (pas de signe pour les entiers non signés).
     '+' : Non applicable (pas de signe pour les entiers non signés).
 */
+/* Synthèse des Sorties pour %u
+
+    %u = '42' :
+        Standard : Affiche le nombre non signé tel quel.
+    %5u = ' 42' :
+        Avec largeur 5 : Affiche le nombre avec 3 espaces avant (alignement à droite).
+    %-5u = '42 ' :
+        Avec largeur -5 : Affiche le nombre avec 3 espaces après (alignement à gauche).
+    %05u = '00042' :
+        Avec 0 et largeur 5 : Affiche le nombre avec des zéros au début pour atteindre une largeur de 5.
+    %.3u = '042' :
+        Avec .3 (précision) : Affiche le nombre avec des zéros au début pour atteindre une précision de 3.
+    %5.3u = ' 042' :
+        Avec largeur et précision : Combine largeur et précision, ajoutant des espaces et des zéros comme nécessaire.
+    %+u = '42' :
+        Avec drapeau + (non pertinent pour u) : Comportement identique au standard.
+    %' u = '42' :
+        Avec drapeau ' ' (non pertinent pour u) : Comportement identique au standard.
+    %#u = '42' :
+        Avec drapeau # (non pertinent pour u) : Comportement identique au standard.
+    %-05u = '42 ' :
+        Avec drapeau - et 0 : L'alignement à gauche (-) prévaut, les zéros ne sont pas ajoutés. */

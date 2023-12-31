@@ -20,6 +20,17 @@
 #include <stdbool.h>
 #include "libft.h"
 
+typedef struct s_format
+{
+    char specifier; //stockage du format exemple specifier = 'd' pour un entier 
+    int space_array;// stockage de la valeur de champs necessaire avec completion d'espace
+    int large_zero; // stockage de la valeur de champs necessaire avec completion de zero
+    int precision; // stockage de la precision 
+    bool hash; // stockage de # oui ou non 
+    bool minus; // stockage de '-' oui ou non 
+    bool plus; // stockage de '+' oui ou non 
+}t_format;
+
 int 	ft_printf(const char *format, ...);
 void	c_manage(const char *format, va_list args, int **i);
 void	d_manage(const char *format, va_list args, int **i);
@@ -33,9 +44,10 @@ void	x_manage(const char *format, va_list args, int **i);
 void	dectohex(int num, char minmax);
 void	put_adress(uintptr_t num);
 void	put_unbr(int n);
-char	format_search(const char *format, int **i);
+char	format_search(const char *format, int **i, t_format *option);
 void	format_zero(int n, int size, bool flag);
 void	format_space(int n, int size, bool flag);
+void    init_struct_format(const char *format, int **i, t_format *option);
 
 
 #endif

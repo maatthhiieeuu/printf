@@ -35,3 +35,26 @@ void	X_manage(const char *format, va_list args, int **i)
     : Non applicable.
     + : Non applicable.
 */
+
+/*Synthèse des Sorties pour %X
+
+    %X = '2A' :
+        Standard : Affiche le nombre en hexadécimal majuscule.
+    %5X = ' 2A' :
+        Avec largeur 5 : Affiche le nombre avec 3 espaces avant (alignement à droite).
+    %-5X = '2A ' :
+        Avec largeur -5 : Affiche le nombre avec 3 espaces après (alignement à gauche).
+    %05X = '0002A' :
+        Avec 0 et largeur 5 : Affiche le nombre avec des zéros au début pour atteindre une largeur de 5.
+    %.3X = '02A' :
+        Avec .3 (précision) : Affiche le nombre avec des zéros au début pour atteindre une précision de 3.
+    %5.3X = ' 02A' :
+        Avec largeur et précision : Combine largeur et précision, ajoutant des espaces et des zéros comme nécessaire.
+    %+X = '2A' :
+        Avec drapeau + (non pertinent pour X) : Comportement identique au standard.
+    %' X = '2A' :
+        Avec drapeau ' ' (non pertinent pour X) : Comportement identique au standard.
+    %#X = '0X2A' :
+        Avec drapeau # : Ajoute '0X' avant le nombre pour indiquer un format hexadécimal majuscule.
+    %-05X = '2A ' :
+        Avec drapeau - et 0 : L'alignement à gauche (-) prévaut, les zéros ne sont pas ajoutés.*/

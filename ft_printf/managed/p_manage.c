@@ -40,3 +40,24 @@ void	p_manage(const char *format, va_list args, int **i)
     ' ' : Non applicable.
     '+' : Non applicable.
 */
+
+/*Synthèse des Sorties pour %p
+
+    %p = '0x7ffd397bc814' :
+        Standard : Affiche l'adresse mémoire avec le préfixe '0x'.
+    %20p = ' 0x7ffd397bc814' :
+        Avec largeur 20 : Affiche l'adresse avec des espaces avant pour atteindre une largeur de 20 (alignement à droite).
+    %-20p = '0x7ffd397bc814 ' :
+        Avec largeur -20 : Affiche l'adresse avec des espaces après pour atteindre une largeur de 20 (alignement à gauche).
+    %0p = '0x7ffd397bc814' :
+        Avec 0 (non standard pour p) : Comportement identique au standard.
+    %+p = '+0x7ffd397bc814' :
+        Avec drapeau + (non pertinent pour p) : Affiche '+' suivi de l'adresse, bien que cela ne soit pas standard.
+    %' p = ' 0x7ffd397bc814' :
+        Avec drapeau ' ' (non pertinent pour p) : Ajoute un espace avant l'adresse, bien que cela ne soit pas standard.
+    %#p = '0x7ffd397bc814' :
+        Avec drapeau # (non pertinent pour p) : Comportement identique au standard.
+    %-0p = '0x7ffd397bc814' :
+        Avec drapeau - et 0 : Comportement identique au standard.
+
+Il est important de noter que certains comportements, comme l'utilisation des drapeaux '+' et ' ', ne sont pas standard pour %p et peuvent varier selon les implémentations de printf. Pour le prochain test, veuillez me dire quel format vous souhaitez explorer ensuite (%u, %x, %X).*/

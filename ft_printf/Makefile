@@ -1,6 +1,6 @@
 # Nom du programme
 NAME = libftprintf.a
-TEST_NAME = test
+TEST_NAME = lmain
 
 # Compiler et flags
 CC = gcc
@@ -12,28 +12,28 @@ MANAGED_DIR = managed/
 PRINTF_DIR = printf/
 UTILITY_DIR = utility/
 BONUS_DIR = bonus/
-
+	
 # Fichiers sources et objets
 SRCS = $(PRINTF_DIR)ft_printf.c \
-       $(MANAGED_DIR)c_manage.c \
-       $(MANAGED_DIR)d_manage.c \
-       $(MANAGED_DIR)i_manage.c \
-       $(MANAGED_DIR)p_manage.c \
-       $(MANAGED_DIR)percent_manage.c \
-       $(MANAGED_DIR)s_manage.c \
-       $(MANAGED_DIR)u_manage.c \
-       $(MANAGED_DIR)X_manage.c \
-       $(MANAGED_DIR)x_manage.c \
-       $(UTILITY_DIR)dectohex.c \
-       $(UTILITY_DIR)put_adress.c \
-       $(UTILITY_DIR)put_unbr.c
+	$(MANAGED_DIR)c_manage.c \
+	$(MANAGED_DIR)d_manage.c \
+	$(MANAGED_DIR)i_manage.c \
+	$(MANAGED_DIR)p_manage.c \
+	$(MANAGED_DIR)percent_manage.c \
+	$(MANAGED_DIR)s_manage.c \
+	$(MANAGED_DIR)u_manage.c \
+	$(MANAGED_DIR)X_manage.c \
+	$(MANAGED_DIR)x_manage.c \
+	$(UTILITY_DIR)dectohex.c \
+	$(UTILITY_DIR)put_adress.c \
+	$(UTILITY_DIR)put_unbr.c
 
 OBJS = $(SRCS:.c=.o)
 
 # Fichiers sources et objets pour les bonus
 BONUS_SRCS = $(BONUS_DIR)bonus_format_search.c \
-             $(BONUS_DIR)bonus_format_space.c \
-             $(BONUS_DIR)bonus_format_zero.c
+		$(BONUS_DIR)bonus_format_space.c \
+		$(BONUS_DIR)bonus_format_zero.c
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
@@ -53,18 +53,18 @@ libft.a:
 	make -C $(LIBFT)
 	cp $(LIBFT)/$(LIBFT_LIB) .
 
-
 # Règle pour tester
-test: $(OBJS) test.o libft.a libftprintf.a
-	gcc -o test test.o $(OBJS) -L. -lftprintf -lft
+test: $(TEST_NAME)
 
+$(TEST_NAME): $(NAME) $(TEST_NAME).o
+	gcc -o $(TEST_NAME) $(TEST_NAME).o -L. -lftprintf -lft
 
-$(TEST_NAME).o: $(TEST_NAME).c
-	gcc $(CFLAGS_TEST) -c $(TEST_NAME).c -o $(TEST_NAME).o
+$(TEST_NAME).o: test.c
+	gcc $(CFLAGS_TEST) -c test.c -o $(TEST_NAME).o
 
 # Règle pour les bonus
-bonus: $(BONUS_OBJS) libft.a
-	ar -rcs $(NAME) $(BONUS_OBJS)
+bonus: $(OBJS) $(BONUS_OBJS) libft.a
+	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 # Compilation des fichiers objets
 %.o: %.c
@@ -75,7 +75,7 @@ bonus: $(BONUS_OBJS) libft.a
 # Règle clean
 clean:
 	make clean -C $(LIBFT)
-	rm -f $(OBJS) $(BONUS_OBJS) $(TEST_NAME).o
+	rm -f $(OBJS) $(BONUS_OBJS) $(TEST_NAME).o test.o
 
 # Règle fclean
 fclean: clean

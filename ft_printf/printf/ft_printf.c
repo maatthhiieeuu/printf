@@ -4,7 +4,8 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-static	void	ft_format(const char *format, va_list args, int *i)
+
+static	void	ft_format(const char *format, va_list args, int *i, t_format *option)
 {
 	if (!format)
 		return;
@@ -26,11 +27,8 @@ static	void	ft_format(const char *format, va_list args, int *i)
 		X_manage(format, args, &i);
 	else if (format[*i + 1] == '%')
 		percent_manage(format, &i);
-	else
-	{
-		//printf("\nEnvoie à format_search\n");
-		format_search(format, &i);
-	}
+	else 
+		init_struct_format(format, &i, option);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -42,12 +40,13 @@ int ft_printf(const char *format, ...)
 
 	i = 0;
 	va_list args;
+	t_format option;
 	va_start(args, format);
 	while(format[i])
 	{
 		if ((format[i] == '%') || (format[i] == 92))
 		{
-			ft_format(format, args, &i);
+			ft_format(format, args, &i, &option);
 		}
 		else
 			ft_putchar_fd(format[i], 1);
