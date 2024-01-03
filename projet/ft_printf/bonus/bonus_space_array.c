@@ -19,8 +19,8 @@
 
 void 	imprimer_caractere_avec_espaces(va_list args, int **i, t_format *option) // nom en anglais : print_char_with_spaces
 {
-	printf("Début de fonction de .imprimer_caractere_avec_espaces\n");
-	getchar();
+	//printf("Début de fonction de .imprimer_caractere_avec_espaces\n");
+	//getchar();
 	int j;
 	char var_arg_c;
 
@@ -28,7 +28,7 @@ void 	imprimer_caractere_avec_espaces(va_list args, int **i, t_format *option) /
 	var_arg_c = va_arg(args, int);
 	if (option->minus == false)
 	{
-		while (j < option->space_array )
+		while (j + 1 < option->space_array )
 		{
 			ft_putchar_fd(' ', 1);
 			j++;
@@ -39,20 +39,20 @@ void 	imprimer_caractere_avec_espaces(va_list args, int **i, t_format *option) /
 	else if (option->minus == true)
 	{
 		ft_putchar_fd(var_arg_c, 1);
-		while (j - 1 < option->space_array)
+		while (j + 1 < option->space_array)
 		{
 			ft_putchar_fd(' ', 1);
 			j++;
 		}
-		**i += 2;
+		**i += 3;
 	}
 	
 }
 
 void	formater_espace_entier(int n, int size, t_format *option) // nom en anglais : format_space_for_int
 {
-	printf("Début de fonction de .formater_espace_entier\n");
-	getchar();
+	//printf("Début de fonction de .formater_espace_entier\n");
+	//getchar();
 	int nCpy;
 	int	nbrDigit;
 	int	count;

@@ -7,7 +7,7 @@
 
 void	convertir_espace_chaine_en_entier(const char *s, t_format *option) // nom en anglais : atoi_for_space
 {
-	printf("\nDébut de 8.convertir_espace_chaine_en_entier\n");
+	//printf("\nDébut de 8.convertir_espace_chaine_en_entier\n");
 	
     int    i;
     int    array_size;
@@ -22,7 +22,7 @@ void	convertir_espace_chaine_en_entier(const char *s, t_format *option) // nom e
       i++;
     }
     option->space_array = array_size;
-    printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction 8.convertir_espace_chaine_en_entier\n");
+    /*printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction 8.convertir_espace_chaine_en_entier\n");
     printf("specifier  -  - = %c\n", option->specifier);
     printf("space_array  -  = %d\n", option->space_array);
     printf("precision_array = %d\n", option->precision_array);
@@ -31,14 +31,14 @@ void	convertir_espace_chaine_en_entier(const char *s, t_format *option) // nom e
     printf("Hash   -  -  -  = %s\n", option->hash ? "true" : "false");
     printf("Minus   -  -  - = %s\n", option->minus ? "true" : "false");
     printf("Plus  -  -  -  -= %s\n", option->plus ? "true" : "false");
-    printf("Precision  -  - = %s\n\n", option->precision ? "true" : "false");
+    printf("Precision  -  - = %s\n\n", option->precision ? "true" : "false");*/
 }
 
 /*----------------------------------------------------------------------------*/
 
 void	convertir_precision_chaine_en_entier(const char *s, t_format *option) // nom en anglais : atoi_for_precision
 {
-	printf("\nDébut de 10.convertir_precision_chaine_en_entier\n");
+	//printf("\nDébut de 10.convertir_precision_chaine_en_entier\n");
 	int    i;
   int    precision_size;
 
@@ -51,7 +51,7 @@ void	convertir_precision_chaine_en_entier(const char *s, t_format *option) // no
     i++;
   }
 	option->precision_array = precision_size;
-  printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction 10.convertir_precision_chaine_en_entier\n");
+  /*printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction 10.convertir_precision_chaine_en_entier\n");
   printf("specifier  -  - = %c\n", option->specifier);
   printf("space_array  -  = %d\n", option->space_array);
   printf("precision_array = %d\n", option->precision_array);
@@ -60,14 +60,14 @@ void	convertir_precision_chaine_en_entier(const char *s, t_format *option) // no
   printf("Hash   -  -  -  = %s\n", option->hash ? "true" : "false");
   printf("Minus   -  -  - = %s\n", option->minus ? "true" : "false");
   printf("Plus  -  -  -  -= %s\n", option->plus ? "true" : "false");
-  printf("Precision  -  - = %s\n\n", option->precision ? "true" : "false");
+  printf("Precision  -  - = %s\n\n", option->precision ? "true" : "false");*/
 }
 
 /*----------------------------------------------------------------------------*/
 
 int 	compter_jusquau_specifieur(const char *format, t_format *option) // nom en anglais : count_to_specifier
 {
-	printf("\nDébut de 9.compter_jusquau_specifieur : \n");
+	//printf("\nDébut de 9.compter_jusquau_specifieur : \n");
 	int i;
 
 	i = 0; 
@@ -75,7 +75,7 @@ int 	compter_jusquau_specifieur(const char *format, t_format *option) // nom en 
 	{
 			i++;
 	}
-  printf("Fin de fonction 9.compter_jusquau_specifieur = %d\n\n", i);
+  //printf("Fin de fonction 9.compter_jusquau_specifieur = %d\n\n", i);
 	return (i);
   
 }

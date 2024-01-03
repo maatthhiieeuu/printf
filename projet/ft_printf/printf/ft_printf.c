@@ -4,13 +4,13 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-static	void	envoyer_impresion_ou_bonus(const char *format, va_list args, int *i, t_format *option);
+static	void	envoyer_impression_ou_bonus(const char *format, va_list args, int *i, t_format *option);
 
 /*----------------------------------------------------------------------------*/
 
 int ft_printf(const char *format, ...)
 {
-	printf("\nDébut de fonction de 1.ft_printf\n");
+	//printf("\nDébut de fonction de 1.ft_printf\n");
 	int	i;
 
 	i = 0;
@@ -21,14 +21,14 @@ int ft_printf(const char *format, ...)
 	{
 		if ((format[i] == '%') || (format[i] == 92))
 		{
-			envoyer_impresion_ou_bonus(format, args, &i, &option);
+			envoyer_impression_ou_bonus(format, args, &i, &option);
 		}
 		else
 			ft_putchar_fd(format[i], 1);
 		i++;
 	}
 	va_end(args);
-	printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction ft_printf\n");
+	/*printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction ft_printf\n");
     printf("specifier  -  - = %c\n", option.specifier);
     printf("space_array  -  = %d\n", option.space_array);
     printf("precision_array = %d\n", option.precision_array);
@@ -38,15 +38,15 @@ int ft_printf(const char *format, ...)
     printf("Minus   -  -  - = %s\n", option.minus ? "true" : "false");
     printf("Plus  -  -  -  -= %s\n", option.plus ? "true" : "false");
     printf("Precision  -  - = %s\n\n", option.precision ? "true" : "false");
-    printf("i = %d\n", i);
+    printf("i = %d\n", i);*/
 	return (i);
 }
 
 /*----------------------------------------------------------------------------*/
 
-static	void	envoyer_impresion_ou_bonus(const char *format, va_list args, int *i, t_format *option) // nom en anglais : dispatchAndRouteToBonus
+static	void	envoyer_impression_ou_bonus(const char *format, va_list args, int *i, t_format *option) // nom en anglais : dispatchAndRouteToBonus
 {
-	printf("\nDébut de 2.envoyer_impression_ou_bonus\n");
+	//printf("\nDébut de 2.envoyer_impression_ou_bonus\n");
 	if (!format)
 		return;
 	if (format[*i + 1] == 'c')

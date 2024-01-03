@@ -18,34 +18,73 @@
 
 void	imprimer_caractere(const char *format, va_list args, int **i) // nom en anglais : print_character
 {
-    printf("\nDébut de .imprimer_caractere\n");
+    //printf("\nDébut de .imprimer_caractere\n");
 	if (format[**i + 1] == 'c')
 	{
-		char recovery_number;
+		char recovery_char;
 
-		recovery_number = va_arg(args, int);
-		ft_putchar_fd(recovery_number, 1);
+		recovery_char = va_arg(args, int);
+		ft_putchar_fd(recovery_char, 1);
 		**i += 1;
 	}
+     
+}
+
+/*----------------------------------------------------------------------------*/
+
+void    imprimer_caractere_ignorer_flag(va_list args, t_format *option)
+{
+    if (option->specifier == 'c')
+    {
+        char recovery_char;
+
+        recovery_char = va_arg(args, int);
+        ft_putchar_fd(recovery_char, 1);
+    }
 }
 
 /*----------------------------------------------------------------------------*/
 
 void    gerer_option_caractere(va_list args, int **i, t_format *option) // nom en anglais : manage_char_option
 {
-    printf("\nDébut de 10.gerer_option_caractere\n");
-    getchar();
+    //printf("\nDébut de 10.gerer_option_caractere\n");
+    //getchar();
     if (option->hash == true)
+    {
         option->hash = false;
+        i += 1;
+        if (option->space_array < 1) 
+            imprimer_caractere_ignorer_flag(args, option);
+    }
     if (option->space == true)
+    {
         option->space = false;
+        *i += 1;
+        if (option->space_array < 1) 
+            imprimer_caractere_ignorer_flag(args, option);
+    }
     if (option->plus == true)
+    {
         option->plus = false;
+        *i += 1;
+        if (option->space_array < 1) 
+            imprimer_caractere_ignorer_flag(args, option);
+    }
     if (option->zero == true)
+    { 
         option->zero = false;
+        *i += 1;
+        if (option->space_array < 1) 
+            imprimer_caractere_ignorer_flag(args, option);
+    }  
     if (option->precision == true)
+    {
         option->precision = false;
-    printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction gerer_option_caractere\n");
+        *i += 1;
+        if (option->space_array < 1) 
+            imprimer_caractere_ignorer_flag(args, option);
+    }
+    /*printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction gerer_option_caractere\n");
     printf("specifier  -  - = %c\n", option->specifier);
     printf("space_array  -  = %d\n", option->space_array);
     printf("precision_array = %d\n", option->precision_array);
@@ -55,7 +94,7 @@ void    gerer_option_caractere(va_list args, int **i, t_format *option) // nom e
     printf("hash   -  -  -  = %s\n", option->hash ? "true" : "false");
     printf("minus   -  -  - = %s\n", option->minus ? "true" : "false");
     printf("plus  -  -  -  -= %s\n", option->plus ? "true" : "false");
-    getchar();
+    getchar();*/
     if (option->space_array > 0)
         imprimer_caractere_avec_espaces(args, i, option);
 

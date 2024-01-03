@@ -58,6 +58,7 @@ void    imprimer_caractere_avec_espaces(va_list args, int **i, t_format *option)
 void    put_adress(uintptr_t num);
 void    put_unbr(int n);
 void    formater_espace_entier(int n, int size, t_format *option);
+void    imprimer_caractere_ignorer_flag(va_list args, t_format *option);
 
 
  // nom en anglais : 

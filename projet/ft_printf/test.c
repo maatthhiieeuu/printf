@@ -6,7 +6,7 @@
 
 int main(void)
 {
-	printf("Début de 0.main\n");
+	//printf("Début de 0.main\n");
 	char lettre;
 	int nombre;
 	char phrase[] = "coccinelle";
@@ -16,10 +16,46 @@ int main(void)
 	lettre = 'A';
 	adresse = &nombre;
 
-    ft_printf("*%5c*", lettre);
-    //ft_printf("\"%5c\"", nombre);
-	//ft_printf("Le caractère est \"%5c\"", nombre);
-
+    ft_printf("FT = *%c*", lettre);
+    printf("\n");
+    printf("OR = *%c*", lettre);
+    printf("\n");
+    ft_printf("FT %%5c = *%5c*", lettre);
+    printf("\n");
+    printf("OR %%5c = *%5c*", lettre);
+    printf("\n");
+    ft_printf("FT %%-5c = *%-5c*", lettre);
+    printf("\n");
+    printf("OR %%-5c = *%-5c*", lettre);
+    printf("\n");
+    ft_printf("FT %%0c = *%0c*", lettre);
+    printf("\n");
+    printf("OR %%0c = *%0c*", lettre);
+    printf("\n");
+    ft_printf("FT %%.c = *%.c*", lettre);
+    printf("\n");
+    printf("OR %%.c = *%.c*", lettre);
+    printf("\n");
+    ft_printf("FT %%5.3c = *%5.3c*", lettre);
+    printf("\n");
+    printf("OR %%5.3c = *%5.3c*", lettre);
+    printf("\n");
+    ft_printf("FT %%+c = *%+c*", lettre);
+    printf("\n");
+    printf("OR %%+c = *%+c*", lettre);
+    printf("\n");
+    ft_printf("FT %% c = *% c*", lettre);
+    printf("\n");
+    printf("OR %% c = *% c*", lettre);
+    printf("\n");
+    ft_printf("FT %%#c = *%#c*", lettre);
+    printf("\n");
+    printf("OR %%#c = *%#c*", lettre);
+    printf("\n");
+    ft_printf("FT %%-0c = *%-0c*", lettre);
+    printf("\n");
+    printf("OR %%-0c = *%-0c*", lettre);
+    printf("\n");
     return 0;
 }
 
