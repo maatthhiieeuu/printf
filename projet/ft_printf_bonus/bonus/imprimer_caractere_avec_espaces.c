@@ -7,7 +7,7 @@
 void 	imprimer_caractere_avec_espaces(va_list args, t_format *option) // nom en anglais : print_char_with_spaces
 {
 	//printf("Début de fonction de .imprimer_caractere_avec_espaces\n");
-	int j;
+	size_t j;
 	char character;
 
 	j = 0;

@@ -7,11 +7,96 @@
 int main(void)
 {
 	    // Variable pour les tests de pointeurs
-    int test_var = 42;
-    void *ptr = &test_var;
+    char lettre = 'A';
+    char phrase[] = "la coccinelle de 3cm";
+/*-------------------------------------------------------*/
+/*|                                                     |*/
+/*|                   FT_PRINTF BONUS                   |*/
+/*|                                                     |*/
+/*-------------------------------------------------------*/
+    
+    // Comparaison des chaînes avec flag.
 
+    char *str = "Bonjour le monde";
+
+    // Test sans flags
+    printf("Or %%s: *%s*\n", str);
+    ft_printf("Ft %%s: *%s*\n\n", str);
+
+    // Test avec largeur de champ
+    printf("Or %%19s: *%19s*\n", str);
+    ft_printf("Ft %%19s: *%19s*\n\n", str);
+
+    // Test avec précision
+    printf("Or %%.5s: *%.5s*\n", str);
+    ft_printf("Ft %%.5s: *%.5s*\n\n", str);
+
+    // Test avec largeur de champ et précision
+    printf("Or %%10.5s: *%10.5s*\n", str);
+    ft_printf("Ft %%10.5s: *%10.5s*\n\n", str);
+
+    // Test avec alignement à gauche
+    printf("Or %%-19s: *%-19s*\n", str);
+    ft_printf("Ft %%-19s: *%-19s*\n\n", str);
+
+    // Test avec alignement à gauche et précision
+    printf("Or %%-10.5s: *%-10.5s*\n", str);
+    ft_printf("Ft %%-10.5s: *%-10.5s*\n\n", str);
+
+
+
+    // Comparaison des caractères avec flag.
+    /*ft_printf("FT %%c = *%c*", lettre);
+    printf("\n");
+    printf("OR %%c = *%c*", lettre);
+    printf("\n");
+    ft_printf("FT %%5c = *%5c*", lettre);
+    printf("\n");
+    printf("OR %%5c = *%5c*", lettre);
+    printf("\n");
+    ft_printf("FT %%-5c = *%-5c*", lettre);
+    printf("\n");
+    printf("OR %%-5c = *%-5c*", lettre);
+    printf("\n");
+    ft_printf("FT %%0c = *%0c*", lettre);
+    printf("\n");
+    printf("OR %%0c = *%0c*", lettre);
+    printf("\n");
+    ft_printf("FT %%.c = *%.c*", lettre);
+    printf("\n");
+    printf("OR %%.c = *%.c*", lettre);
+    printf("\n");
+    ft_printf("FT %%5.3c = *%5.3c*", lettre);
+    printf("\n");
+    printf("OR %%5.3c = *%5.3c*", lettre);
+    printf("\n");
+    ft_printf("FT %%+c = *%+c*", lettre);
+    printf("\n");
+    printf("OR %%+c = *%+c*", lettre);
+    printf("\n");
+    ft_printf("FT %% c = *% c*", lettre);
+    printf("\n");
+    printf("OR %% c = *% c*", lettre);
+    printf("\n");
+    ft_printf("FT %%#c = *%#c*", lettre);
+    printf("\n");
+    printf("OR %%#c = *%#c*", lettre);
+    printf("\n");
+    ft_printf("FT %%-0c = *%-0c*", lettre);
+    printf("\n");
+    printf("OR %%-0c = *%-0c*", lettre);
+    printf("\n");
+    ft_printf("FT %%+-# 05.c = *%+-# 05.c");
+    printf("\n");
+    printf("OR %%+-# 05.c = *%+-# 05.c");
+    printf("\n");*/
+/*-------------------------------------------------------*/
+/*|                                                     |*/
+/*|                FT_PRINTF OBLIGATOIRE                |*/
+/*|                                                     |*/
+/*-------------------------------------------------------*/
     // Comparaison des caractères
-    printf("Original printf: %c\n", 'A');
+    /*printf("Original printf: %c\n", 'A');
     ft_printf("Votre ft_printf: %c\n\n", 'A');
 
     // Comparaison des chaînes
@@ -42,7 +127,7 @@ int main(void)
 
     // Comparaison du pourcentage
     printf("Original printf: %%\n");
-    ft_printf("Votre ft_printf: %%\n\n");
+    ft_printf("Votre ft_printf: %%\n\n");*/
    
     return 0;
 }

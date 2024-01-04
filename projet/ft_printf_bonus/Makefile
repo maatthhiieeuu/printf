@@ -17,14 +17,14 @@ BONUS_DIR = bonus/
 # Fichiers sources et objets
 SRCS =  $(PRINTF_DIR)ft_printf.c \
 		$(MANAGED_DIR)print_character.c \
-		$(MANAGED_DIR)print_signed_int.c \
+		$(MANAGED_DIR)print_hex_lowercase.c \
+		$(MANAGED_DIR)print_hex_uppercase.c \
 		$(MANAGED_DIR)print_integer.c \
-		$(MANAGED_DIR)print_pointer_address.c \
 		$(MANAGED_DIR)print_percent_sign.c \
+		$(MANAGED_DIR)print_pointer_address.c \
+		$(MANAGED_DIR)print_signed_int.c \
 		$(MANAGED_DIR)print_string.c \
 		$(MANAGED_DIR)print_unsigned_int.c \
-		$(MANAGED_DIR)print_hex_uppercase.c \
-		$(MANAGED_DIR)print_hex_lowercase.c \
 		$(UTILITY_DIR)decimal_to_hexa.c \
 		$(UTILITY_DIR)print_adress.c \
 		$(UTILITY_DIR)put_unbr.c
@@ -32,19 +32,22 @@ SRCS =  $(PRINTF_DIR)ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 
 # Fichiers sources et objets pour les bonus
-BONUS_SRCS = $(BONUS_DIR)traiter_option_numerique.c \
-			 $(BONUS_DIR)rechercher_specificateur.c \
-			 $(BONUS_DIR)initialiser_options_formatage.c \
-			 $(BONUS_DIR)imprimer_caractere_ignorer_flag.c \
-			 $(BONUS_DIR)imprimer_caractere_avec_espaces.c \
-			 $(BONUS_DIR)gerer_option_caractere.c \
-			 $(BONUS_DIR)convertir_precision_chaine_en_entier.c \
+BONUS_SRCS = $(BONUS_DIR)analyse_option_numerique.c  \
+			 $(BONUS_DIR)analyser_drapeaux_format.c \
 			 $(BONUS_DIR)compter_jusquau_specifieur.c \
 			 $(BONUS_DIR)convertir_espace_chaine_en_entier.c \
+			 $(BONUS_DIR)convertir_precision_chaine_en_entier.c \
 			 $(BONUS_DIR)coordinateur_options_et_flags.c \
+			 $(BONUS_DIR)gerer_option_caractere.c \
+			 $(BONUS_DIR)gerer_option_chaine.c \
 			 $(BONUS_DIR)impression_avec_application_option.c \
-			 $(BONUS_DIR)analyser_drapeaux_format.c \
-			 $(BONUS_DIR)analyse_option_numerique.c 
+			 $(BONUS_DIR)imprimer_caractere_avec_espaces.c \
+			 $(BONUS_DIR)imprimer_caractere_ignorer_flag.c \
+			 $(BONUS_DIR)imprimer_chaine_avec_espace.c \
+			 $(BONUS_DIR)imprimer_chaine_avec_precision_et_espace.c \
+			 $(BONUS_DIR)initialiser_options_formatage.c \
+			 $(BONUS_DIR)rechercher_specificateur.c \
+			 $(BONUS_DIR)traiter_option_numerique.c
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 

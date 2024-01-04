@@ -10,9 +10,9 @@ void    impression_avec_application_option(va_list args, t_format *option) // no
     //printf("\nDébut de 9.appliquer_options_impression_specifieur\n");
     if (option->specifier == 'c')
         gerer_option_caractere(args, option);
-    /*else if (option->specifier == 's')
-        
-    else if (option->specifier == 'p')
+    else if (option->specifier == 's')
+        gerer_option_chaine(args, option);
+    /*else if (option->specifier == 'p')
         
     else if (option->specifier == 'd')
         
