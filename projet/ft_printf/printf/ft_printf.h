@@ -25,6 +25,7 @@ typedef struct s_format
     char specifier; //stockage du format exemple specifier = 'd' pour un entier 
     int space_array;// stockage de la valeur de champs necessaire avec completion d'espace
     int precision_array;
+    int digit_char_until_specifier;
     bool precision; // precision oui ou non
     bool space; //présence d'un espace ou non
     bool zero; // stockage de zero oui ou non 
@@ -50,7 +51,7 @@ void    rechercher_specificateur(const char *format, int **i, t_format *option);
 void    analyser_drapeaux_format(const char *format, int **i, t_format *option);
 void    traiter_option_numerique(const char *format, int **i, t_format *option);
 void    convertir_espace_chaine_en_entier(const char *s, t_format *option);
-int     compter_jusquau_specifieur(const char *format, t_format *option);
+int   compter_jusquau_specifieur(const char *format, t_format *option);
 void    convertir_precision_chaine_en_entier(const char *s, t_format *option);
 void    appliquer_options_impression_specifieur(va_list args, int **i, t_format *option);
 void    gerer_option_caractere(va_list args, int **i, t_format *option);
@@ -58,7 +59,7 @@ void    imprimer_caractere_avec_espaces(va_list args, int **i, t_format *option)
 void    put_adress(uintptr_t num);
 void    put_unbr(int n);
 void    formater_espace_entier(int n, int size, t_format *option);
-void    imprimer_caractere_ignorer_flag(va_list args, t_format *option);
+void    imprimer_caractere_ignorer_flag(va_list args, t_format *option, int **i);
 
 
  // nom en anglais : 

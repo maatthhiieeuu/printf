@@ -27,12 +27,11 @@ void	imprimer_caractere(const char *format, va_list args, int **i) // nom en ang
 		ft_putchar_fd(recovery_char, 1);
 		**i += 1;
 	}
-     
 }
 
 /*----------------------------------------------------------------------------*/
 
-void    imprimer_caractere_ignorer_flag(va_list args, t_format *option)
+void    imprimer_caractere_ignorer_flag(va_list args, t_format *option, int **i)
 {
     if (option->specifier == 'c')
     {
@@ -40,6 +39,7 @@ void    imprimer_caractere_ignorer_flag(va_list args, t_format *option)
 
         recovery_char = va_arg(args, int);
         ft_putchar_fd(recovery_char, 1);
+        **i += option->digit_char_until_specifier;
     }
 }
 
@@ -52,37 +52,37 @@ void    gerer_option_caractere(va_list args, int **i, t_format *option) // nom e
     if (option->hash == true)
     {
         option->hash = false;
-        i += 1;
+        //i += 1;
         if (option->space_array < 1) 
-            imprimer_caractere_ignorer_flag(args, option);
+            imprimer_caractere_ignorer_flag(args, option, i);
     }
     if (option->space == true)
     {
         option->space = false;
-        *i += 1;
+        //*i += 1;
         if (option->space_array < 1) 
-            imprimer_caractere_ignorer_flag(args, option);
+            imprimer_caractere_ignorer_flag(args, option, i);
     }
     if (option->plus == true)
     {
         option->plus = false;
-        *i += 1;
+        //*i += 1;
         if (option->space_array < 1) 
-            imprimer_caractere_ignorer_flag(args, option);
+            imprimer_caractere_ignorer_flag(args, option, i);
     }
     if (option->zero == true)
     { 
         option->zero = false;
-        *i += 1;
+        //*i += 2;
         if (option->space_array < 1) 
-            imprimer_caractere_ignorer_flag(args, option);
+            imprimer_caractere_ignorer_flag(args, option, i);
     }  
     if (option->precision == true)
     {
         option->precision = false;
-        *i += 1;
+        //*i += 1;
         if (option->space_array < 1) 
-            imprimer_caractere_ignorer_flag(args, option);
+            imprimer_caractere_ignorer_flag(args, option, i);
     }
     /*printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction gerer_option_caractere\n");
     printf("specifier  -  - = %c\n", option->specifier);

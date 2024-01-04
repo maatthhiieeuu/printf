@@ -27,12 +27,14 @@ int ft_printf(const char *format, ...)
 			ft_putchar_fd(format[i], 1);
 		i++;
 	}
+	//printf("\n    i = %d", i);
 	va_end(args);
 	/*printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction ft_printf\n");
     printf("specifier  -  - = %c\n", option.specifier);
     printf("space_array  -  = %d\n", option.space_array);
-    printf("precision_array = %d\n", option.precision_array);
-    printf("\nZero  -  -  -  -= %s\n", option.zero ? "true" : "false");
+    printf("precision_array = %d\n", option.precision_array);*/
+    //printf("digit_char_until_specifier = %d",option.digit_char_until_specifier);
+   /* printf("\nZero  -  -  -  -= %s\n", option.zero ? "true" : "false");
     printf("Space  -  -  -  = %s\n", option.space ? "true" : "false");
     printf("Hash   -  -  -  = %s\n", option.hash ? "true" : "false");
     printf("Minus   -  -  - = %s\n", option.minus ? "true" : "false");

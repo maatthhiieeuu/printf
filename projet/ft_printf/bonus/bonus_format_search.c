@@ -23,15 +23,13 @@ void    initialiser_options_formatage(t_format *option) // nom en anglais : init
     option->specifier = 0;
     option->space_array = 0;
     option->precision_array = -1;
+    option->digit_char_until_specifier = 0;
     option->precision = false;
     option->space = false;
     option->zero = false;
     option->hash = false;
     option->minus = false;
     option->plus = false;
-
-
-
 }
 
 /*----------------------------------------------------------------------------*/
@@ -52,7 +50,6 @@ void	rechercher_specificateur(const char *format, int **i, t_format *option) // 
             if (format[index] == tab_char[j])
             {
                 option->specifier = tab_char[j];
-                //printf("Specificateur = %c\n",option->specifier);
                 analyser_drapeaux_format(format, i, option);
             }
             j++;
@@ -112,23 +109,19 @@ void    traiter_option_numerique(const char *format, int **i, t_format *option) 
     //printf("\nDébut de 7.traiter_option_numerique\n");
     int     index;
     char    *point_ptr;
-    int number_until_specifier;
 
     index = **i;
     point_ptr = NULL;
-    number_until_specifier = 0;
-
+    option->digit_char_until_specifier = compter_jusquau_specifieur(format + index, option);
+    //**i += option->digit_char_until_specifier;
     if (option->precision == false)
         convertir_espace_chaine_en_entier(format + index, option);
     else if (option->precision == true)
     {
-        number_until_specifier = compter_jusquau_specifieur(format + index, option);
-        printf("valeur de i avant = %d", **i);
-        **i += number_until_specifier - 1;
-        printf("valeur de i apres = %d", **i);
-        point_ptr = ft_strnchr(format,'.', number_until_specifier);
+        point_ptr = ft_strnchr(format,'.', option->digit_char_until_specifier);
         convertir_precision_chaine_en_entier(point_ptr, option);
     }
+
     /*printf("ETAT STRUCTURE DE DONNEE : \nFin de fonction 7.traiter_option_numerique\n");
     printf("specifier  -  - = %c\n", option->specifier);
     printf("space_array  -  = %d\n", option->space_array);

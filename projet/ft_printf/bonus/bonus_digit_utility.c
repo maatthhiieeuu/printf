@@ -14,7 +14,6 @@ void	convertir_espace_chaine_en_entier(const char *s, t_format *option) // nom e
 
     array_size = 0;
     i = 0;
-
     while ((s[i] != option->specifier) && (s[i] != '.') && (s[i]))
     {
       if (s[i] >= '0' && s[i] <= '9')
@@ -68,6 +67,7 @@ void	convertir_precision_chaine_en_entier(const char *s, t_format *option) // no
 int 	compter_jusquau_specifieur(const char *format, t_format *option) // nom en anglais : count_to_specifier
 {
 	//printf("\nDébut de 9.compter_jusquau_specifieur : \n");
+  getchar();
 	int i;
 
 	i = 0; 
@@ -75,7 +75,8 @@ int 	compter_jusquau_specifieur(const char *format, t_format *option) // nom en 
 	{
 			i++;
 	}
-  //printf("Fin de fonction 9.compter_jusquau_specifieur = %d\n\n", i);
+  printf("\nFin de fonction 9.compter_jusquau_specifieur = %d\n\n", i);
+  getchar();
 	return (i);
   
 }
