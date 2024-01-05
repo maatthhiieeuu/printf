@@ -7,6 +7,7 @@
 
 void	gerer_option_chaine(va_list args, t_format *option)
 {
+	//printf("\nDébut de compter_point_jusquau_specifieur : \n");
 	size_t size_string;
 	char *string;
 
@@ -16,14 +17,33 @@ void	gerer_option_chaine(va_list args, t_format *option)
 	option->zero = false;
 	string = va_arg(args, char *);
 	size_string = ft_strlen(string);
-	if (option->space_array > 0 && option->precision == false)
+	
+    /*printf("\nETAT STRUCTURE DE DONNEE : \ngerer_option_chaine\n");
+    printf("specifier  -  - = %c\n", option->specifier);
+    printf("space_array  -  = %ld\n", option->space_array);
+    printf("precision_array = %ld\n", option->precision_array);
+    printf("digit_char_until_specifier = %ld",option->digit_char_until_specifier);
+    printf("\nZero  -  -  -  -= %s\n", option->zero ? "true" : "false");
+    printf("Space  -  -  -  = %s\n", option->space ? "true" : "false");
+    printf("Hash   -  -  -  = %s\n", option->hash ? "true" : "false");
+    printf("Minus   -  -  - = %s\n", option->minus ? "true" : "false");
+    printf("Plus  -  -  -  -= %s\n", option->plus ? "true" : "false");
+    printf("Precision  -  - = %s\n\n", option->precision ? "true" : "false");*/
+	if (option->space_array > 0 && option->precision_array == 0)
+	{
 		imprimer_chaine_avec_espace(option, size_string, string);
+	}
 	else if (option->space_array == 0 && option->precision_array > 0)
+	{
 		ft_putnstr_fd(string, option->precision_array, 1);
+	}
 	else if (option->space_array > 0 && option->precision_array > 0)
 	{
-		option->minus = false;
-		imprimer_chaine_avec_precision_et_espace(args, option);
+		if (option->minus == true)
+			imprimer_chaine_avec_minus_precision_et_espace(option, string, ft_strlen(string));
+		else if (option->minus == false)
+			imprimer_chaine_avec_precision_et_espace(option, string, ft_strlen(string));
+	
 	}
 }
 /*

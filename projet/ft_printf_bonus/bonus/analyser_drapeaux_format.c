@@ -7,7 +7,7 @@
 
 void    analyser_drapeaux_format(const char *format, int i, t_format *option) // nom en anglais : parse_format_flags
 {
-    //printf("\nDébut de 6.analyser_drapeaux_format : \n");
+    //printf("\n- Début de analyser_drapeaux_format : \n");
     while (format[i] != option->specifier && format[i])
     {
         if (format[i] == '#')

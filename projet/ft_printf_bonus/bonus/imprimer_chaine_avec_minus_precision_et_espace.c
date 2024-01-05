@@ -1,15 +1,15 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	imprimer_chaine_avec_precision_et_espace(t_format *option, char *string, size_t size_string)
+void	imprimer_chaine_avec_minus_precision_et_espace(t_format *option, char *string, size_t size_string)
 {
-	//printf("\n\nentrez dans la fonction imprimer_chaine_avec_precision_et_espace\n\n");
+	//printf("\n\nentrez dans la fonction imprimer_chaine_avec_minus_precision_et_espace\n\n");
 	size_t j;
 
 	j = 0;
-	if (option->minus == false)
+	if (option->minus == true)
 	{
-		
+		ft_putnstr_fd(string, option->precision_array, 1);
 
 		if (option->precision_array < size_string)
 		{
@@ -27,16 +27,6 @@ void	imprimer_chaine_avec_precision_et_espace(t_format *option, char *string, si
 				j++;
 			}
 		}
-		ft_putnstr_fd(string, option->precision_array, 1);
+			
 	}
 }
-
-
-
-
-
-
-
-
-
-	

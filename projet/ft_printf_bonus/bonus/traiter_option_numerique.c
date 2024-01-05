@@ -7,17 +7,36 @@
 
 void    traiter_option_numerique(const char *format, int i, t_format *option) // nom en anglais : process_numeric_option
 {
-    //printf("\nDébut de 7.traiter_option_numerique\n");
-
+    //printf("\n- Début de traiter_option_numerique :\n\n");
+    size_t j;
     char    *point_ptr;
 
+    j = 0;
     point_ptr = NULL;
-    option->digit_char_until_specifier = compter_jusquau_specifieur(format + i, option);
+    compter_pourcent_jusquau_specifieur(format + i, option);
+    point_ptr = ft_strnchr(format + i,'.', option->digit_char_until_specifier);
     if (option->precision == false)
         convertir_espace_chaine_en_entier(format + i, option);
-    else if (option->precision == true)
+    if (point_ptr != NULL)
     {
-        point_ptr = ft_strnchr(format,'.', option->digit_char_until_specifier);
-        convertir_precision_chaine_en_entier(point_ptr, option);
+        compter_point_jusquau_specifieur(option, point_ptr);
+        while (j < option->digit_point_until_specifier)
+        { 
+            if (ft_isdigit(point_ptr[j]))
+            {
+                //option->precision = true;
+                convertir_precision_chaine_en_entier(point_ptr + j, option);
+            }
+            j++;
+        }
     }
 }
+    
+
+
+    // printf("\n\nFonction traiter_option_numerique : precision_array = %ld\n\n", option->precision_array);
+/*printf("\n\n\n Boucle %d\n", j);
+            printf("point_ptr -  -  -  -  = %p\n", point_ptr);
+            printf("point_ptr + j -  -  - = %p\n", point_ptr + j);
+            printf("option->specifier_ptr = %p\n", option->specifier_ptr);
+            getchar();*/

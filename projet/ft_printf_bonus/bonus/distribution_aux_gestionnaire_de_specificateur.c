@@ -5,7 +5,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void    impression_avec_application_option(va_list args, t_format *option) // nom en anglais : apply_specifier_print_options
+void    distribution_aux_gestionnaire_de_specificateur(va_list args, t_format *option) // nom en anglais : apply_specifier_print_options
 {
     //printf("\nDébut de 9.appliquer_options_impression_specifieur\n");
     if (option->specifier == 'c')

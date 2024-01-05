@@ -10,8 +10,9 @@ void    initialiser_options_formatage(t_format *option) // nom en anglais : init
     //printf("\nDébut de 4.initialiser_options_formatage\n");
     option->specifier = 0;
     option->space_array = 0;
-    option->precision_array = -1;
+    option->precision_array = 0;
     option->digit_char_until_specifier = 0;
+    option->digit_point_until_specifier = 0;
     option->precision = false;
     option->space = false;
     option->zero = false;

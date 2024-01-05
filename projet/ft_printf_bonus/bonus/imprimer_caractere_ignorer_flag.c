@@ -6,6 +6,7 @@
 
 void    imprimer_caractere_ignorer_flag(va_list args, t_format *option)
 {
+   //printf("Début de fonction de imprimer_caractere_ignorer_flag\n");
     if (option->specifier == 'c')
     {
         char recovery_char;
