@@ -4,7 +4,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void    gerer_option_caractere(va_list args, t_format *option) // nom en anglais : manage_char_option
+void    gestionnaire_caractere_avec_option(va_list args, t_format *option) // nom en anglais : manage_char_option
 {
     //printf("\nDébut de 10.gerer_option_caractere\n");
      if (option->hash == true)
@@ -17,6 +17,6 @@ void    gerer_option_caractere(va_list args, t_format *option) // nom en anglais
         option->zero = false;
     if (option->precision == true)
         option->precision = false;
-    envoyer_caracter_impression(args, option);
+    envoyer_caractere_impression(args, option);
 }
 /**/

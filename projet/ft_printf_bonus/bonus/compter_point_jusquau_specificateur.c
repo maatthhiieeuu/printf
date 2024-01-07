@@ -1,7 +1,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void 	compter_point_jusquau_specifieur(t_format *option, char *point_ptr) // nom en anglais : count_to_specifier
+void 	compter_point_jusquau_specificateur(t_format *option, char *point_ptr) // nom en anglais : count_to_specifier
 {
 	//printf("- Début de compter_point_jusquau_specifieur :");
 

@@ -1,21 +1,18 @@
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 #include "ft_printf.h"
 
-void	coordinateur_options_et_flags(const char *format, va_list args, int *i) // nom en anglais : coordinator_options_and_flags
+void	coordination_initialisation_structure(const char *format, va_list args, int *i) // nom en anglais : coordinator_options_and_flags
 {
-    //printf("\nDébut de fonction de coordinateur_options_et_flags\n");
+    //printf("\nDébut de fonction de coordination_initialisation_structure\n");
 	t_format option;
-	initialiser_options_formatage(&option);
-	rechercher_specificateur(format, *i, &option);
+	initialisation_par_default_structure(&option);
+	recherche_specificateur(format, *i, &option);
     if(option.specifier != 0)
 	{
-   		analyser_drapeaux_format(format, *i, &option);
-    	traiter_option_numerique(format, *i, &option);
+   		recherche_drapeaux(format, *i, &option);
+    	recherche_valeur_espace_precision(format, *i, &option);
     	*i += option.digit_char_until_specifier;
-    	distribution_aux_gestionnaire_de_specificateur(args, &option);
+    	coordination_distribution_sommaire(args, &option);
         
 	}
 
@@ -29,6 +26,7 @@ printf("*\n\n");
         printf("        -precision_array = %ld\n", option.precision_array);
         printf("        -digit_char_until_specifier = %ld\n",option.digit_char_until_specifier);
         printf("        -digit_point_until_specifier = %ld\n",option.digit_point_until_specifier);
+        printf("        -address_size -  = %ld\n",option.address_size);
         printf("        -Precision  -  - = %s\n", option.precision ? "true" : "false");
         printf("        -Space  -  -  -  = %s\n", option.space ? "true" : "false");
         printf("        -Zero  -  -  -  -= %s\n", option.zero ? "true" : "false");

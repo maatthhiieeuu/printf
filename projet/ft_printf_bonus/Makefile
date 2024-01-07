@@ -32,25 +32,30 @@ SRCS =  $(PRINTF_DIR)ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 
 # Fichiers sources et objets pour les bonus
-BONUS_SRCS = $(BONUS_DIR)analyser_drapeaux_format.c \
-			 $(BONUS_DIR)compter_point_jusquau_specifieur.c \
-			 $(BONUS_DIR)compter_pourcent_jusquau_specifieur.c \
-			 $(BONUS_DIR)convertir_espace_chaine_en_entier.c \
-			 $(BONUS_DIR)convertir_precision_chaine_en_entier.c \
-			 $(BONUS_DIR)coordinateur_options_et_flags.c \
-			 $(BONUS_DIR)distribution_aux_gestionnaire_de_specificateur.c \
-			 $(BONUS_DIR)envoyer_caracter_impression.c \
-			 $(BONUS_DIR)gerer_option_caractere.c \
-			 $(BONUS_DIR)gerer_option_chaine.c \
-			 $(BONUS_DIR)imprimer_caractere_avec_espaces.c \
-			 $(BONUS_DIR)imprimer_caractere_ignorer_flag.c \
+BONUS_SRCS = $(BONUS_DIR)compter_caractere_adresse.c \
+			 $(BONUS_DIR)compter_point_jusquau_specificateur.c \
+			 $(BONUS_DIR)compter_pourcent_jusquau_specificateur.c \
+			 $(BONUS_DIR)coordination_distribution_sommaire.c \
+			 $(BONUS_DIR)coordination_initialisation_structure.c \
+			 $(BONUS_DIR)envoyer_caractere_impression.c \
+			 $(BONUS_DIR)gestionnaire_adresse_avec_option.c \
+			 $(BONUS_DIR)gestionnaire_caractere_avec_option.c \
+			 $(BONUS_DIR)gestionnaire_chaine_avec_option.c \
+			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs.c \
+			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs_et_minus.c \
+			 $(BONUS_DIR)imprimer_adresse_avec_precision.c \
+			 $(BONUS_DIR)imprimer_caractere_avec_espace.c \
+			 $(BONUS_DIR)imprimer_caractere_sans_flag.c \
 			 $(BONUS_DIR)imprimer_chaine_avec_espace.c \
 			 $(BONUS_DIR)imprimer_chaine_avec_minus_precision_et_espace.c \
 			 $(BONUS_DIR)imprimer_chaine_avec_precision_et_espace.c \
-			 $(BONUS_DIR)initialiser_options_formatage.c \
-			 $(BONUS_DIR)rechercher_specificateur.c \
-			 $(BONUS_DIR)traiter_option_numerique.c \
-			 
+			 $(BONUS_DIR)imprimer_zero_pour_precision_adresse.c \
+			 $(BONUS_DIR)initialisation_par_default_structure.c \
+			 $(BONUS_DIR)recherche_drapeaux.c \
+			 $(BONUS_DIR)recherche_specificateur.c \
+			 $(BONUS_DIR)recherche_valeur_espace_precision.c \
+			 $(BONUS_DIR)recuperation_taille_champs.c \
+			 $(BONUS_DIR)recuperation_taille_precision.c 
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 

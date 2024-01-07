@@ -5,7 +5,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void    traiter_option_numerique(const char *format, int i, t_format *option) // nom en anglais : process_numeric_option
+void    recherche_valeur_espace_precision(const char *format, int i, t_format *option) // nom en anglais : process_numeric_option
 {
     //printf("\n- Début de traiter_option_numerique :\n\n");
     size_t j;
@@ -13,19 +13,19 @@ void    traiter_option_numerique(const char *format, int i, t_format *option) //
 
     j = 0;
     point_ptr = NULL;
-    compter_pourcent_jusquau_specifieur(format + i, option);
+    compter_pourcent_jusquau_specificateur(format + i, option);
     point_ptr = ft_strnchr(format + i,'.', option->digit_char_until_specifier);
     if (option->precision == false)
-        convertir_espace_chaine_en_entier(format + i, option);
+        recuperation_taille_champs(format + i, option);
     if (point_ptr != NULL)
     {
-        compter_point_jusquau_specifieur(option, point_ptr);
+        compter_point_jusquau_specificateur(option, point_ptr);
         while (j < option->digit_point_until_specifier)
         { 
-            if (ft_isdigit(point_ptr[j]))
+            if (ft_isdigit(point_ptr[j]) && option->precision_array == 0)
             {
                 //option->precision = true;
-                convertir_precision_chaine_en_entier(point_ptr + j, option);
+                recuperation_taille_precision(point_ptr + j, option);
             }
             j++;
         }

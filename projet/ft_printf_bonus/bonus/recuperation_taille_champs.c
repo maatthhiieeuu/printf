@@ -1,7 +1,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	convertir_espace_chaine_en_entier(const char *s, t_format *option) // nom en anglais : atoi_for_space
+void	recuperation_taille_champs(const char *s, t_format *option) // nom en anglais : atoi_for_space
 {
 	//printf("\nDébut de 8.convertir_espace_chaine_en_entier\n");
     int    i;

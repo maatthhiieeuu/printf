@@ -5,7 +5,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	rechercher_specificateur(const char *format, int i, t_format *option) // nom en anglais : find_specifier
+void	recherche_specificateur(const char *format, int i, t_format *option) // nom en anglais : find_specifier
 {
     //printf("\nDébut de 5.rechercher_specificateur : \n");
     int j;

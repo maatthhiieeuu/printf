@@ -18,7 +18,7 @@
 
 void	print_adress(uintptr_t num)
 {
-    //printf("\nDébut de imprimer_adresse\n"); 
+    //printf("\nDébut de print_adress\n"); 
 	int	i;
 	int	hexaNum[50];
 	char hexadecimalMin[17];

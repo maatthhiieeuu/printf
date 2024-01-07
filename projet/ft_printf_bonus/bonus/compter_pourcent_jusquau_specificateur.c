@@ -5,7 +5,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void 	compter_pourcent_jusquau_specifieur(const char *format, t_format *option) // nom en anglais : count_to_specifier
+void 	compter_pourcent_jusquau_specificateur(const char *format, t_format *option) // nom en anglais : count_to_specifier
 {
 	//printf("- Début de compter_pourcent_jusquau_specifieur : \n\n");
 	size_t i;
