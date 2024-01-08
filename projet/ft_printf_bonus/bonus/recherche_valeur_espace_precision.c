@@ -15,8 +15,9 @@ void    recherche_valeur_espace_precision(const char *format, int i, t_format *o
     point_ptr = NULL;
     compter_pourcent_jusquau_specificateur(format + i, option);
     point_ptr = ft_strnchr(format + i,'.', option->digit_char_until_specifier);
-    if (option->precision == false)
-        recuperation_taille_champs(format + i, option);
+    if (point_ptr != NULL)
+        option->precision = true;
+    recuperation_taille_champs(format + i, option);
     if (point_ptr != NULL)
     {
         compter_point_jusquau_specificateur(option, point_ptr);

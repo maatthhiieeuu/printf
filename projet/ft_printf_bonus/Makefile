@@ -39,11 +39,19 @@ BONUS_SRCS = $(BONUS_DIR)compter_caractere_adresse.c \
 			 $(BONUS_DIR)coordination_initialisation_structure.c \
 			 $(BONUS_DIR)envoyer_caractere_impression.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_option.c \
+			 $(BONUS_DIR)gestionnaire_adresse_avec_precision.c \
+			 $(BONUS_DIR)imprimer_adresse_avec_precision_et_largeur_de_champs.c \
+			 $(BONUS_DIR)gestionnaire_adresse_avec_largeur_de_champs.c \
+			 $(BONUS_DIR)gestionnaire_adresse_avec_precision_et_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_caractere_avec_option.c \
 			 $(BONUS_DIR)gestionnaire_chaine_avec_option.c \
+			 $(BONUS_DIR)gestionnaire_entier_signe_avec_option.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs_et_minus.c \
+			 $(BONUS_DIR)imprimer_adresse_avec_plus.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_precision.c \
+			 $(BONUS_DIR)imprimer_adresse_avec_precision_et_largeur_de_champs.c \
+			 $(BONUS_DIR)imprimer_adresse_avec_un_espace.c \
 			 $(BONUS_DIR)imprimer_caractere_avec_espace.c \
 			 $(BONUS_DIR)imprimer_caractere_sans_flag.c \
 			 $(BONUS_DIR)imprimer_chaine_avec_espace.c \

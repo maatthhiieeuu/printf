@@ -20,14 +20,19 @@
 void	print_pointer_address(const char *format, va_list args, int **i)
 {
     //printf("\nDébut de imprimer_adresse_pointeur\n");     
-	uintptr_t recovery_adress;
+	uintptr_t recovery_address;
 
-	recovery_adress = va_arg(args, uintptr_t);
-	if (format[**i + 1] == 'p')
+	recovery_address = va_arg(args, uintptr_t);
+	if (recovery_address == 0)
 	{
-		if (recovery_adress != 0)
+		write(1, "(nil)", 5);
+		**i += 1;
+	}
+	else if (format[**i + 1] == 'p')
+	{
+		if (recovery_address != 0)
 		{
-			print_adress(recovery_adress);
+			print_adress(recovery_address);
 			**i += 1;
 		}
 		

@@ -1,12 +1,12 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	imprimer_adresse_avec_largeur_de_champs(va_list args, t_format *option)
+void	imprimer_adresse_avec_largeur_de_champs(t_format *option)
 {
 	//printf("\nDébut de imprimer_adresse_avec_largeur_de_champs :\n");     
 	size_t i;
 
-	option->address_int = va_arg(args, uintptr_t);	
+	
 	i = 0;
 	if ((option->specifier == 'p') && (option->address_int != 0))
 	{

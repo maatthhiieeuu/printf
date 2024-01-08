@@ -7,13 +7,23 @@ void	imprimer_zero_pour_precision_adresse(t_format *option)
 	size_t i;
 
 	i = 0;
-	//printf("option->address_int = %ld\n\n", option->address_int);
-	//printf("address_size = %ld\n\n",option->address_size);
-	//printf("adress_size + i = %ld\nprecision_array = %ld\n\n", option->address_size + i, option->precision_array - 2);
-	while (option->address_size + i - 2 < option->precision_array )
+	if (option->zero == false && option->precision == true)
 	{
-		//printf("adress_size + i = %ld\nprecision_array = %ld\n\n", option->address_size + i, option->precision_array );
-		ft_putchar_fd('0', 1);
-		i++;
+		while (option->address_size + i - 2 < option->precision_array)
+		{
+			ft_putchar_fd('0', 1);
+			i++;
+		}
+	}//printf("        -address_size -  = %ld\n",option->address_size);
+	else if (option->zero == true && option->precision == false)
+	{
+		
+		while (option->address_size + i - 2 < option->precision_array)
+		{
+			
+			ft_putchar_fd('0', 1);
+			i++;
+		}
 	}
+		
 }

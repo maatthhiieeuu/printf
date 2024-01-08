@@ -29,6 +29,7 @@ typedef struct s_format
     size_t digit_point_until_specifier;
     size_t address_size;
     uintptr_t address_int;
+    long long int signed_number;
     bool precision; // precision oui ou non
     bool space; //présence d'un espace ou non
     bool zero; // stockage de zero oui ou non 
@@ -61,12 +62,19 @@ void    compter_pourcent_jusquau_specificateur(const char *format, t_format *opt
 void    coordination_distribution_sommaire(va_list args, t_format *option);
 void    coordination_initialisation_structure(const char *format, va_list args, int *i);
 void    envoyer_caractere_impression(va_list args, t_format *option);
+void    gestionnaire_adresse_avec_largeur_de_champs(t_format *option);
 void    gestionnaire_adresse_avec_option(va_list args, t_format *option);
+void    gestionnaire_adresse_avec_precision(t_format *option);
+void    gestionnaire_adresse_avec_precision_et_largeur_de_champs(t_format *option);
 void    gestionnaire_caractere_avec_option(va_list args, t_format *option);
 void    gestionnaire_chaine_avec_option(va_list args, t_format *option);
-void    imprimer_adresse_avec_largeur_de_champs(va_list args, t_format *option);
-void    imprimer_adresse_avec_largeur_de_champs_et_minus(va_list args, t_format *option);
-void    imprimer_adresse_avec_precision(va_list args, t_format *option);
+void    gestionnaire_entier_signe_avec_option(va_list args, t_format *option);
+void    imprimer_adresse_avec_largeur_de_champs(t_format *option);
+void    imprimer_adresse_avec_largeur_de_champs_et_minus(t_format *option);
+void    imprimer_adresse_avec_plus(t_format *option);
+void    imprimer_adresse_avec_precision(t_format *option);
+void    imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option);
+void    imprimer_adresse_avec_un_espace(t_format *option);
 void    imprimer_caractere_avec_espace(va_list args, t_format *option);
 void    imprimer_caractere_sans_flag(va_list args, t_format *option);
 void    imprimer_chaine_avec_espace(t_format *option, size_t size, char *string);
