@@ -40,5 +40,4 @@ void	decimal_to_hex(int num, char minmax)
 		ft_putchar_fd(tableHexadecimal[hexaNum[i]], 1);
 		i--;
 	}
-	
 }

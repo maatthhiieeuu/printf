@@ -14,8 +14,12 @@ void    initialisation_par_default_structure(t_format *option) // nom en anglais
     option->digit_char_until_specifier = 0;
     option->digit_point_until_specifier = 0;
     option->address_size = 0;
+    option->number_size = 0;
     option->address_int = 0;
+    option->signed_number = 0;
+    option->unsigned_number = 0;
     option->precision = false;
+    option->negative_precision = false;
     option->space = false;
     option->zero = false;
     option->hash = false;

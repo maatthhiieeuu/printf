@@ -12,11 +12,9 @@ void	coordination_initialisation_structure(const char *format, va_list args, int
    		recherche_drapeaux(format, *i, &option);
     	recherche_valeur_espace_precision(format, *i, &option);
     	*i += option.digit_char_until_specifier;
-    	coordination_distribution_sommaire(args, &option);
+    	coordination_distribution_sommaire(format, args, i, &option);
         
 	}
-
-
 }
 /*
 printf("*\n\n");
@@ -28,6 +26,7 @@ printf("*\n\n");
         printf("        -digit_point_until_specifier = %ld\n",option.digit_point_until_specifier);
         printf("        -address_size -  = %ld\n",option.address_size);
         printf("        -Precision  -  - = %s\n", option.precision ? "true" : "false");
+        printf("        -Precision_negative  -  - = %s\n", option.negative_precision ? "true" : "false");
         printf("        -Space  -  -  -  = %s\n", option.space ? "true" : "false");
         printf("        -Zero  -  -  -  -= %s\n", option.zero ? "true" : "false");
         printf("        -Hash   -  -  -  = %s\n", option.hash ? "true" : "false");

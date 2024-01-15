@@ -33,19 +33,28 @@ OBJS = $(SRCS:.c=.o)
 
 # Fichiers sources et objets pour les bonus
 BONUS_SRCS = $(BONUS_DIR)compter_caractere_adresse.c \
+			 $(BONUS_DIR)compter_nombre_de_chiffre.c \
 			 $(BONUS_DIR)compter_point_jusquau_specificateur.c \
 			 $(BONUS_DIR)compter_pourcent_jusquau_specificateur.c \
 			 $(BONUS_DIR)coordination_distribution_sommaire.c \
 			 $(BONUS_DIR)coordination_initialisation_structure.c \
 			 $(BONUS_DIR)envoyer_caractere_impression.c \
+			 $(BONUS_DIR)gestionnaire_adresse_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_option.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_precision.c \
-			 $(BONUS_DIR)imprimer_adresse_avec_precision_et_largeur_de_champs.c \
-			 $(BONUS_DIR)gestionnaire_adresse_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_precision_et_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_caractere_avec_option.c \
 			 $(BONUS_DIR)gestionnaire_chaine_avec_option.c \
+			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_largeur_de_champs.c \
+			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_largeur_de_champs_et_precision.c \
+			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_option.c \
+			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_precision.c \
+			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs.c \
+			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs_et_precision.c \
 			 $(BONUS_DIR)gestionnaire_entier_signe_avec_option.c \
+			 $(BONUS_DIR)gestionnaire_entier_signe_avec_precision.c \
+			 $(BONUS_DIR)gestionnaire_hexadecimal_majuscule.c \
+			 $(BONUS_DIR)gestionnaire_hexadecimal_minuscule.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs_et_minus.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_plus.c \
@@ -57,8 +66,27 @@ BONUS_SRCS = $(BONUS_DIR)compter_caractere_adresse.c \
 			 $(BONUS_DIR)imprimer_chaine_avec_espace.c \
 			 $(BONUS_DIR)imprimer_chaine_avec_minus_precision_et_espace.c \
 			 $(BONUS_DIR)imprimer_chaine_avec_precision_et_espace.c \
+			 $(BONUS_DIR)imprimer_entier_non_signe_avec_largeur_de_champs_et_precision.c \
+			 $(BONUS_DIR)imprimer_entier_non_signe_avec_largeur_de_champs_precision_et_minus.c \
+			 $(BONUS_DIR)imprimer_entier_non_signe_avec_largeur_de_champs.c \
+			 $(BONUS_DIR)imprimer_entier_non_signe_avec_moins.c \
+			 $(BONUS_DIR)imprimer_entier_non_signe_avec_precision.c \
+			 $(BONUS_DIR)imprimer_entier_non_signe_sans_option.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_espace.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_largeur_de_champs_et_plus.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_largeur_de_champs_et_precision.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_largeur_de_champs_precision_et_minus.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_moins.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_plus_et_zero.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_plus.c \
+			 $(BONUS_DIR)imprimer_entier_signe_avec_precision.c \
+			 $(BONUS_DIR)imprimer_entier_signe_sans_option.c \
+			 $(BONUS_DIR)imprimer_format_brut.c \
+			 $(BONUS_DIR)imprimer_hexadecimal_majuscule.c \
+			 $(BONUS_DIR)imprimer_hexadecimal_minuscule.c \
 			 $(BONUS_DIR)imprimer_zero_pour_precision_adresse.c \
 			 $(BONUS_DIR)initialisation_par_default_structure.c \
+			 $(BONUS_DIR)recherche_precision_negative.c \
 			 $(BONUS_DIR)recherche_drapeaux.c \
 			 $(BONUS_DIR)recherche_specificateur.c \
 			 $(BONUS_DIR)recherche_valeur_espace_precision.c \

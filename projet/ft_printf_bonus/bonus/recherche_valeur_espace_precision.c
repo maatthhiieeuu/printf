@@ -15,14 +15,14 @@ void    recherche_valeur_espace_precision(const char *format, int i, t_format *o
     point_ptr = NULL;
     compter_pourcent_jusquau_specificateur(format + i, option);
     point_ptr = ft_strnchr(format + i,'.', option->digit_char_until_specifier);
-    if (point_ptr != NULL)
-        option->precision = true;
     recuperation_taille_champs(format + i, option);
     if (point_ptr != NULL)
     {
+        option->precision = true;
         compter_point_jusquau_specificateur(option, point_ptr);
         while (j < option->digit_point_until_specifier)
         { 
+            recherche_precision_negative(point_ptr + j, option);
             if (ft_isdigit(point_ptr[j]) && option->precision_array == 0)
             {
                 //option->precision = true;

@@ -5,7 +5,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void    coordination_distribution_sommaire(va_list args, t_format *option) // nom en anglais : apply_specifier_print_options
+void    coordination_distribution_sommaire(const char *format, va_list args, int *i, t_format *option) // nom en anglais : apply_specifier_print_options
 {
     //printf("\nDébut de coordination_distribution_sommaire\n");
     /*printf("\n    ETAT STRUCTURE DE DONNEE : \n");
@@ -17,6 +17,7 @@ void    coordination_distribution_sommaire(va_list args, t_format *option) // no
         printf("        -address_size -  = %ld\n",option->address_size);
         printf("        -address_int  -  = %ld\n",option->address_int);
         printf("        -Precision  -  - = %s\n", option->precision ? "true" : "false");
+        printf("        -Negative_precision  -  - = %s\n", option->negative_precision ? "true" : "false");
         printf("        -Space  -  -  -  = %s\n", option->space ? "true" : "false");
         printf("        -Zero  -  -  -  -= %s\n", option->zero ? "true" : "false");
         printf("        -Hash   -  -  -  = %s\n", option->hash ? "true" : "false");
@@ -28,14 +29,12 @@ void    coordination_distribution_sommaire(va_list args, t_format *option) // no
         gestionnaire_chaine_avec_option(args, option);
     else if (option->specifier == 'p')
         gestionnaire_adresse_avec_option(args, option);
-    else if (option->specifier == 'd')
-        gestionnaire_entier_signe_avec_option(args, option);
-    /*else if (option->specifier == 'i')
-        
+    else if (option->specifier == 'd' || option->specifier == 'i')
+        gestionnaire_entier_signe_avec_option(format, args, i, option); 
     else if (option->specifier == 'u')
-        
+        gestionnaire_entier_non_signe_avec_option(format, args, i, option); 
     else if (option->specifier == 'x')
-        
-    else if (option->specifier == 'X')
-        */
+        gestionnaire_hexadecimal_minuscule(format, args, i, option);
+   else if (option->specifier == 'X')
+        gestionnaire_hexadecimal_majuscule(format, args, i, option);
 }
