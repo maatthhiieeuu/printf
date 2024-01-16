@@ -13,13 +13,12 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_signed_int(const char *format, va_list args, int **i) // nom en anglais : print_signed_int
+void	print_signed_int(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de imprimer_entier_signe\n");    
+	int	recovery_number;
+
 	if (format[**i + 1] == 'd')
 	{
-		int recovery_number;
-		
 		recovery_number = va_arg(args, int);
 		ft_putnbr_fd(recovery_number, 1);
 		**i += 1;

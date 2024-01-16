@@ -10,22 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 #include "ft_printf.h"
 
 void	print_unsigned_int(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de imprimer_entier_non_signe\n"); 
+	long unsigned int	recovery_number;
+
 	if (format[**i + 1] == 'u')
 	{
-		long unsigned int recovery_number;
-
 		recovery_number = va_arg(args, unsigned int);
 		put_unbr(recovery_number);
 		**i += 1;
 	}
 }
-//4294967295

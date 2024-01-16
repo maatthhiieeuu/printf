@@ -10,17 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdint.h>
 #include "libft.h"
 #include "ft_printf.h"
 
 void	print_pointer_address(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de imprimer_adresse_pointeur\n");     
-	uintptr_t recovery_address;
+	uintptr_t	recovery_address;
 
 	recovery_address = va_arg(args, uintptr_t);
 	if (recovery_address == 0)
@@ -35,6 +30,5 @@ void	print_pointer_address(const char *format, va_list args, int **i)
 			print_adress(recovery_address);
 			**i += 1;
 		}
-		
 	}
 }

@@ -6,38 +6,17 @@
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:24:12 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 11:24:18 by mboegler         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:41:08 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-static void	dispatch(const char *format, va_list args, int *i);
-
-int	ft_printf(const char *format, ...)
-{
-	int	i;
-	va_list args;
-
-	i = 0;
-	va_start(args, format);
-	while(format[i])
-	{
-		if ((format[i] == '%') || (format[i] == 92))
-			dispatch(format, args, &i);
-		else
-			ft_putchar_fd(format[i], 1);
-		i++;
-	}
-	va_end(args);
-	return (i);
-}
-
-static	void	dispatch(const char *format, va_list args, int *i) 
+static void	dispatch(const char *format, va_list args, int *i)
 {
 	if (!format)
-		return;
+		return ;
 	if (format[*i + 1] == 'c')
 		print_character(format, args, &i);
 	else if (format[*i + 1] == 's')
@@ -56,8 +35,27 @@ static	void	dispatch(const char *format, va_list args, int *i)
 		print_hex_uppercase(format, args, &i);
 	else if (format[*i + 1] == '%')
 		print_percent_sign(format, &i);
-	#ifdef BONUS
+#ifdef BONUS
 	else
 		coordination_initialisation_structure(format, args, i);
-	#endif
+#endif
+}
+
+int	ft_printf(const char *format, ...)
+{
+	int		i;
+	va_list	args;
+
+	i = 0;
+	va_start (args, format);
+	while (format[i])
+	{
+		if ((format[i] == '%') || (format[i] == 92))
+			dispatch(format, args, &i);
+		else
+			ft_putchar_fd(format[i], 1);
+		i++;
+	}
+	va_end(args);
+	return (i);
 }

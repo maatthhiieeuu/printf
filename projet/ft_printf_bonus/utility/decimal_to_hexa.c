@@ -10,34 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdarg.h>
 #include "libft.h"
 #include "ft_printf.h"
 
 void	decimal_to_hex(int num, char minmax)
 {
-    //printf("\nDébut de decimal_vers_hexadecimal\n"); 
-	int	i;
-	int	hexaNum[50];
-	char tableHexadecimal[17];
+	int		i;
+	int		hexa_num[50];
+	char	table_hexadecimal[17];
 
 	i = 0;
-	if(minmax == 'm')
+	if (minmax == 'm')
 		ft_strlcpy(tableHexadecimal, "0123456789abcdef", 17);
 	else if (minmax == 'M')
 		ft_strlcpy(tableHexadecimal, "0123456789ABCDEF", 17);
 	while (num != 0)
 	{
-		hexaNum[i] = num % 16;
+		hexa_num[i] = num % 16;
 		num /= 16;
 		i++;
 	}
 	i--;
 	while (i >= 0)
 	{
-		ft_putchar_fd(tableHexadecimal[hexaNum[i]], 1);
+		ft_putchar_fd(table_hexadecimal[hexa_num[i]], 1);
 		i--;
 	}
 }

@@ -10,15 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 #include "ft_printf.h"
 
 void	print_string(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de imprimer_chaine\n"); 
 	if (format[**i + 1] == 's')
 	{
 		ft_putstr_fd(va_arg(args, char *), 1);
