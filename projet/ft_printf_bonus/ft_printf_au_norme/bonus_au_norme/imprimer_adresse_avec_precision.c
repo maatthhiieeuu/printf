@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_manage.c                                         :+:      :+:    :+:   */
+/*   imprimer_adresse_avec_precision.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 15:14:58 by mboegler          #+#    #+#             */
-/*   Updated: 2023/12/22 15:15:01 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:09:56 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:09:58 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	decimal_to_hex(int num, char minmax)
+void	imprimer_adresse_avec_precision(t_format *option)
 {
-	int		i;
-	int		hexa_num[50];
-	char	table_hexadecimal[17];
+	int	i;
+	int	hexaNum[17];
+	char hexadecimalMin[17];
 
 	i = 0;
-	if (minmax == 'm')
-		ft_strlcpy(table_hexadecimal, "0123456789abcdef", 17);
-	else if (minmax == 'M')
-		ft_strlcpy(table_hexadecimal, "0123456789ABCDEF", 17);
-	while (num != 0)
+	compter_caractere_adresse(option);
+	ft_strlcpy(hexadecimalMin,"0123456789abcdef",17);
+	while (option->address_int != 0)
 	{
-		hexa_num[i] = num % 16;
-		num /= 16;
+		hexaNum[i] = option->address_int % 16;
+		option->address_int /= 16;
 		i++;
 	}
 	i--;
+	ft_putstr_fd("0x", 1);
+	if ((option->precision_array > 0) || (option->zero == true && option->precision == false))
+		imprimer_zero_pour_precision_adresse(option);
 	while (i >= 0)
 	{
-		ft_putchar_fd(table_hexadecimal[hexa_num[i]], 1);
+		ft_putchar_fd(hexadecimalMin[hexaNum[i]], 1);
 		i--;
 	}
 }

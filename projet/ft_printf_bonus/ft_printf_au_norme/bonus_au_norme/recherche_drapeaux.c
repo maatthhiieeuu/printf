@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   recherche_drapeaux.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:21:31 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:21:34 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	recherche_drapeaux(const char *format, int i, t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
-
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	while (format[i] != option->specifier && format[i])
 	{
-		recovery_address /= 10;
-		result++;
+		if (format[i] == '#')
+			option->hash = true;
+		else if (format[i] == '-')
+			option->minus = true;
+		else if (format[i] == '+')
+			option->plus = true;
+		else if (format[i] == '0')
+			option->zero = true;
+		else if (format[i] == ' ')
+			option->space = true;
+		i++;
 	}
-	option->address_size = result - 1;
 }
-

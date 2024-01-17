@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   compter_point_jusquau_specificateur.c              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 10:59:20 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 10:59:26 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void 	compter_point_jusquau_specificateur(t_format *option, char *point_ptr)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	size_t	i;
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	i = 0;
+	while (point_ptr[i] != option->specifier)
 	{
-		recovery_address /= 10;
-		result++;
+		i++;
 	}
-	option->address_size = result - 1;
+	if (point_ptr[i] == option->specifier)
+	{
+		option->digit_point_until_specifier = i;
+	}
 }
-

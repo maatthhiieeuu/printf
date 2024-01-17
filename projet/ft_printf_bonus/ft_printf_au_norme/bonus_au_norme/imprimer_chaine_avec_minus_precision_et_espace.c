@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   imprimer_chaine_avec_minus_precision_et_e          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/16 11:11:47 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:11:49 by mboegler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include "ft_printf.h"
+
+void	imprimer_chaine_avec_minus_precision_et_espace(t_format *option, char *string, size_t size_string)
+{
+	size_t	j;
+
+	j = 0;
+	if (option->minus == true)
+	{
+		ft_putnstr_fd(string, option->precision_array, 1);
+		if (option->precision_array < size_string)
+		{
+			while ((j) < (option->space_array - option->precision_array))
+			{
+				ft_putchar_fd(' ', 1);
+				j++;
+			}
+		}
+		else if (option->precision_array > size_string)
+		{
+			while ((j) < (option->space_array - size_string))
+			{
+				ft_putchar_fd(' ', 1);
+				j++;
+			}
+		}
+	}
+}

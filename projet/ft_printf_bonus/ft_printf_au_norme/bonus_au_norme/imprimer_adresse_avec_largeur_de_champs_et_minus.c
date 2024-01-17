@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   imprimer_adresse_avec_largeur_de_champs_e          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:09:16 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:09:18 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	imprimer_adresse_avec_largeur_de_champs_et_minus(t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
-
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	size_t i;
+	
+	i = 0;
+	if ((option->specifier == 'p') && (option->address_int != 0))
 	{
-		recovery_address /= 10;
-		result++;
+		compter_caractere_adresse(option);
+		if (option->space_array > 0 && option->minus == true)
+		{
+			print_adress(option->address_int);
+			while (i + option->address_size < option->space_array)
+			{
+				ft_putchar_fd(' ', 1);
+				i++;
+			}
+		}
 	}
-	option->address_size = result - 1;
 }
-

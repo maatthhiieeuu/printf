@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   recuperation_taille_champs.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:22:59 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:23:04 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	recuperation_taille_champs(const char *s, t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	int	i;
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	option->space_array = 0;
+	i = 0;
+	while ((s[i] != option->specifier) && (s[i] != '.') && (s[i]))
 	{
-		recovery_address /= 10;
-		result++;
+		if (s[i] >= '0' && s[i] <= '9')
+			option->space_array = (option->space_array * 10) + (s[i] - 48);
+		i++;
 	}
-	option->address_size = result - 1;
 }
-

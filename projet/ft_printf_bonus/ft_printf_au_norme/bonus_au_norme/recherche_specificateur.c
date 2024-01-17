@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   recherche_specificateur.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:22:05 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:22:12 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	recherche_specificateur(const char *format, int i, t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	int		j;
+	char	tab_char[9];
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	j = 0;
+	ft_strlcpy(tab_char, "cspdiuxX", 9);
+	while (format[i] != '\0')
 	{
-		recovery_address /= 10;
-		result++;
+		j = 0;
+		while (tab_char[j] != '\0')
+		{
+			if (format[i] == tab_char[j])
+			{
+				option->specifier = tab_char[j];
+				return;
+			}
+			j++;
+		}
+		i++;
 	}
-	option->address_size = result - 1;
 }
-

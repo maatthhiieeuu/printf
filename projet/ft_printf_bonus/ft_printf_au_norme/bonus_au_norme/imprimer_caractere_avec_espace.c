@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   imprimer_caractere_avec_espace.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:10:36 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:10:38 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void 	imprimer_caractere_avec_espace(va_list args, t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	size_t	j;
+	char	character;
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	j = 0;
+	character = va_arg(args, int);
+	if (option->minus == false)
 	{
-		recovery_address /= 10;
-		result++;
+		while (j + 1 < option->space_array )
+		{
+			ft_putchar_fd(' ', 1);
+			j++;
+		}
+		ft_putchar_fd(character, 1);
 	}
-	option->address_size = result - 1;
+	else if (option->minus == true)
+	{
+		ft_putchar_fd(character, 1);
+		while (j + 1 < option->space_array)
+		{
+			ft_putchar_fd(' ', 1);
+			j++;
+		}
+	}
 }
-

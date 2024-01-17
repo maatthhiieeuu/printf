@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   p_manage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 15:14:58 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 15:15:01 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	print_adress(uintptr_t num)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	int		i;
+	int		hexa_num[50];
+	char	hexadecimal_min[17];
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	i = 0;
+	ft_strlcpy(hexadecimal_min, "0123456789abcdef", 17);
+	while (num != 0)
 	{
-		recovery_address /= 10;
-		result++;
+		hexa_num[i] = num % 16;
+		num /= 16;
+		i++;
 	}
-	option->address_size = result - 1;
+	i--;
+	ft_putstr_fd("0x", 1);
+	while (i >= 0)
+	{
+		ft_putchar_fd(hexadecimal_min[hexa_num[i]], 1);
+		i--;
+	}
 }
-

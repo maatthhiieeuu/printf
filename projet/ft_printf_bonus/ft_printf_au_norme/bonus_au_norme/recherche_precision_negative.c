@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   recherche_precision_negative.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:21:47 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:21:50 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	recherche_precision_negative(const char *point_ptr, t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	size_t	j;
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	j = 0;
+	while (j < option->digit_point_until_specifier && option->negative_precision == false)
 	{
-		recovery_address /= 10;
-		result++;
+		if (ft_atoi(point_ptr + j) < 0)
+			option->negative_precision = true;
+		j++;
 	}
-	option->address_size = result - 1;
 }
-

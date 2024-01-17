@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   gestionnaire_adresse_avec_largeur_de_cham          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:03:02 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:03:08 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	gestionnaire_adresse_avec_largeur_de_champs(t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
-
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
-	{
-		recovery_address /= 10;
-		result++;
-	}
-	option->address_size = result - 1;
+	if (option->space_array > 0 && option->minus == false)
+		imprimer_adresse_avec_largeur_de_champs(option);
+	else if (option->space_array > 0 && option->minus == true)
+		imprimer_adresse_avec_largeur_de_champs_et_minus(option);
+	else if (option->space == true && option->space_array == 0)
+		imprimer_adresse_avec_un_espace(option);
 }
-

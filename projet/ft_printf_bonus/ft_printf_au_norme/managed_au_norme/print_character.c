@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   c_manage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 14:58:13 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 14:58:32 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	print_character(const char *format, va_list args, int **i)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
-
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	if (format[**i + 1] == 'c')
 	{
-		recovery_address /= 10;
-		result++;
-	}
-	option->address_size = result - 1;
-}
+		char recovery_char;
 
+		recovery_char = va_arg(args, int);
+		ft_putchar_fd(recovery_char, 1);
+		**i += 1;
+	}
+}

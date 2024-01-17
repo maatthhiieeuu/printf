@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   coordination_initialisation_structure.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:02:32 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:02:34 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	coordination_initialisation_structure(const char *format, va_list args, int *i)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	t_format	option;
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	initialisation_par_default_structure(&option);
+	recherche_specificateur(format, *i, &option);
+	if (option.specifier != 0)
 	{
-		recovery_address /= 10;
-		result++;
+		recherche_drapeaux(format, *i, &option);
+		recherche_valeur_espace_precision(format, *i, &option);
+		*i += option.digit_char_until_specifier;
+		coordination_distribution_sommaire(format, args, i, &option);
 	}
-	option->address_size = result - 1;
 }
-

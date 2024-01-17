@@ -27,4 +27,3 @@ void	compter_caractere_adresse(t_format *option)
 	}
 	option->address_size = result - 1;
 }
-

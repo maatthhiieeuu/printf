@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   recuperation_taille_precision.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:23:17 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:23:20 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	recuperation_taille_precision(const char *point_ptr, t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
+	size_t	i;
+	size_t	precision_size;
 
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
+	i = 0;
+	precision_size = 0;
+	while (point_ptr[i] != option->specifier)
 	{
-		recovery_address /= 10;
-		result++;
+		if (point_ptr[i] >= '0' && point_ptr[i] <= '9')
+			precision_size = (precision_size * 10) + (point_ptr[i] - 48);
+		i++;
 	}
-	option->address_size = result - 1;
+	option->precision_array = precision_size;
 }
-

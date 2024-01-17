@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_caractere_adresse.c                        :+:      :+:    :+:   */
+/*   imprimer_entier_signe_avec_moins.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:58:41 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:58:49 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:16:19 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:16:21 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_caractere_adresse(t_format *option)
+void	imprimer_entier_signe_avec_moins(t_format *option)
 {
-	size_t	result;
-	uintptr_t	recovery_address;
-
-	result = 0;
-	recovery_address = option->address_int;
-	while (recovery_address > 0)
-	{
-		recovery_address /= 10;
-		result++;
-	}
-	option->address_size = result - 1;
+	ft_putnbr_fd(option->signed_number, 1);
 }
-

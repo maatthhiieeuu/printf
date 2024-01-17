@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compter_nombre_de_chiffre.c                        :+:      :+:    :+:   */
+/*   imprimer_adresse_avec_precision_et_largeu          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 10:59:00 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 10:59:06 by mboegler         ###   ########.fr       */
+/*   Created: 2024/01/16 11:10:07 by mboegler          #+#    #+#             */
+/*   Updated: 2024/01/16 11:10:09 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	compter_nombre_de_chiffre(t_format *option)
+void	imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option)
 {
-	size_t	i;
-	long long int	number_cpy;
+	size_t i;
 
 	i = 0;
-	if (option->specifier == 'd' || option->specifier == 'i')
+	if (option->minus == false)
 	{
-		number_cpy = option->signed_number;
-		while (number_cpy > 0)
+		option->space_array -= 2;
+		while (option->precision_array + i < option->space_array)
 		{
-			number_cpy /= 10;
+			ft_putchar_fd(' ', 1);
 			i++;
 		}
-		option->number_size = i;
+		imprimer_adresse_avec_precision(option);
 	}
-	if (option->specifier == 'u')
+	else if (option->minus == true)
 	{
-		number_cpy = option->unsigned_number;
-		while (number_cpy > 0)
+		imprimer_adresse_avec_precision(option);
+		option->space_array -= 2;
+		while (option->precision_array + i < option->space_array)
 		{
-			number_cpy /= 10;
+			ft_putchar_fd(' ', 1);
 			i++;
 		}
-		option->number_size = i;
 	}
 }
-
