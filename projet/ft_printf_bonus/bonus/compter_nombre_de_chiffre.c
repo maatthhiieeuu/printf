@@ -13,33 +13,41 @@
 #include "libft.h"
 #include "ft_printf.h"
 
+static void	compter_nombre_de_chiffre_signe(t_format *option, size_t *i)
+{
+	long long int	number_cpy;
+
+	number_cpy = option->signed_number;
+	while (number_cpy > 0 )
+	{
+		*i += 1;
+		number_cpy /= 10;
+	}
+	option->number_size = *i;
+}
+
+static void	compter_nombre_de_chiffre_non_signe(t_format *option, size_t *i)
+{
+	long long int	number_cpy;
+
+	number_cpy = option->unsigned_number;
+	while (number_cpy > 0)
+	{
+		number_cpy /= 10;
+		*i += 1;
+	}
+	option->number_size = *i;
+}
+
 void	compter_nombre_de_chiffre(t_format *option)
 {
 	//printf("compter_nombre_de_chiffre");
-
 	size_t	i;
-	long long int	number_cpy;
 
 	i = 0;
 	if (option->specifier == 'd' || option->specifier == 'i')
-	{
-		number_cpy = option->signed_number;
-		while (number_cpy > 0)
-		{
-			number_cpy /= 10;
-			i++;
-		}
-		option->number_size = i;
-	}
+		compter_nombre_de_chiffre_signe(option, &i);
 	if (option->specifier == 'u')
-	{
-		number_cpy = option->unsigned_number;
-		while (number_cpy > 0)
-		{
-			number_cpy /= 10;
-			i++;
-		}
-		option->number_size = i;
-	}
+		compter_nombre_de_chiffre_non_signe(option, &i);
 }
 

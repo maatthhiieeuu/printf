@@ -15,7 +15,7 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
-
+	
 	if (n < 0)
 	{
 		write(fd, "-", 1);
