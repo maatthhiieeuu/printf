@@ -36,6 +36,4 @@ void	gestionnaire_adresse_avec_option(va_list args, t_format *option)
 		gestionnaire_adresse_avec_precision(option);
 	else if (option->plus == true && option->precision_array == 0 && option->space_array == 0)
 		imprimer_adresse_avec_plus(option);
-	else
-		printf("Aucun cas accepté dans la fonction gestionnaire_adresse_avec_option");
 }

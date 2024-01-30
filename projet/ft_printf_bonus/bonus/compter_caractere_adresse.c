@@ -15,6 +15,8 @@
 
 void	compter_caractere_adresse(t_format *option)
 {
+	//printf("compter_caractere_adresse");
+
 	size_t	result;
 	uintptr_t	recovery_address;
 

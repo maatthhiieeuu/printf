@@ -15,6 +15,8 @@
 
 void	print_percent_sign(const char *format, int **i)
 {
+	//printf("print_percent_sign");
+
 	if (format[**i + 1] == '%')
 	{
 		ft_putchar_fd('%', 1);

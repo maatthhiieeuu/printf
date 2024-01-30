@@ -15,6 +15,8 @@
 
 void	print_pointer_address(const char *format, va_list args, int **i)
 {
+	//printf("print_pointer_address");
+
 	uintptr_t	recovery_address;
 
 	recovery_address = va_arg(args, uintptr_t);

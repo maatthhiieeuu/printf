@@ -15,6 +15,8 @@
 
 void	print_string(const char *format, va_list args, int **i)
 {
+	//printf("print_string");
+
 	if (format[**i + 1] == 's')
 	{
 		ft_putstr_fd(va_arg(args, char *), 1);

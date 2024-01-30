@@ -18,7 +18,7 @@
 
 void	print_hex_uppercase(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de imprimer_hex_majuscule\n"); 
+    //printf("\nDébut de print_hex_uppercase\n"); 
 	int recovery_number;
 
     recovery_number = va_arg(args, int);

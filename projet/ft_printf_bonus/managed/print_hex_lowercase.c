@@ -15,7 +15,7 @@
 
 void	print_hex_lowercase(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de imprimer_hex_minuscule\n"); 
+   // printf("\nprint_hex_lowercase\n"); 
 	int recovery_number;
 
     recovery_number = va_arg(args, int);

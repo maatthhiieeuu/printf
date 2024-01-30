@@ -18,7 +18,7 @@
 
 void	print_character(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de .imprimer_caractere\n");
+    //printf("\nprint_character\n");
 	if (format[**i + 1] == 'c')
 	{
 		char recovery_char;

@@ -15,6 +15,8 @@
 
 void	print_signed_int(const char *format, va_list args, int **i)
 {
+	//printf("print_signed_int");
+
 	int	recovery_number;
 
 	if (format[**i + 1] == 'd')

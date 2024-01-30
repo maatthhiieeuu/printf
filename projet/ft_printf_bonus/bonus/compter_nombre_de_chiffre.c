@@ -15,6 +15,8 @@
 
 void	compter_nombre_de_chiffre(t_format *option)
 {
+	//printf("compter_nombre_de_chiffre");
+
 	size_t	i;
 	long long int	number_cpy;
 

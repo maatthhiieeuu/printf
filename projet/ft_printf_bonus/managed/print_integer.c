@@ -18,7 +18,7 @@
 
 void	print_integer(const char *format, va_list args, int **i)
 {
-    //printf("\nDébut de imprimer_entier\n"); 
+    //printf("\nDébut de imprimer_integer\n"); 
 	if (format[**i + 1] == 'i')
     {
         int recovery_number;

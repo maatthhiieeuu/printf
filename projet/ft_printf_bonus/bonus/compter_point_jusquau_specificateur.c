@@ -15,6 +15,8 @@
 
 void 	compter_point_jusquau_specificateur(t_format *option, char *point_ptr) // nom en anglais : count_to_specifier
 {
+	//printf("compter_point_jusquau_specificateur");
+
 	size_t i;
 
 	i = 0;

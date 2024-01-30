@@ -15,6 +15,8 @@
 
 void	coordination_initialisation_structure(const char *format, va_list args, int *i) // nom en anglais : coordinator_options_and_flags
 {
+	//printf("*coordination_initialisation_structure*");
+
 	t_format	option;
 
 	initialisation_par_default_structure(&option);

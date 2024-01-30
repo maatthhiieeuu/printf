@@ -14,8 +14,12 @@ PRINTF_DIR = printf/
 UTILITY_DIR = utility/
 BONUS_DIR = bonus/
 
+# Fichier ft_printf.c
+FT_PRINTF = $(PRINTF_DIR)ft_printf.c
+FT_PRINTF_BONUS = $(BONUS_DIR)ft_printf_bonus.c
+
 # Fichiers sources et objets
-SRCS =  $(PRINTF_DIR)ft_printf.c \
+SRCS =  $(FT_PRINTF) \
 		$(MANAGED_DIR)print_character.c \
 		$(MANAGED_DIR)print_hex_lowercase.c \
 		$(MANAGED_DIR)print_hex_uppercase.c \
@@ -32,7 +36,20 @@ SRCS =  $(PRINTF_DIR)ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 
 # Fichiers sources et objets pour les bonus
-BONUS_SRCS = $(BONUS_DIR)compter_caractere_adresse.c \
+BONUS_SRCS = $(FT_PRINTF_BONUS) \
+			 $(MANAGED_DIR)print_character.c \
+			 $(MANAGED_DIR)print_hex_lowercase.c \
+			 $(MANAGED_DIR)print_hex_uppercase.c \
+			 $(MANAGED_DIR)print_integer.c \
+			 $(MANAGED_DIR)print_percent_sign.c \
+			 $(MANAGED_DIR)print_pointer_address.c \
+			 $(MANAGED_DIR)print_signed_int.c \
+			 $(MANAGED_DIR)print_string.c \
+			 $(MANAGED_DIR)print_unsigned_int.c \
+			 $(UTILITY_DIR)decimal_to_hexa.c \
+			 $(UTILITY_DIR)print_adress.c \
+			 $(UTILITY_DIR)put_unbr.c \
+			 $(BONUS_DIR)compter_caractere_adresse.c \
 			 $(BONUS_DIR)compter_nombre_de_chiffre.c \
 			 $(BONUS_DIR)compter_point_jusquau_specificateur.c \
 			 $(BONUS_DIR)compter_pourcent_jusquau_specificateur.c \
@@ -98,7 +115,6 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 # Libft
 LIBFT = libft
 LIBFT_LIB = libft.a
-FT_PRINTF = printf
 
 # Règles de base
 all: $(NAME)
@@ -118,21 +134,9 @@ test: $(NAME) $(TEST_NAME).o
 $(TEST_NAME).o: test.c
 		gcc $(CFLAGS_TEST) -c test.c -o $(TEST_NAME).o
 
-# Règle pour tester la version bonus
-test_bonus: bonus $(TEST_NAME)_bonus.o
-		gcc -o $(TEST_NAME)_bonus $(TEST_NAME)_bonus.o -L. -lftprintf -lft
-
-$(TEST_NAME)_bonus.o: test.c
-		gcc $(CFLAGS_TEST) -c test.c -o $(TEST_NAME)_bonus.o
-
 # Règle pour les bonus
-bonus: $(PRINTF_DIR)ft_printf_bonus.o $(OBJS) $(BONUS_OBJS) libft.a
-		ar -rcs $(NAME) $(PRINTF_DIR)ft_printf_bonus.o $(OBJS) $(BONUS_OBJS)
-
-$(PRINTF_DIR)ft_printf_bonus.o: $(PRINTF_DIR)ft_printf.c
-		echo "Compiling $< with BONUS..."
-		$(CC) $(CFLAGS) $(CFLAGS_BONUS) -c $< -o $@
-		echo "$@ compiled with BONUS."
+bonus: $(BONUS_OBJS) libft.a
+		ar -rcs $(NAME) $(BONUS_OBJS)
 
 # Compilation des fichiers objets
 %.o: %.c
@@ -143,12 +147,14 @@ $(PRINTF_DIR)ft_printf_bonus.o: $(PRINTF_DIR)ft_printf.c
 # Règle clean
 clean:
 		make clean -C $(LIBFT)
-		rm -f $(OBJS) $(BONUS_OBJS) $(PRINTF_DIR)ft_printf_bonus.o $(TEST_NAME).o $(TEST_NAME)_bonus.o test.o
+		rm -f $(OBJS) $(BONUS_OBJS) $(TEST_NAME).o $(TEST_NAME)_bonus.o
 
 # Règle fclean
 fclean: clean
-	make fclean -C $(LIBFT)
-	rm -f $(NAME) $(TEST_NAME) $(TEST_NAME)_bonus libft.a
+		make fclean -C $(LIBFT)
+		rm -f $(NAME)
+		rm -f $(TEST_NAME) $(TEST_NAME)_bonus
+		rm -f libft.a 
 
 # Règle re
 re: fclean all

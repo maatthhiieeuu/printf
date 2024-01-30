@@ -15,6 +15,8 @@
 
 void 	compter_pourcent_jusquau_specificateur(const char *format, t_format *option) // nom en anglais : count_to_specifier
 {
+	//printf("compter_pourcent_jusquau_specificateur");
+
 	size_t i;
 
 	i = 0; 
