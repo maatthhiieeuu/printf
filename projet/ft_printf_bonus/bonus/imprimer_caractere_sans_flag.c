@@ -24,6 +24,6 @@ void    imprimer_caractere_sans_flag(va_list args, t_format *option)
         char recovery_char;
 
         recovery_char = va_arg(args, int);
-        ft_putchar_fd(recovery_char, 1);
+        putchar_bonus(option, recovery_char);
     }
 }

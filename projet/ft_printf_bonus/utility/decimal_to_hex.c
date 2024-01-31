@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	decimal_to_hex(int num, char minmax)
+void	decimal_to_hex(int num, char minmax, int *result)
 {
 	//printf("2");
 
@@ -36,6 +36,7 @@ void	decimal_to_hex(int num, char minmax)
 	while (i >= 0)
 	{
 		ft_putchar_fd(table_hexadecimal[hexa_num[i]], 1);
+		*result += 1;
 		i--;
 	}
 }

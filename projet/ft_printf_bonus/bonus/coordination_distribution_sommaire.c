@@ -41,6 +41,6 @@ void    coordination_distribution_sommaire(const char *format, va_list args, int
         gestionnaire_entier_non_signe_avec_option(format, args, i, option);
     else if (option->specifier == 'x')
         gestionnaire_hexadecimal_minuscule(format, args, i, option);
-   else if (option->specifier == 'X')
+    else if (option->specifier == 'X')
         gestionnaire_hexadecimal_majuscule(format, args, i, option);
 }

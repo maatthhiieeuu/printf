@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_adress(uintptr_t num)
+void	print_adress(uintptr_t num, int *result)
 {
 	//printf("3");
 
@@ -31,9 +31,11 @@ void	print_adress(uintptr_t num)
 	}
 	i--;
 	ft_putstr_fd("0x", 1);
+	*result += 2;
 	while (i >= 0)
 	{
 		ft_putchar_fd(hexadecimal_min[hexa_num[i]], 1);
+		*result += 1;
 		i--;
 	}
 }

@@ -30,7 +30,7 @@ void	imprimer_adresse_avec_largeur_de_champs(t_format *option)
 				ft_putchar_fd(' ', 1);
 				i++;
 			}
-			print_adress(option->address_int);
+			print_adress_bonus(option->address_int, option);
 		}
 	}
 } 

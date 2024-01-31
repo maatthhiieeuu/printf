@@ -24,7 +24,7 @@ void	imprimer_adresse_avec_largeur_de_champs_et_minus(t_format *option)
 		compter_caractere_adresse(option);//nom anglais :count_char_of_address
 		if (option->space_array > 0 && option->minus == true)
 		{
-			print_adress(option->address_int);
+			print_adress_bonus(option->address_int, option);
 			while (i + option->address_size < option->space_array)
 			{
 				ft_putchar_fd(' ', 1);

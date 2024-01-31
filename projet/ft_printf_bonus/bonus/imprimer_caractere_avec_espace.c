@@ -28,18 +28,21 @@ void 	imprimer_caractere_avec_espace(va_list args, t_format *option) // nom en a
 	{
 		while (j + 1 < option->space_array )
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			j++;
 		}
-		ft_putchar_fd(character, 1);
+		putchar_bonus(option, character);
+		//printf("\nAprès incrémentation de option.output = %d\n", option->output);
 	}
 	else if (option->minus == true)
 	{
-		ft_putchar_fd(character, 1);
+		putchar_bonus(option, character);
 		while (j + 1 < option->space_array)
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			j++;
 		}
+		//printf("\nAprès incrémentation de option.output = %d\n", option->output);
 	}
+	//printf("\noption.output = %d\n", option->output);
 }

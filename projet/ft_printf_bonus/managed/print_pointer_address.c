@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_pointer_address(const char *format, va_list args, int **i)
+void	print_pointer(const char *format, va_list args, int *i, int *result)
 {
 	//printf("print_pointer_address");
 
@@ -23,14 +23,15 @@ void	print_pointer_address(const char *format, va_list args, int **i)
 	if (recovery_address == 0)
 	{
 		write(1, "(nil)", 5);
-		**i += 1;
+		*i += 1;
+		*result += 5;
 	}
-	else if (format[**i + 1] == 'p')
+	else if (format[*i + 1] == 'p')
 	{
 		if (recovery_address != 0)
 		{
-			print_adress(recovery_address);
-			**i += 1;
+			print_adress(recovery_address, result);
+			*i += 1;
 		}
 	}
 }

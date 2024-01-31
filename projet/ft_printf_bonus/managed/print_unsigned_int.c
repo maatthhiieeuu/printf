@@ -13,16 +13,16 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_unsigned_int(const char *format, va_list args, int **i)
+void	print_unsigned_int(const char *format, va_list args, int *i, int *result)
 {
 	//printf("print_unsigned_int");
 
 	long unsigned int	recovery_number;
 
-	if (format[**i + 1] == 'u')
+	if (format[*i + 1] == 'u')
 	{
 		recovery_number = va_arg(args, unsigned int);
-		put_unbr(recovery_number);
-		**i += 1;
+		put_unbr(recovery_number, result);
+		*i += 1;
 	}
 }

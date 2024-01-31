@@ -16,15 +16,16 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_character(const char *format, va_list args, int **i)
+void	print_character(const char *format, va_list args, int *i, int *result)
 {
     //printf("\nprint_character\n");
-	if (format[**i + 1] == 'c')
+	if (format[*i + 1] == 'c')
 	{
 		char recovery_char;
 
 		recovery_char = va_arg(args, int);
 		ft_putchar_fd(recovery_char, 1);
-		**i += 1;
+		*i += 1;
+		*result += 1;
 	}
 }

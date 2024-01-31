@@ -27,6 +27,7 @@ void    initialisation_par_default_structure(t_format *option) // nom en anglais
     option->digit_point_until_specifier = 0;
     option->address_size = 0;
     option->number_size = 0;
+    option->output = 0;
     option->address_int = 0;
     option->signed_number = 0;
     option->unsigned_number = 0;

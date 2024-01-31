@@ -19,14 +19,6 @@
 void    envoyer_caractere_impression(va_list args, t_format *option) // nom en anglais : manage_char_option
 {
     //printf("\n*envoyer_caractere_impression*\n");
-    if (option->minus == true)
-    {
-        if (option->space_array == 0)
-        {
-            option->minus = false;
-            imprimer_caractere_sans_flag(args, option);
-        }
-    }
     if (option->space_array > 0)
         imprimer_caractere_avec_espace(args, option);
     else
