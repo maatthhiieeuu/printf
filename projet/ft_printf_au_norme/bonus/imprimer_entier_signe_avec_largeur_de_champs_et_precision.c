@@ -18,7 +18,6 @@ static void	imprimer_largeur_de_champs(t_format *option);
 
 void	imprimer_entier_signe_avec_largeur_de_champs_et_precision(t_format *option)
 {
-	compter_nombre_de_chiffre(option);
 	imprimer_largeur_de_champs(option);
 	imprimer_precision(option);
 	ft_putnbr_fd(option->signed_number, 1);
@@ -31,6 +30,8 @@ static void	imprimer_largeur_de_champs(t_format *option)
 	i = 0;
 	if (option->number_size < option->precision_array)
 	{
+		if(option->plus == true)
+			option->space_array -= 1;
 		while (option->precision_array + i < option->space_array)
 		{
 			ft_putchar_fd(' ', 1);
@@ -52,10 +53,7 @@ static void	imprimer_precision(t_format *option)
 
 	i = 0;
 	if (option->plus == true)
-	{
 		ft_putchar_fd('+', 1);
-		option->space_array -= 1;
-	}
 	while (option->number_size + i < option->precision_array)
 	{
 		ft_putchar_fd('0', 1);
