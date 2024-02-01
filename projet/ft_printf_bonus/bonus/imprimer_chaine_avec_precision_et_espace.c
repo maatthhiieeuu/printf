@@ -21,13 +21,11 @@ void	imprimer_chaine_avec_precision_et_espace(t_format *option, char *string, si
 	j = 0;
 	if (option->minus == false)
 	{
-		
-
 		if (option->precision_array < size_string)
 		{
 			while ((j) < (option->space_array - option->precision_array))
 			{
-				ft_putchar_fd(' ', 1);
+				putchar_bonus(option, ' ');
 				j++;
 			}
 		}
@@ -35,11 +33,11 @@ void	imprimer_chaine_avec_precision_et_espace(t_format *option, char *string, si
 		{
 			while ((j) < (option->space_array - size_string))
 			{
-				ft_putchar_fd(' ', 1);
+				putchar_bonus(option, ' ');
 				j++;
 			}
 		}
-		ft_putnstr_fd(string, option->precision_array, 1);
+		putnstr_bonus(option, string, option->precision_array);
 	}
 }
 

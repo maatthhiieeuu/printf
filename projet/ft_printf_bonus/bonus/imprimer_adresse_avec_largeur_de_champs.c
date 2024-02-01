@@ -27,7 +27,7 @@ void	imprimer_adresse_avec_largeur_de_champs(t_format *option)
 		{
 			while (i + option->address_size < option->space_array)
 			{
-				ft_putchar_fd(' ', 1);
+				putchar_bonus(option, ' ');
 				i++;
 			}
 			print_adress_bonus(option->address_int, option);

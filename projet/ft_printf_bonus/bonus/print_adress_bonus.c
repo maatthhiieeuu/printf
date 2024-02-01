@@ -17,12 +17,10 @@ void	print_adress_bonus(uintptr_t num, t_format *option)
 		i++;
 	}
 	i--;
-	ft_putstr_fd("0x", 1);
-	option->output += 2;
+	putstr_bonus(option, "0x");
 	while (i >= 0)
 	{
-		ft_putchar_fd(hexadecimal_min[hexa_num[i]], 1);
-		option->output += 1;
+		putchar_bonus(option, hexadecimal_min[hexa_num[i]]);
 		i--;
 	}
 }

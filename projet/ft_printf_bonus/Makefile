@@ -104,6 +104,8 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(BONUS_DIR)imprimer_zero_pour_precision_adresse.c \
 			 $(BONUS_DIR)initialisation_par_default_structure.c \
 			 $(BONUS_DIR)print_adress_bonus.c \
+			 $(BONUS_DIR)putnbr_bonus.c \
+			 $(BONUS_DIR)putnstr_bonus.c \
 			 $(BONUS_DIR)putstr_bonus.c \
 			 $(BONUS_DIR)putchar_bonus.c \
 			 $(BONUS_DIR)recherche_precision_negative.c \

@@ -22,8 +22,8 @@ void	imprimer_entier_signe_avec_precision(t_format *option) // nom en anglais : 
 	compter_nombre_de_chiffre(option);
 	while (option->number_size + i < option->precision_array)
 	{
-		ft_putchar_fd('0', 1);
+		putchar_bonus(option, '0');
 		i++;
 	}
-	ft_putnbr_fd(option->signed_number, 1);
+	putnbr_bonus(option, option->signed_number);
 }

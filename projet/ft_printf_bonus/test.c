@@ -375,7 +375,7 @@ int main(void)
 	result_Or = printf("OR :%%.-5x = *%.-5x*\n", x);
 	result_Ft = ft_printf("FT :%%.-5x = *%.-5x*\n", x);
 	printf("result Or = %d\n", result_Or);
-	printf("result Ft = %d\n", result_Ft);
+	printf("result Ft = %d\n\n", result_Ft);
 
 	result_Or = printf("OR :%%8.-5x = *%8.-5x*\n", x);
 	result_Ft = ft_printf("FT :%%8.-5x = *%8.-5x*\n", x);

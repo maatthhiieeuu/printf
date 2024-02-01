@@ -23,7 +23,6 @@ void	imprimer_chaine_avec_espace(t_format *option, size_t size, char *string)
 		while (size + j < option->space_array)
 		{
 			putchar_bonus(option, ' ');
-			option->output += 1;
 			j++;
 		}
 		putstr_bonus(option, string);

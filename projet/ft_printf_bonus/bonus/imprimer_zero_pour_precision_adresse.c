@@ -23,7 +23,7 @@ void	imprimer_zero_pour_precision_adresse(t_format *option)
 	{
 		while (option->address_size + i - 2 < option->precision_array)
 		{
-			ft_putchar_fd('0', 1);
+			putchar_bonus(option, '0');
 			i++;
 		}
 	}//printf("        -address_size -  = %ld\n",option->address_size);
@@ -32,8 +32,7 @@ void	imprimer_zero_pour_precision_adresse(t_format *option)
 		
 		while (option->address_size + i - 2 < option->precision_array)
 		{
-			
-			ft_putchar_fd('0', 1);
+			putchar_bonus(option, '0');
 			i++;
 		}
 	}

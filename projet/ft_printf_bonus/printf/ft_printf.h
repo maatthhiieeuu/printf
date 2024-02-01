@@ -127,6 +127,8 @@ void    imprimer_zero_pour_precision_adresse(t_format *option);
 void    initialisation_par_default_structure(t_format *option);
 
 void    print_adress_bonus(uintptr_t num, t_format *option);
+void    putnbr_bonus(t_format *option, int n);
+void    putnstr_bonus(t_format *option, char *s, int n);
 void    putstr_bonus(t_format *option, char *s);
 void    putchar_bonus(t_format *option, char c);
 

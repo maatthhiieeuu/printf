@@ -31,13 +31,13 @@ void	imprimer_adresse_avec_precision(t_format *option)
 		i++;
 	}
 	i--;
-	ft_putstr_fd("0x", 1);
+	putstr_bonus(option, "0x");
 	
 	if ((option->precision_array > 0) || (option->zero == true && option->precision == false))
 		imprimer_zero_pour_precision_adresse(option);
 	while (i >= 0)
 	{
-		ft_putchar_fd(hexadecimalMin[hexaNum[i]], 1);
+		putchar_bonus(option, hexadecimalMin[hexaNum[i]]);
 		i--;
 	}
 } 

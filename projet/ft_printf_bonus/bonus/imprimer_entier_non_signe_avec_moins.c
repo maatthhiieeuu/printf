@@ -17,5 +17,5 @@ void	imprimer_entier_non_signe_avec_moins(t_format *option) // nom en anglais : 
 {
     //printf("\nDébut de imprimer_entier_avec_moin\n");   
 		
-		ft_putnbr_fd(option->unsigned_number, 1);
+		putnbr_bonus(option, option->unsigned_number);
 }

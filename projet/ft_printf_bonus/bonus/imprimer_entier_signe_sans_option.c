@@ -17,6 +17,6 @@ void	imprimer_entier_signe_sans_option(t_format *option) // nom en anglais : pri
 {
     //printf("\nDébut de imprimer_entier_signe_sans_option\n");   
 		
-		ft_putnbr_fd(option->signed_number, 1);
+		putnbr_bonus(option, option->signed_number);
 		
 }

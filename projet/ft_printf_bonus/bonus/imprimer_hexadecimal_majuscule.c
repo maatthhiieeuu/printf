@@ -30,10 +30,10 @@ void    imprimer_hexadecimal_majuscule(t_format *option)
     }
     i--;
     if (option->hash == true)
-        write(1, "0X", 2);
+        putstr_bonus(option, "0X");
     while (i >= 0)
     {
-        ft_putchar_fd(tableHexadecimal[hexaNum[i]], 1);
+        putchar_bonus(option, tableHexadecimal[hexaNum[i]]);
         i--;
     }
 }
