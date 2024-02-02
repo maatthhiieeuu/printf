@@ -18,10 +18,9 @@ static void	imprimer_largeur_de_champs(t_format *option);
 
 void	imprimer_entier_non_signe_avec_largeur_de_champs_et_precision(t_format *option)
 {
-	compter_nombre_de_chiffre(option);
 	imprimer_largeur_de_champs(option);
 	imprimer_precision(option);
-	ft_putnbr_fd(option->unsigned_number, 1);
+	putnbr_bonus(option, option->unsigned_number);
 }
 
 static void	imprimer_largeur_de_champs(t_format *option)
@@ -33,7 +32,7 @@ static void	imprimer_largeur_de_champs(t_format *option)
 	{
 		while (option->precision_array + i < option->space_array)
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			i++;
 		}
 	}
@@ -41,7 +40,7 @@ static void	imprimer_largeur_de_champs(t_format *option)
 	{
 		while (option->number_size + i < option->space_array)
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			i++;
 		}
 	}
@@ -54,7 +53,7 @@ static void	imprimer_precision(t_format *option)
 	i = 0;
 	while (option->number_size + i < option->precision_array)
 	{
-		ft_putchar_fd('0', 1);
+		putchar_bonus(option, '0');
 		i++;
 	}
 }

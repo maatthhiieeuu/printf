@@ -13,14 +13,14 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_integer(const char *format, va_list args, int **i)
+void	print_integer(const char *format, va_list args, int *i, int *result)
 {
-	if (format[**i + 1] == 'i')
+	if (format[*i + 1] == 'i')
 	{
 		int recovery_number;
 
 		recovery_number = va_arg(args, int);
-		ft_putnbr_fd(recovery_number, 1);
-		**i += 1;
+		putnbr_upper_nine(recovery_number, result);
+		*i += 1;
 	}
 }

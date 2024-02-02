@@ -22,40 +22,43 @@
 
 typedef struct	s_format
 {
-	char specifier;
-	size_t space_array;
-	size_t precision_array;
-	size_t digit_char_until_specifier;
-	size_t digit_point_until_specifier;
-	size_t address_size;
-	size_t number_size;
-	uintptr_t address_int;
-	long long int signed_number;
-	long long unsigned int unsigned_number;
-	bool precision;
-	bool negative_precision;
-	bool space;
-	bool zero;
-	bool hash;
-	bool minus;
-	bool plus;
+	char					specifier;
+	size_t					space_array;
+	size_t					precision_array;
+	size_t					digit_char_until_specifier;
+	size_t					digit_point_until_specifier;
+	size_t					address_size;
+	size_t					number_size;
+	int						output;
+	uintptr_t				address_int;
+	long long int			signed_number;
+	long long unsigned int	unsigned_number;
+	bool					precision;
+	bool					negative_precision;
+	bool					space;
+	bool					zero;
+	bool					hash;
+	bool					minus;
+	bool					plus;
 }t_format;
 
 /*----------------------      PARTIE OBLIGATOIRE                   ----------------------------*/
 
 int		ft_printf(const char *format, ...);
-void	print_character(const char *format, va_list args, int **i);
-void	print_hex_lowercase(const char *format, va_list args, int **i);
-void	print_hex_uppercase(const char *format, va_list args, int **i);
-void	print_integer(const char *format, va_list args, int **i);
-void	print_percent_sign(const char *format, int **i);
-void	print_pointer_address(const char *format, va_list args, int **i);
-void	print_signed_int(const char *format, va_list args, int **i);
-void	print_string(const char *format, va_list args, int **i);
-void	print_unsigned_int(const char *format, va_list args, int **i);
-void	decimal_to_hex(int num, char minmax);
-void	print_adress(uintptr_t num);
-void	put_unbr(unsigned int n);
+void	print_character(const char *format, va_list args, int *i, int *result);
+void	print_hex_lowercase(const char *format, va_list args, int *i, int *result);
+void	print_hex_uppercase(const char *format, va_list args, int *i, int *result);
+void	print_integer(const char *format, va_list args, int *i, int *result);
+void	print_percent_sign(const char *format, int *i, int *result);
+void	print_pointer(const char *format, va_list args, int *i, int *result);
+void	print_signed_int(const char *format, va_list args, int *i, int *result);
+void	print_string(const char *format, va_list args, int *i, int *result);
+void	print_unsigned_int(const char *format, va_list args, int *i, int *result);
+void	decimal_to_hex(int num, char minmax, int *result);
+void	print_adress(uintptr_t num, int *result);
+void    put_count_string(char *s, int *result);
+void	put_unbr(unsigned int n, int *result);
+void	putnbr_upper_nine(int n, int *result);
 
 /*-----------------------         PARTIE BONUS                -------------------------*/
 
@@ -65,7 +68,7 @@ void	compter_point_jusquau_specificateur(t_format *option, char *point_ptr);
 void	compter_pourcent_jusquau_specificateur(const char *format, t_format *option);
 
 void	coordination_distribution_sommaire(const char *format, va_list args, int *i, t_format *option);
-void	coordination_initialisation_structure(const char *format, va_list args, int *i);
+void	coordination_initialisation_structure(const char *format, va_list args, int *i, int *result);
 
 void	envoyer_caractere_impression(va_list args, t_format *option);
 
@@ -124,6 +127,12 @@ void	imprimer_hexadecimal_minuscule(t_format *option);
 void	imprimer_format_brut(const char *format, int *i, t_format *option);
 void	imprimer_zero_pour_precision_adresse(t_format *option);
 void	initialisation_par_default_structure(t_format *option);
+
+void	print_adress_bonus(uintptr_t num, t_format *option);
+void	putnbr_bonus(t_format *option, int n);
+void	putnstr_bonus(t_format *option, char *s, int n);
+void	putstr_bonus(t_format *option, char *s);
+void	putchar_bonus(t_format *option, char c);
 
 void	recherche_drapeaux(const char *format, int i, t_format *option);
 void	recherche_precision_negative(const char *point_ptr, t_format *option);

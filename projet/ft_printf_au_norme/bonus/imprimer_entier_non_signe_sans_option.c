@@ -15,5 +15,5 @@
 
 void	imprimer_entier_non_signe_sans_option(t_format *option)
 {
-	ft_putnbr_fd(option->unsigned_number, 1);	
+	putnbr_bonus(option, option->unsigned_number);
 }

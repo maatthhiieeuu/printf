@@ -22,17 +22,17 @@ void	imprimer_chaine_avec_espace(t_format *option, size_t size, char *string)
 	{
 		while (size + j < option->space_array)
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			j++;
 		}
-		ft_putstr_fd(string, 1);
+		putstr_bonus(option, string);
 	}
 	else if (option->minus == true)
 	{
-		ft_putstr_fd(string, 1);
+		putstr_bonus(option, string);
 		while (size + j < option->space_array)
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			j++;
 		}
 	}

@@ -27,7 +27,7 @@ void	gestionnaire_chaine_avec_option(va_list args, t_format *option)
 	if (option->space_array > 0 && option->precision_array == 0)
 		imprimer_chaine_avec_espace(option, size_string, string);
 	else if (option->space_array == 0 && option->precision_array > 0)
-		ft_putnstr_fd(string, option->precision_array, 1);
+		putnstr_bonus(option, string, option->precision_array);
 	else if (option->space_array > 0 && option->precision_array > 0)
 	{
 		if (option->minus == true)

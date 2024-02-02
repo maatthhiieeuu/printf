@@ -15,6 +15,6 @@
 
 void	imprimer_adresse_avec_un_espace(t_format *option)
 {
-	ft_putchar_fd(' ', 1);
-	print_adress(option->address_int);
+	putchar_bonus(option, ' ');
+	print_adress_bonus(option->address_int, option);
 }

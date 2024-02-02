@@ -56,7 +56,9 @@ void    print_string(const char *format, va_list args, int *i, int *result);
 void    print_unsigned_int(const char *format, va_list args, int *i, int *result);
 void    decimal_to_hex(int num, char minmax, int *result);
 void    print_adress(uintptr_t num, int *result);
+void    put_count_string(char *s, int *result);
 void    put_unbr(unsigned int n, int *result);
+void    putnbr_upper_nine(int n, int *result);
 
 /*-----------------------         PARTIE BONUS                -------------------------*/
 

@@ -23,15 +23,15 @@ void	imprimer_entier_signe_avec_plus_et_zero(t_format *option)
 	if (option->minus == false)
 	{
 		if (option->plus == true)
-			ft_putchar_fd('+', 1);
+			putchar_bonus(option, '+');
 		imprimer_zero_pour_largeur_de_champs(option);
-		ft_putnbr_fd(option->signed_number, 1);
+		putnbr_bonus(option, option->signed_number);
 	}
 	else if (option->minus == true)
 	{
 		if (option->plus == true)
-			ft_putchar_fd('+', 1);
-		ft_putnbr_fd(option->signed_number, 1);
+			putchar_bonus(option, '+');
+		putnbr_bonus(option, option->signed_number);
 		imprimer_zero_pour_largeur_de_champs(option);
 	}
 }
@@ -44,7 +44,7 @@ static void	imprimer_zero_pour_largeur_de_champs(t_format *option)
 	{
 		while (option->number_size + i < option->space_array)
 		{
-			ft_putchar_fd('0', 1);
+			putchar_bonus(option, '0');
 			i++;
 		}
 	}

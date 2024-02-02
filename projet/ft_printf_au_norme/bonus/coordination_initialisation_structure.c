@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	coordination_initialisation_structure(const char *format, va_list args, int *i)
+void	coordination_initialisation_structure(const char *format, va_list args, int *i, int *result)
 {
 	t_format	option;
 
@@ -26,4 +26,5 @@ void	coordination_initialisation_structure(const char *format, va_list args, int
 		*i += option.digit_char_until_specifier;
 		coordination_distribution_sommaire(format, args, i, &option);
 	}
+	*result += option.output;
 }

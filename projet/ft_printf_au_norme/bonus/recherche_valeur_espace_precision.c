@@ -31,9 +31,7 @@ void	recherche_valeur_espace_precision(const char *format, int i, t_format *opti
 		{
 			recherche_precision_negative(point_ptr + j, option);
 			if (ft_isdigit(point_ptr[j]) && option->precision_array == 0)
-			{
 				recuperation_taille_precision(point_ptr + j, option);
-			}
 			j++;
 		}
 	}

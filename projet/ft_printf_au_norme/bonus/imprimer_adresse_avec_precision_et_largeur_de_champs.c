@@ -23,7 +23,7 @@ void	imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option)
 		option->space_array -= 2;
 		while (option->precision_array + i < option->space_array)
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			i++;
 		}
 		imprimer_adresse_avec_precision(option);
@@ -34,7 +34,7 @@ void	imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option)
 		option->space_array -= 2;
 		while (option->precision_array + i < option->space_array)
 		{
-			ft_putchar_fd(' ', 1);
+			putchar_bonus(option, ' ');
 			i++;
 		}
 	}

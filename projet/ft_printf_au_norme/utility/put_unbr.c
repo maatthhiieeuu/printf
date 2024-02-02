@@ -13,12 +13,13 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	put_unbr(unsigned int n)
+void	put_unbr(unsigned int n, int *result)
 {
 	char	c;
 
 	if (n > 9)
-		ft_putnbr_fd(n / 10, 1);
+		putnbr_upper_nine(n / 10, result);
 	c = n % 10 + 48;
 	ft_putchar_fd(c, 1);
+	*result += 1;
 }

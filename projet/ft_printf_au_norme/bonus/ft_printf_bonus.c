@@ -13,47 +13,52 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-static void	dispatch(const char *format, va_list args, int *i)
+static void	dispatch(const char *format, va_list args, int *i, int *result)
 {
 	if (!format)
 		return ;
 	if (format[*i + 1] == 'c')
-		print_character(format, args, &i);
+		print_character(format, args, i, result);
 	else if (format[*i + 1] == 's')
-		print_string(format, args, &i);
+		print_string(format, args, i, result);
 	else if (format[*i + 1] == 'p')
-		print_pointer_address(format, args, &i);
+		print_pointer(format, args, i, result);
 	else if (format[*i + 1] == 'd')
-		print_signed_int(format, args, &i);
+		print_signed_int(format, args, i, result);
 	else if (format[*i + 1] == 'i')
-		print_integer(format, args, &i);
+		print_integer(format, args, i, result);
 	else if (format[*i + 1] == 'u')
-		print_unsigned_int(format, args, &i);
+		print_unsigned_int(format, args, i, result);
 	else if (format[*i + 1] == 'x')
-		print_hex_lowercase(format, args, &i);
+		print_hex_lowercase(format, args, i, result);
 	else if (format[*i + 1] == 'X')
-		print_hex_uppercase(format, args, &i);
+		print_hex_uppercase(format, args, i, result);
 	else if (format[*i + 1] == '%')
-		print_percent_sign(format, &i);
+		print_percent_sign(format, i, result);
 	else 
-		coordination_initialisation_structure(format, args, i);
+		coordination_initialisation_structure(format, args, i, result);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	int		i;
+	int		result;
 	va_list	args;
 
 	i = 0;
+	result = 0;
 	va_start (args, format);
 	while (format[i])
 	{
 		if ((format[i] == '%') || (format[i] == 92))
-			dispatch(format, args, &i);
+			dispatch(format, args, &i, &result);
 		else
+		{
 			ft_putchar_fd(format[i], 1);
+			result++;
+		}
 		i++;
 	}
 	va_end(args);
-	return (i);
+	return (result);
 }

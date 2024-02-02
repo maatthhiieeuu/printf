@@ -17,7 +17,7 @@ void	imprimer_entier_signe_avec_espace(t_format *option)
 {
 	if (option->space_array == 0 && option->space == true)
 	{
-		ft_putchar_fd(' ', 1);
-		ft_putnbr_fd(option->signed_number, 1);
+		putchar_bonus(option, ' ');
+		putnbr_bonus(option, option->signed_number);
 	}
 }

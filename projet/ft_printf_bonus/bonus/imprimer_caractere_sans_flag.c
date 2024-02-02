@@ -18,10 +18,11 @@
 
 void    imprimer_caractere_sans_flag(va_list args, t_format *option)
 {
+   char recovery_char;
    //printf("Début de fonction de imprimer_caractere_ignorer_flag\n");
     if (option->specifier == 'c')
     {
-        char recovery_char;
+        
 
         recovery_char = va_arg(args, int);
         putchar_bonus(option, recovery_char);

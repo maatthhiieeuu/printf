@@ -13,14 +13,14 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_hex_lowercase(const char *format, va_list args, int **i)
+void	print_hex_lowercase(const char *format, va_list args, int *i, int *result)
 {
 	int	recovery_number;
 
 	recovery_number = va_arg(args, int);
-	if (format[**i + 1] == 'x')
+	if (format[*i + 1] == 'x')
 	{
-		decimal_to_hex(recovery_number, 'm');
-		**i += 1;
+		decimal_to_hex(recovery_number, 'm', result);
+		*i += 1;
 	}
 }

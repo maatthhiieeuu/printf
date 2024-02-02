@@ -19,7 +19,6 @@ static void	 imprimer_largeur_de_champs(t_format *option);
 void	imprimer_entier_non_signe_avec_largeur_de_champs_et_precision(t_format *option) // nom en anglais : 
 {
     //printf("\nDébut de imprimer_entier_signe_avec_largeur_de_champs_et_precision\n");  
-    //compter_nombre_de_chiffre(option);****************************************************************
 	imprimer_largeur_de_champs(option);
 	imprimer_precision(option);
 	putnbr_bonus(option, option->unsigned_number);

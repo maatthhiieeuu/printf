@@ -20,13 +20,15 @@ SRCS =  $(FT_PRINTF) \
 		$(MANAGED_DIR)print_hex_uppercase.c \
 		$(MANAGED_DIR)print_integer.c \
 		$(MANAGED_DIR)print_percent_sign.c \
-		$(MANAGED_DIR)print_pointer_address.c \
+		$(MANAGED_DIR)print_pointer.c \
 		$(MANAGED_DIR)print_signed_int.c \
 		$(MANAGED_DIR)print_string.c \
 		$(MANAGED_DIR)print_unsigned_int.c \
 		$(UTILITY_DIR)decimal_to_hex.c \
 		$(UTILITY_DIR)print_adress.c \
-		$(UTILITY_DIR)put_unbr.c
+		$(UTILITY_DIR)put_count_string.c \
+		$(UTILITY_DIR)put_unbr.c \
+		$(UTILITY_DIR)putnbr_upper_nine.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -36,13 +38,15 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(MANAGED_DIR)print_hex_uppercase.c \
 			 $(MANAGED_DIR)print_integer.c \
 			 $(MANAGED_DIR)print_percent_sign.c \
-			 $(MANAGED_DIR)print_pointer_address.c \
+			 $(MANAGED_DIR)print_pointer.c \
 			 $(MANAGED_DIR)print_signed_int.c \
 			 $(MANAGED_DIR)print_string.c \
 			 $(MANAGED_DIR)print_unsigned_int.c \
 			 $(UTILITY_DIR)decimal_to_hex.c \
 			 $(UTILITY_DIR)print_adress.c \
+			 $(UTILITY_DIR)put_count_string.c \
 			 $(UTILITY_DIR)put_unbr.c \
+			 $(UTILITY_DIR)putnbr_upper_nine.c \
 			 $(BONUS_DIR)compter_caractere_adresse.c \
 			 $(BONUS_DIR)compter_nombre_de_chiffre.c \
 			 $(BONUS_DIR)compter_point_jusquau_specificateur.c \
@@ -97,6 +101,11 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(BONUS_DIR)imprimer_hexadecimal_minuscule.c \
 			 $(BONUS_DIR)imprimer_zero_pour_precision_adresse.c \
 			 $(BONUS_DIR)initialisation_par_default_structure.c \
+			 $(BONUS_DIR)print_adress_bonus.c \
+			 $(BONUS_DIR)putnbr_bonus.c \
+			 $(BONUS_DIR)putnstr_bonus.c \
+			 $(BONUS_DIR)putstr_bonus.c \
+			 $(BONUS_DIR)putchar_bonus.c \
 			 $(BONUS_DIR)recherche_precision_negative.c \
 			 $(BONUS_DIR)recherche_drapeaux.c \
 			 $(BONUS_DIR)recherche_specificateur.c \

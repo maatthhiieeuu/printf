@@ -15,5 +15,5 @@
 
 void	imprimer_entier_signe_avec_moins(t_format *option)
 {
-	ft_putnbr_fd(option->signed_number, 1);
+	putnbr_bonus(option, option->signed_number);
 }

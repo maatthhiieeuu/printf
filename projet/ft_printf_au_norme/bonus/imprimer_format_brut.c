@@ -23,13 +23,13 @@ void	imprimer_format_brut(const char *format, int *i, t_format *option)
 	{
 		if (format[*i] == '.' && format[*i + 1] == '-')
 		{
-			ft_putchar_fd('.', 1);
-			ft_putchar_fd('0', 1);
+			putchar_bonus(option, '.');
+			putchar_bonus(option, '0');
 			j += 3;
 		}
 		else
 		{
-			ft_putchar_fd(format[*i], 1);
+			putchar_bonus(option, format[*i]);
 			j++;
 			*i += 1;
 		}

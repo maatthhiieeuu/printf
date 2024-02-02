@@ -31,7 +31,9 @@ SRCS =  $(FT_PRINTF) \
 		$(MANAGED_DIR)print_unsigned_int.c \
 		$(UTILITY_DIR)decimal_to_hex.c \
 		$(UTILITY_DIR)print_adress.c \
-		$(UTILITY_DIR)put_unbr.c
+		$(UTILITY_DIR)put_count_string.c \
+		$(UTILITY_DIR)put_unbr.c \
+		$(UTILITY_DIR)putnbr_upper_nine.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -48,7 +50,9 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(MANAGED_DIR)print_unsigned_int.c \
 			 $(UTILITY_DIR)decimal_to_hex.c \
 			 $(UTILITY_DIR)print_adress.c \
+			 $(UTILITY_DIR)put_count_string.c \
 			 $(UTILITY_DIR)put_unbr.c \
+			 $(UTILITY_DIR)putnbr_upper_nine.c \
 			 $(BONUS_DIR)compter_caractere_adresse.c \
 			 $(BONUS_DIR)compter_nombre_de_chiffre.c \
 			 $(BONUS_DIR)compter_point_jusquau_specificateur.c \

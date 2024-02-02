@@ -18,34 +18,11 @@ static void	imprimer_largeur_de_champs(t_format *option);
 
 void	imprimer_entier_signe_avec_largeur_de_champs_precision_et_minus(t_format *option)
 {
-	compter_nombre_de_chiffre(option);
 	imprimer_precision(option);
-	ft_putnbr_fd(option->signed_number, 1);
+	putnbr_bonus(option, option->signed_number);
 	imprimer_largeur_de_champs(option);
 }
-static void	imprimer_largeur_de_champs(t_format *option)
-{
 
-	int	i;
-
-	i = 0;
-	if (option->number_size < option->precision_array)
-	{
-		while (option->precision_array + i < option->space_array)
-		{
-			ft_putchar_fd(' ', 1);
-			i++;
-		}
-	}
-	else if (option->number_size > option->precision_array)
-	{
-		while (option->number_size + i < option->space_array)
-		{
-			ft_putchar_fd(' ', 1);
-			i++;
-		}
-	}
-}
 static void	imprimer_precision(t_format *option)
 {
 	int	i;
@@ -53,13 +30,36 @@ static void	imprimer_precision(t_format *option)
 	i = 0;
 	if (option->plus == true)
 	{
-		ft_putchar_fd('+', 1);
+		putchar_bonus(option, '+');
 		option->space_array -= 1;
 	}
 
 	while (option->number_size + i < option->precision_array)
 	{
-		ft_putchar_fd('0', 1);
+		putchar_bonus(option, '0');
 		i++;
+	}
+}
+
+static void	imprimer_largeur_de_champs(t_format *option)
+{
+	int	i;
+
+	i = 0;
+	if (option->number_size < option->precision_array)
+	{
+		while (option->precision_array + i < option->space_array)
+		{
+			putchar_bonus(option, ' ');
+			i++;
+		}
+	}
+	else if (option->number_size > option->precision_array)
+	{
+		while (option->number_size + i < option->space_array)
+		{
+			putchar_bonus(option, ' ');
+			i++;
+		}
 	}
 }

@@ -13,14 +13,14 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_signed_int(const char *format, va_list args, int **i)
+void	print_signed_int(const char *format, va_list args, int *i, int *result)
 {
 	int	recovery_number;
 
-	if (format[**i + 1] == 'd')
+	if (format[*i + 1] == 'd')
 	{
 		recovery_number = va_arg(args, int);
-		ft_putnbr_fd(recovery_number, 1);
-		**i += 1;
+		putnbr_upper_nine(recovery_number, result);
+		*i += 1;
 	}
 }

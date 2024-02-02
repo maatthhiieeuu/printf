@@ -16,7 +16,5 @@
 void	gestionnaire_adresse_avec_precision_et_largeur_de_champs(t_format *option)
 {
 	if (option->space_array > option->address_size)
-	{
 		imprimer_adresse_avec_precision_et_largeur_de_champs(option);
-	}
 }
