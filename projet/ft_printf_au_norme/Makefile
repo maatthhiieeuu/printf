@@ -57,17 +57,13 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_option.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_precision.c \
-			 $(BONUS_DIR)gestionnaire_adresse_avec_precision_et_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_caractere_avec_option.c \
 			 $(BONUS_DIR)gestionnaire_chaine_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_largeur_de_champs_et_precision.c \
 			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_precision.c \
 			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs_et_precision.c \
 			 $(BONUS_DIR)gestionnaire_entier_signe_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_signe_avec_precision.c \
 			 $(BONUS_DIR)gestionnaire_hexadecimal_majuscule.c \
 			 $(BONUS_DIR)gestionnaire_hexadecimal_minuscule.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs.c \

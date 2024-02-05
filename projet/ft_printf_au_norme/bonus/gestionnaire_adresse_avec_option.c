@@ -27,7 +27,7 @@ void	gestionnaire_adresse_avec_option(va_list args, t_format *option)
 	if (option->zero == true && option->space_array > 0 && option->precision == true)
 		option->precision = false;
 	if (option->space_array > 0 && option->precision_array > 0)
-		gestionnaire_adresse_avec_precision_et_largeur_de_champs(option);
+		imprimer_adresse_avec_precision_et_largeur_de_champs(option);
 	else if (option->space_array > 0 || option->space == true)
 		gestionnaire_adresse_avec_largeur_de_champs(option);
 	else if ((option->precision_array > 0) || (option->zero == true && option->precision == false))

@@ -31,7 +31,7 @@ void	gestionnaire_entier_signe_avec_option(const char *format, va_list args, int
 	else if (option->space == true && option->space_array == 0)
 		imprimer_entier_signe_avec_espace(option);
 	else if (option->precision_array > 0 && option->space_array == 0)
-		gestionnaire_entier_signe_avec_precision(option);
+		imprimer_entier_signe_avec_precision(option);
 	else
 		imprimer_entier_signe_sans_option(option);
 }

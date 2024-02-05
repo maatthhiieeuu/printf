@@ -75,11 +75,9 @@ void	envoyer_caractere_impression(va_list args, t_format *option);
 void	gestionnaire_adresse_avec_largeur_de_champs(t_format *option);
 void	gestionnaire_adresse_avec_option(va_list args, t_format *option);
 void	gestionnaire_adresse_avec_precision(t_format *option);
-void	gestionnaire_adresse_avec_precision_et_largeur_de_champs(t_format *option);
 void	gestionnaire_caractere_avec_option(va_list args, t_format *option);
 void	gestionnaire_chaine_avec_option(va_list args, t_format *option);
 
-void	gestionnaire_entier_non_signe_avec_largeur_de_champs(t_format *option);
 void	gestionnaire_entier_non_signe_avec_largeur_de_champs_et_precision(t_format *option);
 void	gestionnaire_entier_non_signe_avec_option(const char *format, va_list args, int *i, t_format *option);
 void	gestionnaire_entier_non_signe_avec_precision(t_format *option);
@@ -87,7 +85,7 @@ void	gestionnaire_entier_non_signe_avec_precision(t_format *option);
 void	gestionnaire_entier_signe_avec_largeur_de_champs(t_format *option);
 void	gestionnaire_entier_signe_avec_largeur_de_champs_et_precision(t_format *option);
 void	gestionnaire_entier_signe_avec_option(const char *format, va_list args, int *i, t_format *option);
-void	gestionnaire_entier_signe_avec_precision(t_format *option);
+
 
 void	gestionnaire_hexadecimal_majuscule(const char *format, va_list args, int *i, t_format *option);
 void	gestionnaire_hexadecimal_minuscule(const char *format, va_list args, int *i, t_format *option);

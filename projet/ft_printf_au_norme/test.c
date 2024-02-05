@@ -34,7 +34,7 @@ int main(void)
 		main // Pointeur vers une fonction
 	};
 	size_t num_pointers = sizeof(pointers) / sizeof(void *);
-	
+/*	
 	printf("   _     _     _     _ \n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%X   ---|||   *\n\n\n");
 
@@ -208,7 +208,7 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-/*
+
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%x   ---|||   *\n\n\n");
 
@@ -382,7 +382,7 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-
+*/
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%u   ---|||   *\n\n\n");
 
@@ -732,7 +732,7 @@ int main(void)
 
 
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
-	printf("*   |||---   BONUS : %%d   ---|||   *\n\n\n");
+	printf("*   |||---   BONUS : %%i   ---|||   *\n\n\n");
 
 	result_Or = printf("OR :%%i = *%i*\n", n);
 	result_Ft = ft_printf("FT :%%i = *%i*\n", n);
@@ -908,6 +908,11 @@ int main(void)
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%p   ---|||   *\n\n\n");
 
+	result_Or = printf("OR :%%2.1p = *%2.1p*\n", ptr);
+	result_Ft = ft_printf("FT :%%2.1p = *%2.1p*\n", ptr);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
 	result_Or = printf("OR :%%16p = *%16p*\n", ptr);
 	result_Ft = ft_printf("FT :%%16p = *%16p*\n", ptr);
 	printf("result Or = %d\n", result_Or);
@@ -1001,7 +1006,7 @@ int main(void)
 		printf("result Ft = %d\n\n", result_Ft);
 	}
 
-
+/*
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%s   ---|||   *\n\n\n");
 
