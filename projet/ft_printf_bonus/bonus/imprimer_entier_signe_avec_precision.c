@@ -13,10 +13,9 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	imprimer_entier_signe_avec_precision(t_format *option) // nom en anglais : print_signed_int_with_one_space
+void	imprimer_entier_signe_avec_precision(t_format *option)
 {
-    //printf("\nDébut de imprimer_entier_signe_avec_precision\n");   
-	int i;
+	int	i;
 
 	i = 0;
 	compter_nombre_de_chiffre(option);

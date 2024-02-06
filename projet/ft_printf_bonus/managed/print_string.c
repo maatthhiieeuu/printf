@@ -13,13 +13,8 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_string(const char *format, va_list args, int *i, int *result)
+void	print_string(va_list args, int *i, int *result)
 {
-	//printf("print_string");
-
-	if (format[*i + 1] == 's')
-	{
-		put_count_string(va_arg(args, char *), result);
-		*i += 1;
-	}
+	put_count_string(va_arg(args, char *), result);
+	*i += 1;
 }

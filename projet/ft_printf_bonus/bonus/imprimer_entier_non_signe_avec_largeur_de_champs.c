@@ -17,7 +17,6 @@ static void	imprimer_largeur_de_champs(t_format *option);
 
 void	imprimer_entier_non_signe_avec_largeur_de_champs(t_format *option)
 {
-	//printf("\nDébut de imprimer_entier_non_signe_avec_largeur_de_champs : \n");
 	compter_nombre_de_chiffre(option);
 	if (option->minus == false)
 	{
@@ -28,11 +27,11 @@ void	imprimer_entier_non_signe_avec_largeur_de_champs(t_format *option)
 	{
 		putnbr_bonus(option, option->unsigned_number);
 		imprimer_largeur_de_champs(option);
-	}	
+	}
 }
 static void	imprimer_largeur_de_champs(t_format *option)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if ((option->zero == false) || (option->minus == true && option->zero == true))

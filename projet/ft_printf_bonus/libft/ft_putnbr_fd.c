@@ -33,4 +33,3 @@ void	ft_putnbr_fd(int n, int fd)
 	c = n % 10 + 48;
 	write(fd, &c, 1);
 }
-//	ecrit un nombre entier dans le flux specifie par le fd

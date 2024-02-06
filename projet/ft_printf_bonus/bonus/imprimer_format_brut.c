@@ -15,7 +15,6 @@
 
 void	imprimer_format_brut(const char *format, int *i, t_format *option)
 {
-	//printf("\nDébut de imprimer_format_brut : \n");
 	size_t	j;
 
 	j = 0;
@@ -34,6 +33,5 @@ void	imprimer_format_brut(const char *format, int *i, t_format *option)
 			j++;
 			*i += 1;
 		}
-			
 	}
 }

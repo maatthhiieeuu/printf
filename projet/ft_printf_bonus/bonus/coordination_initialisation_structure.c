@@ -13,9 +13,8 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	coordination_initialisation_structure(const char *format, va_list args, int *i, int *result) // nom en anglais : coordinator_options_and_flags
+void	coordination_initialisation_structure(const char *format, va_list args, int *i, int *result)
 {
-	//printf("*coordination_initialisation_structure*");
 	t_format	option;
 
 	initialisation_par_default_structure(&option);
@@ -28,5 +27,4 @@ void	coordination_initialisation_structure(const char *format, va_list args, int
 		coordination_distribution_sommaire(format, args, i, &option);
 	}
 	*result += option.output;
-	//printf("\noption.output = %d\n", option.output);
 }

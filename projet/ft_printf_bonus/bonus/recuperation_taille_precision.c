@@ -15,16 +15,16 @@
 
 void	recuperation_taille_precision(const char *point_ptr, t_format *option)
 {
-  size_t  i;
-  size_t  precision_size;
+	size_t	i;
+	size_t	precision_size;
 
-  i = 0;
-  precision_size = 0;
-  while (point_ptr[i] != option->specifier)
-  {
-    if (point_ptr[i] >= '0' && point_ptr[i] <= '9')
-      precision_size = (precision_size * 10) + (point_ptr[i] - 48); 
-    i++;
-  }
+	i = 0;
+	precision_size = 0;
+	while (point_ptr[i] != option->specifier)
+	{
+		if (point_ptr[i] >= '0' && point_ptr[i] <= '9')
+			precision_size = (precision_size * 10) + (point_ptr[i] - 48);
+		i++;
+	}
 	option->precision_array = precision_size;
 }

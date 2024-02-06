@@ -13,10 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	imprimer_entier_non_signe_sans_option(t_format *option) // nom en anglais : print_signed_int_option_less
+void	imprimer_entier_non_signe_sans_option(t_format *option)
 {
-    //printf("\nDébut de imprimer_entier_non_signe_sans_option\n");   
-		
-		putnbr_bonus(option, option->unsigned_number);
-		
+	putnbr_bonus(option, option->unsigned_number);
 }

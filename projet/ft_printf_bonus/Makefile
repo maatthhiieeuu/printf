@@ -1,31 +1,26 @@
-# Nom du programme
 NAME = libftprintf.a
 TEST_NAME = test_ftprintf
 
-# Compiler et flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Ilibft -Iprintf
 CFLAGS_BONUS = -DBONUS
 CFLAGS_TEST = -g -Ilibft -Iprintf
 
-# Dossiers
 MANAGED_DIR = managed/
 PRINTF_DIR = printf/
 UTILITY_DIR = utility/
 BONUS_DIR = bonus/
 
-# Fichier ft_printf.c
 FT_PRINTF = $(PRINTF_DIR)ft_printf.c
 FT_PRINTF_BONUS = $(BONUS_DIR)ft_printf_bonus.c
 
-# Fichiers sources et objets
 SRCS =  $(FT_PRINTF) \
 		$(MANAGED_DIR)print_character.c \
 		$(MANAGED_DIR)print_hex_lowercase.c \
 		$(MANAGED_DIR)print_hex_uppercase.c \
 		$(MANAGED_DIR)print_integer.c \
 		$(MANAGED_DIR)print_percent_sign.c \
-		$(MANAGED_DIR)print_pointer_address.c \
+		$(MANAGED_DIR)print_pointer.c \
 		$(MANAGED_DIR)print_signed_int.c \
 		$(MANAGED_DIR)print_string.c \
 		$(MANAGED_DIR)print_unsigned_int.c \
@@ -37,14 +32,13 @@ SRCS =  $(FT_PRINTF) \
 
 OBJS = $(SRCS:.c=.o)
 
-# Fichiers sources et objets pour les bonus
 BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(MANAGED_DIR)print_character.c \
 			 $(MANAGED_DIR)print_hex_lowercase.c \
 			 $(MANAGED_DIR)print_hex_uppercase.c \
 			 $(MANAGED_DIR)print_integer.c \
 			 $(MANAGED_DIR)print_percent_sign.c \
-			 $(MANAGED_DIR)print_pointer_address.c \
+			 $(MANAGED_DIR)print_pointer.c \
 			 $(MANAGED_DIR)print_signed_int.c \
 			 $(MANAGED_DIR)print_string.c \
 			 $(MANAGED_DIR)print_unsigned_int.c \
@@ -63,17 +57,12 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_option.c \
 			 $(BONUS_DIR)gestionnaire_adresse_avec_precision.c \
-			 $(BONUS_DIR)gestionnaire_adresse_avec_precision_et_largeur_de_champs.c \
-			 $(BONUS_DIR)gestionnaire_caractere_avec_option.c \
 			 $(BONUS_DIR)gestionnaire_chaine_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_largeur_de_champs_et_precision.c \
 			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_precision.c \
 			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs.c \
 			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs_et_precision.c \
 			 $(BONUS_DIR)gestionnaire_entier_signe_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_signe_avec_precision.c \
 			 $(BONUS_DIR)gestionnaire_hexadecimal_majuscule.c \
 			 $(BONUS_DIR)gestionnaire_hexadecimal_minuscule.c \
 			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs.c \
@@ -121,51 +110,42 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-# Libft
 LIBFT = libft
 LIBFT_LIB = libft.a
 
-# Règles de base
 all: $(NAME)
 
 $(NAME): $(OBJS) libft.a
 		 ar -rcs $(NAME) $(OBJS)
 
-# Règle pour libft.a
 libft.a:
 		make -C $(LIBFT)
 		cp $(LIBFT)/$(LIBFT_LIB) .
 
-# Règle pour tester
 test: $(NAME) $(TEST_NAME).o
 		gcc -o $(TEST_NAME) $(TEST_NAME).o -L. -lftprintf -lft
 
 $(TEST_NAME).o: test.c
 		gcc $(CFLAGS_TEST) -c test.c -o $(TEST_NAME).o
 
-# Règle pour les bonus
 bonus: $(BONUS_OBJS) libft.a
 		ar -rcs $(NAME) $(BONUS_OBJS)
 
-# Compilation des fichiers objets
 %.o: %.c
 		echo "Compiling $<..."
 		$(CC) $(CFLAGS) -c $< -o $@
 		echo "$@ compiled."
 
-# Règle clean
 clean:
 		make clean -C $(LIBFT)
 		rm -f $(OBJS) $(BONUS_OBJS) $(TEST_NAME).o $(TEST_NAME)_bonus.o
 
-# Règle fclean
 fclean: clean
 		make fclean -C $(LIBFT)
 		rm -f $(NAME)
 		rm -f $(TEST_NAME) $(TEST_NAME)_bonus
 		rm -f libft.a 
 
-# Règle re
 re: fclean all
 
 .PHONY: all clean fclean re bonus test

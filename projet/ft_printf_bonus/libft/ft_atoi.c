@@ -40,4 +40,3 @@ int	ft_atoi(const char *s)
 	}
 	return (result * sign);
 }
-/*	convertir une chaîne de caractères en un entier	*/

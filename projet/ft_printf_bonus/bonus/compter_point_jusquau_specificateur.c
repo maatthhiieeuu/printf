@@ -13,11 +13,9 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void 	compter_point_jusquau_specificateur(t_format *option, char *point_ptr) // nom en anglais : count_to_specifier
+void 	compter_point_jusquau_specificateur(t_format *option, char *point_ptr)
 {
-	//printf("compter_point_jusquau_specificateur");
-
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (point_ptr[i] != option->specifier)

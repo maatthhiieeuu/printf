@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   imprimer_entier_non_signe_sans_option.c            :+:      :+:    :+:   */
+/*   p_manage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 11:14:02 by mboegler          #+#    #+#             */
-/*   Updated: 2024/01/16 11:14:04 by mboegler         ###   ########.fr       */
+/*   Created: 2023/12/22 15:14:58 by mboegler          #+#    #+#             */
+/*   Updated: 2023/12/22 15:15:01 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	imprimer_entier_non_signe_sans_option(t_format *option)
+void	print_pointer(va_list args, int *i, int *result)
 {
-	putnbr_bonus(option, option->unsigned_number);
+	uintptr_t	recovery_address;
+
+	recovery_address = va_arg(args, uintptr_t);
+	if (recovery_address == 0)
+	{
+		write(1, "(nil)", 5);
+		*i += 1;
+		*result += 5;
+	}
+	else 
+	{
+		print_address(recovery_address, result);
+		*i += 1;
+	}
 }

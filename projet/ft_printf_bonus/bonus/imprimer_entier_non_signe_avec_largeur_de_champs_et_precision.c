@@ -14,30 +14,29 @@
 #include "ft_printf.h"
 
 static void	imprimer_precision(t_format *option);
-static void	 imprimer_largeur_de_champs(t_format *option);
+static void	imprimer_largeur_de_champs(t_format *option);
 
-void	imprimer_entier_non_signe_avec_largeur_de_champs_et_precision(t_format *option) // nom en anglais : 
+void	imprimer_entier_non_signe_avec_largeur_de_champs_et_precision(t_format *option)
 {
-    //printf("\nDébut de imprimer_entier_signe_avec_largeur_de_champs_et_precision\n");  
 	imprimer_largeur_de_champs(option);
 	imprimer_precision(option);
 	putnbr_bonus(option, option->unsigned_number);
 }
 
-static void	 imprimer_largeur_de_champs(t_format *option)
+static void	imprimer_largeur_de_champs(t_format *option)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (option->number_size < option->precision_array)
 	{
 		while (option->precision_array + i < option->space_array)
-		{ 
+		{
 			putchar_bonus(option, ' ');
 			i++;
 		}
 	}
-	else if (option->number_size > option->precision_array)	
+	else if (option->number_size > option->precision_array)
 	{
 		while (option->number_size + i < option->space_array)
 		{
@@ -49,10 +48,9 @@ static void	 imprimer_largeur_de_champs(t_format *option)
 
 static void	imprimer_precision(t_format *option)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	//printf("number_size : %ld + %d < %ld\n", option->number_size, i, option->precision_array);
 	while (option->number_size + i < option->precision_array)
 	{
 		putchar_bonus(option, '0');

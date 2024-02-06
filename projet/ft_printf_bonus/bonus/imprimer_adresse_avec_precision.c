@@ -15,8 +15,6 @@
 
 void	imprimer_adresse_avec_precision(t_format *option)
 {
-	//printf("\nDébut de imprimer_adresse_avec_precision :\n"); 
-
 	int	i;
 	int	hexaNum[17];
 	char hexadecimalMin[17];
@@ -32,7 +30,6 @@ void	imprimer_adresse_avec_precision(t_format *option)
 	}
 	i--;
 	putstr_bonus(option, "0x");
-	
 	if ((option->precision_array > 0) || (option->zero == true && option->precision == false))
 		imprimer_zero_pour_precision_adresse(option);
 	while (i >= 0)
@@ -40,4 +37,4 @@ void	imprimer_adresse_avec_precision(t_format *option)
 		putchar_bonus(option, hexadecimalMin[hexaNum[i]]);
 		i--;
 	}
-} 
+}

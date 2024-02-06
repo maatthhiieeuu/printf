@@ -15,8 +15,6 @@
 
 void	gestionnaire_adresse_avec_precision(t_format *option)
 {
-	//printf("\nDébut de gestionnaire_adresse_avec_precision : \n");
-	
 	if (option->precision_array > 0 && option->zero == false)
 		imprimer_adresse_avec_precision(option);
 	else if (option->zero == true && option->precision == false)

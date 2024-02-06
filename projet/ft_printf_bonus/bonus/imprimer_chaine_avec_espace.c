@@ -15,7 +15,7 @@
 
 void	imprimer_chaine_avec_espace(t_format *option, size_t size, char *string)
 {
-	size_t j;
+	size_t	j;
 
 	j = 0;
 	if (option->minus == false)
@@ -37,4 +37,3 @@ void	imprimer_chaine_avec_espace(t_format *option, size_t size, char *string)
 		}
 	}
 }
-

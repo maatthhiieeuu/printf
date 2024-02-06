@@ -14,19 +14,18 @@
 #include "ft_printf.h"
 
 static void	imprimer_precision(t_format *option);
-static void	 imprimer_largeur_de_champs(t_format *option);
+static void	imprimer_largeur_de_champs(t_format *option);
 
-void	imprimer_entier_signe_avec_largeur_de_champs_precision_et_minus(t_format *option) // nom en anglais : print_signed_int_with_one_space
+void	imprimer_entier_signe_avec_largeur_de_champs_precision_et_minus(t_format *option)
 {
-    //printf("\nDébut de imprimer_entier_signe_avec_largeur_de_champs_precision_et_minus\n");  
-    //compter_nombre_de_chiffre(option);
 	imprimer_precision(option);
 	putnbr_bonus(option, option->signed_number);
 	imprimer_largeur_de_champs(option);
 }
+
 static void	imprimer_precision(t_format *option)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (option->plus == true)
@@ -41,10 +40,10 @@ static void	imprimer_precision(t_format *option)
 		i++;
 	}
 }
-static void	 imprimer_largeur_de_champs(t_format *option)
-{
 
-	int i;
+static void	imprimer_largeur_de_champs(t_format *option)
+{
+	int	i;
 
 	i = 0;
 	if (option->number_size < option->precision_array)
@@ -55,7 +54,7 @@ static void	 imprimer_largeur_de_champs(t_format *option)
 			i++;
 		}
 	}
-	else if (option->number_size > option->precision_array)	
+	else if (option->number_size > option->precision_array)
 	{
 		while (option->number_size + i < option->space_array)
 		{
@@ -64,4 +63,3 @@ static void	 imprimer_largeur_de_champs(t_format *option)
 		}
 	}
 }
-

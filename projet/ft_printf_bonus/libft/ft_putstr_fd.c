@@ -22,4 +22,3 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
-//	 ecrit une chaine de caractere dans un flux specifier par fd

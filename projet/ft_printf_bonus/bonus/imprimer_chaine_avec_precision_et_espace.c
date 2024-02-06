@@ -15,8 +15,7 @@
 
 void	imprimer_chaine_avec_precision_et_espace(t_format *option, char *string, size_t size_string)
 {
-	//printf("\n\nentrez dans la fonction imprimer_chaine_avec_precision_et_espace\n\n");
-	size_t j;
+	size_t	j;
 
 	j = 0;
 	if (option->minus == false)
@@ -40,13 +39,3 @@ void	imprimer_chaine_avec_precision_et_espace(t_format *option, char *string, si
 		putnstr_bonus(option, string, option->precision_array);
 	}
 }
-
-
-
-
-
-
-
-
-
-	

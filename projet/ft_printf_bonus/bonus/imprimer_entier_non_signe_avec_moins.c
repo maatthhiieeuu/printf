@@ -13,9 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	imprimer_entier_non_signe_avec_moins(t_format *option) // nom en anglais : print_signed_int_with_minus
+void	imprimer_entier_non_signe_avec_moins(t_format *option)
 {
-    //printf("\nDébut de imprimer_entier_avec_moin\n");   
-		
-		putnbr_bonus(option, option->unsigned_number);
+	putnbr_bonus(option, option->unsigned_number);
 }

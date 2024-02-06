@@ -15,7 +15,6 @@
 
 void	imprimer_adresse_avec_plus(t_format *option)
 {
-	//printf("\nDébut de imprimer_adresse_avec_plus : \n");	
 	putchar_bonus(option, '+');
 	print_adress_bonus(option->address_int, option);
 }

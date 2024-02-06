@@ -15,13 +15,12 @@
 
 void	imprimer_adresse_avec_largeur_de_champs_et_minus(t_format *option)
 {
-	//printf("\nDébut de imprimer_adresse_avec_largeur_de_champs_et_minus :\n");     
 	size_t i;
 	
 	i = 0;
 	if ((option->specifier == 'p') && (option->address_int != 0))
 	{
-		compter_caractere_adresse(option);//nom anglais :count_char_of_address
+		compter_caractere_adresse(option);
 		if (option->space_array > 0 && option->minus == true)
 		{
 			print_adress_bonus(option->address_int, option);
@@ -32,4 +31,4 @@ void	imprimer_adresse_avec_largeur_de_champs_et_minus(t_format *option)
 			}
 		}
 	}
-} 
+}

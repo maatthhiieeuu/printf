@@ -10,17 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 #include "ft_printf.h"
 
-void 	imprimer_caractere_avec_espace(va_list args, t_format *option) // nom en anglais : print_char_with_spaces
+void 	imprimer_caractere_avec_espace(va_list args, t_format *option)
 {
-	//printf("Début de fonction de .imprimer_caractere_avec_espaces\n");
-	size_t j;
-	char character;
+	size_t	j;
+	char	character;
 
 	j = 0;
 	character = va_arg(args, int);
@@ -32,7 +28,6 @@ void 	imprimer_caractere_avec_espace(va_list args, t_format *option) // nom en a
 			j++;
 		}
 		putchar_bonus(option, character);
-		//printf("\nAprès incrémentation de option.output = %d\n", option->output);
 	}
 	else if (option->minus == true)
 	{
@@ -42,7 +37,5 @@ void 	imprimer_caractere_avec_espace(va_list args, t_format *option) // nom en a
 			putchar_bonus(option, ' ');
 			j++;
 		}
-		//printf("\nAprès incrémentation de option.output = %d\n", option->output);
 	}
-	//printf("\noption.output = %d\n", option->output);
 }

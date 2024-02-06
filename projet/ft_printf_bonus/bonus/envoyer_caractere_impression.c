@@ -10,18 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 #include "ft_printf.h"
 
-void    envoyer_caractere_impression(va_list args, t_format *option) // nom en anglais : manage_char_option
+void	envoyer_caractere_impression(va_list args, t_format *option)
 {
-    //printf("\n*envoyer_caractere_impression*\n");
-    if (option->space_array > 0)
-        imprimer_caractere_avec_espace(args, option);
-    else
-        imprimer_caractere_sans_flag(args, option);
+	if (option->space_array > 0)
+		imprimer_caractere_avec_espace(args, option);
+	else
+		imprimer_caractere_sans_flag(args, option);
 }
-/**/

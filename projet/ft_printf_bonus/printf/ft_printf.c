@@ -18,23 +18,23 @@ static void	dispatch(const char *format, va_list args, int *i, int *result)
 	if (!format)
 		return ;
 	if (format[*i + 1] == 'c')
-		print_character(format, args, i, result);
+		print_character(args, i, result);
 	else if (format[*i + 1] == 's')
-		print_string(format, args, i, result);
+		print_string(args, i, result);
 	else if (format[*i + 1] == 'p')
-		print_pointer(format, args, i, result);
+		print_pointer(args, i, result);
 	else if (format[*i + 1] == 'd')
-		print_signed_int(format, args, i, result);
+		print_signed_int(args, i, result);
 	else if (format[*i + 1] == 'i')
-		print_integer(format, args, i, result);
+		print_integer(args, i, result);
 	else if (format[*i + 1] == 'u')
-		print_unsigned_int(format, args, i, result);
+		print_unsigned_int(args, i, result);
 	else if (format[*i + 1] == 'x')
-		print_hex_lowercase(format, args, i, result);
+		print_hex_lowercase(args, i, result);
 	else if (format[*i + 1] == 'X')
-		print_hex_uppercase(format, args, i, result);
+		print_hex_uppercase(args, i, result);
 	else if (format[*i + 1] == '%')
-		print_percent_sign(format, i, result);
+		print_percent_sign(i, result);
 }
 
 int	ft_printf(const char *format, ...)
@@ -46,6 +46,8 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	result = 0;
 	va_start (args, format);
+	if (format == NULL)
+		return (-1);
 	while (format[i])
 	{
 		if ((format[i] == '%') || (format[i] == 92))

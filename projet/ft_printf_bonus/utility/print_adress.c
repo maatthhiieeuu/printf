@@ -13,10 +13,8 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_adress(uintptr_t num, int *result)
+void	print_address(uintptr_t num, int *result)
 {
-	//printf("3");
-
 	int		i;
 	int		hexa_num[50];
 	char	hexadecimal_min[17];

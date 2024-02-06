@@ -17,7 +17,6 @@ static void	imprimer_espace_pour_largeur_de_champs(t_format *option);
 
 void	imprimer_entier_signe_avec_largeur_de_champs_et_plus(t_format *option)
 {
-	//printf("\nDébut de imprimer_entier_signe_avec_largeur_de_champs_et_plus : \n");
 	compter_nombre_de_chiffre(option);
 	if (option->plus == true)
 		option->space_array -= 1;
@@ -34,7 +33,7 @@ void	imprimer_entier_signe_avec_largeur_de_champs_et_plus(t_format *option)
 			putchar_bonus(option, '+');
 		putnbr_bonus(option, option->signed_number);
 		imprimer_espace_pour_largeur_de_champs(option);
-	}	
+	}
 }
 static void	imprimer_espace_pour_largeur_de_champs(t_format *option)
 {

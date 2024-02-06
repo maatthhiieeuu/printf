@@ -15,8 +15,6 @@
 
 void	decimal_to_hex(int num, char minmax, int *result)
 {
-	//printf("2");
-
 	int		i;
 	int		hexa_num[50];
 	char	table_hexadecimal[17];

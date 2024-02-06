@@ -35,5 +35,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (src_len);
 }
-//	strlcpy est utilise pour copier des chaine de maniere securisee (elle 
-//	verifie le tampon)

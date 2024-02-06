@@ -13,11 +13,8 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	imprimer_entier_signe_avec_plus(t_format *option) // nom en anglais : print_signed_int_with_plus
+void	imprimer_entier_signe_avec_plus(t_format *option)
 {
-    //printf("\nDébut de imprimer_entier_signe_avec_plus\n");   
-		putchar_bonus(option, '+');
-		putnbr_bonus(option, option->signed_number);
-		
-	
+	putchar_bonus(option, '+');
+	putnbr_bonus(option, option->signed_number);
 }

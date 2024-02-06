@@ -41,7 +41,6 @@ static void	compter_nombre_de_chiffre_non_signe(t_format *option, size_t *i)
 
 void	compter_nombre_de_chiffre(t_format *option)
 {
-	//printf("compter_nombre_de_chiffre");
 	size_t	i;
 
 	i = 0;
@@ -50,4 +49,3 @@ void	compter_nombre_de_chiffre(t_format *option)
 	if (option->specifier == 'u')
 		compter_nombre_de_chiffre_non_signe(option, &i);
 }
-

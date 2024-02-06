@@ -207,7 +207,7 @@ int main(void)
 	result_Ft = ft_printf("FT :%%8.-5X = *%8.-5X*\n", x);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-
+/*
 
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%x   ---|||   *\n\n\n");
@@ -381,7 +381,7 @@ int main(void)
 	result_Ft = ft_printf("FT :%%8.-5x = *%8.-5x*\n", x);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-
+/*
 
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%u   ---|||   *\n\n\n");
@@ -732,7 +732,7 @@ int main(void)
 
 
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
-	printf("*   |||---   BONUS : %%d   ---|||   *\n\n\n");
+	printf("*   |||---   BONUS : %%i   ---|||   *\n\n\n");
 
 	result_Or = printf("OR :%%i = *%i*\n", n);
 	result_Ft = ft_printf("FT :%%i = *%i*\n", n);
@@ -907,6 +907,11 @@ int main(void)
 
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%p   ---|||   *\n\n\n");
+
+	result_Or = printf("OR :%%2.1p = *%2.1p*\n", ptr);
+	result_Ft = ft_printf("FT :%%2.1p = *%2.1p*\n", ptr);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
 
 	result_Or = printf("OR :%%16p = *%16p*\n", ptr);
 	result_Ft = ft_printf("FT :%%16p = *%16p*\n", ptr);
@@ -1095,7 +1100,7 @@ int main(void)
 	printf("result Ft = %d\n\n", result_Ft);
 	   
 
-	printf("\n\n\n  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
+	printf("\n\n  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   OBLIGATOIRE   ---|||   *\n\n\n");
 
 	result_Or = printf("OR :%%p = *%p*\n", null_ptr);
@@ -1153,4 +1158,20 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
+	result_Or = printf("OR :%%c = *%c*\n");
+	result_Ft = ft_printf("FT :%%c = *%c*\n");
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+	result_Or = printf("");
+	result_Ft = ft_printf("");
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+	result_Or = printf("", lettre);
+	result_Ft = ft_printf("", lettre);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+*/
 	}

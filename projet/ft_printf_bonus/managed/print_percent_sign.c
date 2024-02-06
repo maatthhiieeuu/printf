@@ -13,14 +13,10 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void	print_percent_sign(const char *format, int *i, int *result)
+void	print_percent_sign(int *i, int *result)
 {
-	//printf("print_percent_sign");
+	ft_putchar_fd('%', 1);
+	*i += 1;
+	*result += 1;
 
-	if (format[*i + 1] == '%')
-	{
-		ft_putchar_fd('%', 1);
-		*i += 1;
-		*result += 1;
-	}
 }

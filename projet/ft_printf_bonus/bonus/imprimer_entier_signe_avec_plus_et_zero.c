@@ -17,7 +17,6 @@ static void	imprimer_zero_pour_largeur_de_champs(t_format *option);
 
 void	imprimer_entier_signe_avec_plus_et_zero(t_format *option)
 {
-	//printf("\nDébut de imprimer_entier_signe_avec_plus_et_zero : \n");
 	compter_nombre_de_chiffre(option);
 	if (option->plus == true)
 		option->space_array -= 1;
@@ -38,7 +37,7 @@ void	imprimer_entier_signe_avec_plus_et_zero(t_format *option)
 }
 static void	imprimer_zero_pour_largeur_de_champs(t_format *option)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (option->zero == true && option->minus == false)

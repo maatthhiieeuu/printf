@@ -15,14 +15,12 @@
 
 void	imprimer_adresse_avec_largeur_de_champs(t_format *option)
 {
-	//printf("\nDébut de imprimer_adresse_avec_largeur_de_champs :\n");     
-	size_t i;
+	size_t	i;
 
-	
 	i = 0;
 	if ((option->specifier == 'p') && (option->address_int != 0))
 	{
-		compter_caractere_adresse(option);//nom anglais :count_char_of_address
+		compter_caractere_adresse(option);
 		if (option->space_array > 0 && option->minus == false)
 		{
 			while (i + option->address_size < option->space_array)

@@ -23,5 +23,3 @@ size_t	ft_strlen(const char *str)
 	}
 	return (i);
 }
-//	strlen compte le nombre de caractere dans une chaine en comptant le 
-//	caractere de fin de chaine 

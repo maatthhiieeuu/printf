@@ -15,10 +15,9 @@
 
 void	imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option)
 {
-	//printf("\nDébut de imprimer_adresse_avec_precision_et_largeur_de_champs :\n"); 
 	size_t i;
 
-	i = 0; 
+	i = 0;
 	if (option->minus == false)
 	{
 		option->space_array -= 2;
@@ -27,7 +26,6 @@ void	imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option)
 			putchar_bonus(option, ' ');
 			i++;
 		}
-		
 		imprimer_adresse_avec_precision(option);
 	}
 	else if (option->minus == true)
@@ -40,4 +38,4 @@ void	imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option)
 			i++;
 		}
 	}
-} 
+}

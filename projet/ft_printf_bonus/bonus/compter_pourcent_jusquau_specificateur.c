@@ -13,13 +13,11 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-void 	compter_pourcent_jusquau_specificateur(const char *format, t_format *option) // nom en anglais : count_to_specifier
+void 	compter_pourcent_jusquau_specificateur(const char *format, t_format *option)
 {
-	//printf("compter_pourcent_jusquau_specificateur");
+	size_t	i;
 
-	size_t i;
-
-	i = 0; 
+	i = 0;
 	while (format[i] != option->specifier)
 	{
 		i++;
