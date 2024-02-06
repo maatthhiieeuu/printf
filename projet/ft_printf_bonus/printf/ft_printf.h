@@ -42,9 +42,7 @@ typedef struct	s_format
 	bool					plus;
 }t_format;
 
-/*----------------------      PARTIE OBLIGATOIRE                   ----------------------------*/
-
-int		ft_printf(const char *format, ...);
+int	ft_printf(const char *format, ...);
 void	print_character(va_list args, int *i, int *result);
 void	print_hex_lowercase(va_list args, int *i, int *result);
 void	print_hex_uppercase(va_list args, int *i, int *result);
@@ -56,87 +54,69 @@ void	print_string(va_list args, int *i, int *result);
 void	print_unsigned_int(va_list args, int *i, int *result);
 void	decimal_to_hex(int num, char minmax, int *result);
 void	print_address(uintptr_t num, int *result);
-void    put_count_string(char *s, int *result);
+void	put_count_string(char *s, int *result);
 void	put_unbr(unsigned int n, int *result);
 void	putnbr_upper_nine(int n, int *result);
-
-/*-----------------------         PARTIE BONUS                -------------------------*/
-
-void	compter_caractere_adresse(t_format *option);
-void	compter_nombre_de_chiffre(t_format *option);
-void	compter_point_jusquau_specificateur(t_format *option, char *point_ptr);
-void	compter_pourcent_jusquau_specificateur(const char *format, t_format *option);
-
-void	coordination_distribution_sommaire(const char *format, va_list args, int *i, t_format *option);
-void	coordination_initialisation_structure(const char *format, va_list args, int *i, int *result);
-
-void	envoyer_caractere_impression(va_list args, t_format *option);
-
-void	gestionnaire_adresse_avec_largeur_de_champs(t_format *option);
-void	gestionnaire_adresse_avec_option(va_list args, t_format *option);
-void	gestionnaire_adresse_avec_precision(t_format *option);
-void	gestionnaire_chaine_avec_option(va_list args, t_format *option);
-
-void	gestionnaire_entier_non_signe_avec_largeur_de_champs_et_precision(t_format *option);
-void	gestionnaire_entier_non_signe_avec_option(const char *format, va_list args, int *i, t_format *option);
-void	gestionnaire_entier_non_signe_avec_precision(t_format *option);
-
-void	gestionnaire_entier_signe_avec_largeur_de_champs(t_format *option);
-void	gestionnaire_entier_signe_avec_largeur_de_champs_et_precision(t_format *option);
-void	gestionnaire_entier_signe_avec_option(const char *format, va_list args, int *i, t_format *option);
-
-
-void	gestionnaire_hexadecimal_majuscule(const char *format, va_list args, int *i, t_format *option);
-void	gestionnaire_hexadecimal_minuscule(const char *format, va_list args, int *i, t_format *option);
-
-void	imprimer_entier_non_signe_avec_largeur_de_champs_et_precision(t_format *option);
-void	imprimer_entier_non_signe_avec_largeur_de_champs(t_format *option);
-void	imprimer_entier_non_signe_avec_largeur_de_champs_precision_et_minus(t_format *option);
-void	imprimer_entier_non_signe_avec_moins(t_format *option);
-void	imprimer_entier_non_signe_avec_precision(t_format *option);
-void	imprimer_entier_non_signe_sans_option(t_format *option);
-
-void	imprimer_entier_signe_avec_espace(t_format *option);
-void	imprimer_entier_signe_avec_largeur_de_champs_et_plus(t_format *option);
-void	imprimer_entier_signe_avec_largeur_de_champs_et_precision(t_format *option);
-void	imprimer_entier_signe_avec_largeur_de_champs_precision_et_minus(t_format *option);
-void	imprimer_entier_signe_avec_moins(t_format *option);
-void	imprimer_entier_signe_avec_plus_et_zero(t_format *option);
-void	imprimer_entier_signe_avec_plus(t_format *option);
-void	imprimer_entier_signe_avec_precision(t_format *option);
-void	imprimer_entier_signe_sans_option(t_format *option);
-
-void	imprimer_adresse_avec_largeur_de_champs(t_format *option);
-void	imprimer_adresse_avec_largeur_de_champs_et_minus(t_format *option);
-void	imprimer_adresse_avec_plus(t_format *option);
-void	imprimer_adresse_avec_precision(t_format *option);
-void	imprimer_adresse_avec_precision_et_largeur_de_champs(t_format *option);
-void	imprimer_adresse_avec_un_espace(t_format *option);
-
-void	imprimer_caractere_avec_espace(va_list args, t_format *option);
-void	imprimer_caractere_sans_flag(va_list args, t_format *option);
-
-void	imprimer_chaine_avec_espace(t_format *option, size_t size, char *string);
-void	imprimer_chaine_avec_minus_precision_et_espace(t_format *option, char *string, size_t size_string);
-void	imprimer_chaine_avec_precision_et_espace(t_format *option, char *string, size_t size_string);
-void	imprimer_hexadecimal_majuscule(t_format *option);
-void	imprimer_hexadecimal_minuscule(t_format *option);
-void	imprimer_format_brut(const char *format, int *i, t_format *option);
-void	imprimer_zero_pour_precision_adresse(t_format *option);
-void	initialisation_par_default_structure(t_format *option);
-
-void	print_adress_bonus(uintptr_t num, t_format *option);
+void	address_option_manager(va_list args, t_format *option);
+void	address_precision_manager(t_format *option);
+void	address_width_manager(t_format *option);
+void	count_address_characters(t_format *option);
+void	count_digits(t_format *option);
+void 	count_percent_to_specifier(const char *format, t_format *option);
+void 	count_point_to_specifier(t_format *option, char *point_ptr);
+void	default_structure_initialization(t_format *option);
+void	field_size_recovery(const char *s, t_format *option);
+void	flags_search(const char *format, int i, t_format *option);
+void	lowercase_hexadecimal_manager(const char *format, va_list args, int *i, t_format *option);
+void	negative_precision_search(const char *point_ptr, t_format *option);
+void	precision_size_recovery(const char *point_ptr, t_format *option);
+void	precision_space_value_search(const char *format, int i, t_format *option);
+void	print_address_bonus(uintptr_t num, t_format *option);
+void	print_address_with_a_space(t_format *option);
+void	print_address_with_field_width(t_format *option);
+void	print_address_with_field_width_and_minus(t_format *option);
+void	print_address_with_plus(t_format *option);
+void	print_address_with_precision(t_format *option);
+void	print_address_with_precision_and_field_width(t_format *option);
+void 	print_character_with_space(va_list args, t_format *option);
+void	print_character_without_flag(va_list args, t_format *option);
+void	print_lowercase_hexadecimal(t_format *option);
+void	print_raw_format(const char *format, int *i, t_format *option);
+void	print_signed_integer_with_field_width_and_plus(t_format *option);
+void	print_signed_integer_with_field_width_and_precision(t_format *option);
+void	print_signed_integer_with_field_width_precision_and_minus(t_format *option);
+void	print_signed_integer_with_minus(t_format *option);
+void	print_signed_integer_with_plus(t_format *option);
+void	print_signed_integer_with_plus_and_zero(t_format *option);
+void	print_signed_integer_with_precision(t_format *option);
+void	print_signed_integer_with_space(t_format *option);
+void	print_signed_integer_without_option(t_format *option);
+void	print_string_with_minus_precision_and_space(t_format *option, char *string, size_t size_string);
+void	print_string_with_precision_and_space(t_format *option, char *string, size_t size_string);
+void	print_string_with_space(t_format *option, size_t size, char *string);
+void	print_unsigned_integer_with_field_width(t_format *option);
+void	print_unsigned_integer_with_field_width_and_precision(t_format *option);
+void	print_unsigned_integer_with_field_width_precision_and_minus(t_format *option);
+void	print_unsigned_integer_with_minus(t_format *option);
+void	print_unsigned_integer_with_precision(t_format *option);
+void	print_unsigned_integer_without_option(t_format *option);
+void	print_uppercase_hexadecimal(t_format *option);
+void	print_zeros_for_address_precision(t_format *option);
+void	putchar_bonus(t_format *option, char c);
 void	putnbr_bonus(t_format *option, int n);
 void	putnstr_bonus(t_format *option, char *s, int n);
 void	putstr_bonus(t_format *option, char *s);
-void	putchar_bonus(t_format *option, char c);
-
-void	recherche_drapeaux(const char *format, int i, t_format *option);
-void	recherche_precision_negative(const char *point_ptr, t_format *option);
-void	recherche_specificateur(const char *format, int i, t_format *option);
-void	recherche_valeur_espace_precision(const char *format, int i, t_format *option);
-
-void	recuperation_taille_champs(const char *s, t_format *option);
-void	recuperation_taille_precision(const char *s, t_format *option);
+void	send_character_for_printing(va_list args, t_format *option);
+void	signed_integer_field_width_manager(t_format *option);
+void	signed_integer_option_manager(const char *format, va_list args, int *i, t_format *option);
+void	signed_integer_width_and_precision_manager(t_format *option);
+void	specifier_search(const char *format, int i, t_format *option);
+void	string_option_manager(va_list args, t_format *option);
+void	structure_initialization_coordination(const char *format, va_list args, int *i, int *result);
+void	summary_distribution_coordination(const char *format, va_list args, int *i, t_format *option);
+void	unsigned_integer_option_manager(const char *format, va_list args, int *i, t_format *option);
+void	unsigned_integer_width_and_precision_manager(t_format *option);
+void	uppercase_hexadecimal_manager(const char *format, va_list args, int *i, t_format *option);
 
 #endif
+

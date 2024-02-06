@@ -34,7 +34,7 @@ int main(void)
 		main // Pointeur vers une fonction
 	};
 	size_t num_pointers = sizeof(pointers) / sizeof(void *);
-	
+
 	printf("   _     _     _     _ \n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%X   ---|||   *\n\n\n");
 
@@ -207,7 +207,7 @@ int main(void)
 	result_Ft = ft_printf("FT :%%8.-5X = *%8.-5X*\n", x);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-/*
+
 
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%x   ---|||   *\n\n\n");
@@ -1172,6 +1172,6 @@ int main(void)
 	result_Ft = ft_printf("", lettre);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-
 */
+
 	}

@@ -13,29 +13,7 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-static void	dispatch(const char *format, va_list args, int *i, int *result)
-{
-	if (!format)
-		return ;
-	if (format[*i + 1] == 'c')
-		print_character(args, i, result);
-	else if (format[*i + 1] == 's')
-		print_string(args, i, result);
-	else if (format[*i + 1] == 'p')
-		print_pointer(args, i, result);
-	else if (format[*i + 1] == 'd')
-		print_signed_int(args, i, result);
-	else if (format[*i + 1] == 'i')
-		print_integer(args, i, result);
-	else if (format[*i + 1] == 'u')
-		print_unsigned_int(args, i, result);
-	else if (format[*i + 1] == 'x')
-		print_hex_lowercase(args, i, result);
-	else if (format[*i + 1] == 'X')
-		print_hex_uppercase(args, i, result);
-	else if (format[*i + 1] == '%')
-		print_percent_sign(i, result);
-}
+static void	dispatch(const char *format, va_list args, int *i, int *result);
 
 int	ft_printf(const char *format, ...)
 {
@@ -61,4 +39,28 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (result);
+}
+
+static void	dispatch(const char *format, va_list args, int *i, int *result)
+{
+	if (!format)
+		return ;
+	if (format[*i + 1] == 'c')
+		print_character(args, i, result);
+	else if (format[*i + 1] == 's')
+		print_string(args, i, result);
+	else if (format[*i + 1] == 'p')
+		print_pointer(args, i, result);
+	else if (format[*i + 1] == 'd')
+		print_signed_int(args, i, result);
+	else if (format[*i + 1] == 'i')
+		print_integer(args, i, result);
+	else if (format[*i + 1] == 'u')
+		print_unsigned_int(args, i, result);
+	else if (format[*i + 1] == 'x')
+		print_hex_lowercase(args, i, result);
+	else if (format[*i + 1] == 'X')
+		print_hex_uppercase(args, i, result);
+	else if (format[*i + 1] == '%')
+		print_percent_sign(i, result);
 }

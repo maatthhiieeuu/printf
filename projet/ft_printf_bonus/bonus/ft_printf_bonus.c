@@ -36,7 +36,7 @@ static void	dispatch(const char *format, va_list args, int *i, int *result)
 	else if (format[*i + 1] == '%')
 		print_percent_sign(i, result);
 	else 
-		coordination_initialisation_structure(format, args, i, result);
+		structure_initialization_coordination(format, args, i, result);
 }
 
 int	ft_printf(const char *format, ...)

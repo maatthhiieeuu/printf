@@ -25,7 +25,7 @@ SRCS =  $(FT_PRINTF) \
 		$(MANAGED_DIR)print_string.c \
 		$(MANAGED_DIR)print_unsigned_int.c \
 		$(UTILITY_DIR)decimal_to_hex.c \
-		$(UTILITY_DIR)print_adress.c \
+		$(UTILITY_DIR)print_address.c \
 		$(UTILITY_DIR)put_count_string.c \
 		$(UTILITY_DIR)put_unbr.c \
 		$(UTILITY_DIR)putnbr_upper_nine.c
@@ -43,70 +43,71 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(MANAGED_DIR)print_string.c \
 			 $(MANAGED_DIR)print_unsigned_int.c \
 			 $(UTILITY_DIR)decimal_to_hex.c \
-			 $(UTILITY_DIR)print_adress.c \
+			 $(UTILITY_DIR)print_address.c \
 			 $(UTILITY_DIR)put_count_string.c \
 			 $(UTILITY_DIR)put_unbr.c \
 			 $(UTILITY_DIR)putnbr_upper_nine.c \
-			 $(BONUS_DIR)compter_caractere_adresse.c \
-			 $(BONUS_DIR)compter_nombre_de_chiffre.c \
-			 $(BONUS_DIR)compter_point_jusquau_specificateur.c \
-			 $(BONUS_DIR)compter_pourcent_jusquau_specificateur.c \
-			 $(BONUS_DIR)coordination_distribution_sommaire.c \
-			 $(BONUS_DIR)coordination_initialisation_structure.c \
-			 $(BONUS_DIR)envoyer_caractere_impression.c \
-			 $(BONUS_DIR)gestionnaire_adresse_avec_largeur_de_champs.c \
-			 $(BONUS_DIR)gestionnaire_adresse_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_adresse_avec_precision.c \
-			 $(BONUS_DIR)gestionnaire_chaine_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_largeur_de_champs_et_precision.c \
-			 $(BONUS_DIR)gestionnaire_entier_non_signe_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs.c \
-			 $(BONUS_DIR)gestionnaire_entier_signe_avec_largeur_de_champs_et_precision.c \
-			 $(BONUS_DIR)gestionnaire_entier_signe_avec_option.c \
-			 $(BONUS_DIR)gestionnaire_hexadecimal_majuscule.c \
-			 $(BONUS_DIR)gestionnaire_hexadecimal_minuscule.c \
-			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs.c \
-			 $(BONUS_DIR)imprimer_adresse_avec_largeur_de_champs_et_minus.c \
-			 $(BONUS_DIR)imprimer_adresse_avec_plus.c \
-			 $(BONUS_DIR)imprimer_adresse_avec_precision.c \
-			 $(BONUS_DIR)imprimer_adresse_avec_precision_et_largeur_de_champs.c \
-			 $(BONUS_DIR)imprimer_adresse_avec_un_espace.c \
-			 $(BONUS_DIR)imprimer_caractere_avec_espace.c \
-			 $(BONUS_DIR)imprimer_caractere_sans_flag.c \
-			 $(BONUS_DIR)imprimer_chaine_avec_espace.c \
-			 $(BONUS_DIR)imprimer_chaine_avec_minus_precision_et_espace.c \
-			 $(BONUS_DIR)imprimer_chaine_avec_precision_et_espace.c \
-			 $(BONUS_DIR)imprimer_entier_non_signe_avec_largeur_de_champs_et_precision.c \
-			 $(BONUS_DIR)imprimer_entier_non_signe_avec_largeur_de_champs_precision_et_minus.c \
-			 $(BONUS_DIR)imprimer_entier_non_signe_avec_largeur_de_champs.c \
-			 $(BONUS_DIR)imprimer_entier_non_signe_avec_moins.c \
-			 $(BONUS_DIR)imprimer_entier_non_signe_avec_precision.c \
-			 $(BONUS_DIR)imprimer_entier_non_signe_sans_option.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_espace.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_largeur_de_champs_et_plus.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_largeur_de_champs_et_precision.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_largeur_de_champs_precision_et_minus.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_moins.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_plus_et_zero.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_plus.c \
-			 $(BONUS_DIR)imprimer_entier_signe_avec_precision.c \
-			 $(BONUS_DIR)imprimer_entier_signe_sans_option.c \
-			 $(BONUS_DIR)imprimer_format_brut.c \
-			 $(BONUS_DIR)imprimer_hexadecimal_majuscule.c \
-			 $(BONUS_DIR)imprimer_hexadecimal_minuscule.c \
-			 $(BONUS_DIR)imprimer_zero_pour_precision_adresse.c \
-			 $(BONUS_DIR)initialisation_par_default_structure.c \
-			 $(BONUS_DIR)print_adress_bonus.c \
+			 $(BONUS_DIR)address_option_manager.c \
+			 $(BONUS_DIR)address_precision_manager.c \
+			 $(BONUS_DIR)address_width_manager.c \
+			 $(BONUS_DIR)count_address_characters.c \
+			 $(BONUS_DIR)count_digits.c \
+			 $(BONUS_DIR)count_percent_to_specifier.c \
+			 $(BONUS_DIR)count_point_to_specifier.c \
+			 $(BONUS_DIR)default_structure_initialization.c \
+			 $(BONUS_DIR)field_size_recovery.c \
+			 $(BONUS_DIR)flags_search.c \
+			 $(BONUS_DIR)flags_search.c \
+			 $(BONUS_DIR)lowercase_hexadecimal_manager.c \
+			 $(BONUS_DIR)negative_precision_search.c \
+			 $(BONUS_DIR)precision_size_recovery.c \
+			 $(BONUS_DIR)precision_space_value_search.c \
+			 $(BONUS_DIR)print_address_bonus.c \
+			 $(BONUS_DIR)print_address_with_a_space.c \
+			 $(BONUS_DIR)print_address_with_field_width_and_minus.c \
+			 $(BONUS_DIR)print_address_with_field_width.c \
+			 $(BONUS_DIR)print_address_with_plus.c \
+			 $(BONUS_DIR)print_address_with_precision_and_field_width.c \
+			 $(BONUS_DIR)print_address_with_precision.c \
+			 $(BONUS_DIR)print_character_without_flag.c \
+			 $(BONUS_DIR)print_character_with_space.c \
+			 $(BONUS_DIR)print_lowercase_hexadecimal.c \
+			 $(BONUS_DIR)print_raw_format.c \
+			 $(BONUS_DIR)print_signed_integer_with_field_width_and_plus.c \
+			 $(BONUS_DIR)print_signed_integer_with_field_width_and_precision.c \
+			 $(BONUS_DIR)print_signed_integer_with_field_width_precision_and_minus.c \
+			 $(BONUS_DIR)print_signed_integer_with_minus.c \
+			 $(BONUS_DIR)print_signed_integer_without_option.c \
+			 $(BONUS_DIR)print_signed_integer_with_plus_and_zero.c \
+			 $(BONUS_DIR)print_signed_integer_with_plus.c \
+			 $(BONUS_DIR)print_signed_integer_with_precision.c \
+			 $(BONUS_DIR)print_signed_integer_with_space.c \
+			 $(BONUS_DIR)print_string_with_minus_precision_and_space.c \
+			 $(BONUS_DIR)print_string_with_precision_and_space.c \
+			 $(BONUS_DIR)print_string_with_space.c \
+			 $(BONUS_DIR)print_unsigned_integer_with_field_width_and_precision.c \
+			 $(BONUS_DIR)print_unsigned_integer_with_field_width.c \
+			 $(BONUS_DIR)print_unsigned_integer_with_field_width_precision_and_minus.c \
+			 $(BONUS_DIR)print_unsigned_integer_with_minus.c \
+			 $(BONUS_DIR)print_unsigned_integer_without_option.c \
+			 $(BONUS_DIR)print_unsigned_integer_with_precision.c \
+			 $(BONUS_DIR)print_uppercase_hexadecimal.c \
+			 $(BONUS_DIR)print_zeros_for_address_precision.c \
+			 $(BONUS_DIR)putchar_bonus.c \
 			 $(BONUS_DIR)putnbr_bonus.c \
 			 $(BONUS_DIR)putnstr_bonus.c \
 			 $(BONUS_DIR)putstr_bonus.c \
-			 $(BONUS_DIR)putchar_bonus.c \
-			 $(BONUS_DIR)recherche_precision_negative.c \
-			 $(BONUS_DIR)recherche_drapeaux.c \
-			 $(BONUS_DIR)recherche_specificateur.c \
-			 $(BONUS_DIR)recherche_valeur_espace_precision.c \
-			 $(BONUS_DIR)recuperation_taille_champs.c \
-			 $(BONUS_DIR)recuperation_taille_precision.c 
+			 $(BONUS_DIR)send_character_for_printing.c \
+			 $(BONUS_DIR)signed_integer_field_width_manager.c \
+			 $(BONUS_DIR)signed_integer_option_manager.c \
+			 $(BONUS_DIR)signed_integer_width_and_precision_manager.c \
+			 $(BONUS_DIR)specifier_search.c \
+			 $(BONUS_DIR)string_option_manager.c \
+			 $(BONUS_DIR)structure_initialization_coordination.c \
+			 $(BONUS_DIR)summary_distribution_coordination.c \
+			 $(BONUS_DIR)unsigned_integer_option_manager.c \
+			 $(BONUS_DIR)unsigned_integer_width_and_precision_manager.c \
+			 $(BONUS_DIR)uppercase_hexadecimal_manager.c \
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
