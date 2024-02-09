@@ -18,6 +18,8 @@ static void	with_minus(t_format *option);
 
 void	print_address_with_precision_and_field_width(t_format *option)
 {
+	count_address_characters(option);
+	printf("%zu", option->address_size);
 	if (option->minus == false)
 		without_minus(option);
 	else if (option->minus == true)
@@ -30,25 +32,27 @@ static void	without_minus(t_format *option)
 
 	i = 0;
 	option->space_array -= 2;
-	if (option->precision_array >= 16)
+	if (option->precision_array >= option->address_size)
 	{
-		while (option->precision_array + i < option->space_array)
+		{
+			while (option->precision_array + i < option->space_array)
+			{
+				putchar_bonus(option, ' ');
+				i += 1;
+			}
+			print_address_with_precision(option);
+		}
+	}
+	else if (option->precision_array < option->address_size)
+	{
+		while (option->address_size + i - 3 < option->space_array)
 		{
 			putchar_bonus(option, ' ');
 			i += 1;
 		}
 		print_address_with_precision(option);
 	}
-	else
-	{
-		while (option->precision_array + i < option->space_array)
-		{
-			putchar_bonus(option, ' ');
-			i += 1;
-		}
-		print_address_with_precision(option);
-	}
-}       
+}
 
 static void	with_minus(t_format *option)
 {
@@ -57,7 +61,7 @@ static void	with_minus(t_format *option)
 	i = 0;
 	print_address_with_precision(option);
 	option->space_array -= 2;
-	if (option->precision_array >= 16)
+	if (option->precision_array >= option->address_size)
 	{
 		while (option->precision_array + i < option->space_array)
 		{
@@ -65,12 +69,12 @@ static void	with_minus(t_format *option)
 			i++;
 		}
 	}
-	else
+	else if (option->precision_array < option->address_size)
 	{
-		while (option->precision_array + i < option->space_array)
+		while (option->address_size + i - 3 < option->space_array)
 		{
 			putchar_bonus(option, ' ');
 			i += 1;
 		}
 	}
-}// - (16 - option->precision_array)
+}

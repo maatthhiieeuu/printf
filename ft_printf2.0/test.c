@@ -1047,7 +1047,7 @@ int main(void)
 	result_Ft = ft_printf("FT :%%-12.19p = *%-12.19p*\n", ptr);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-
+/*
 	for (size_t i = 0; i < num_pointers; i++) 
 	{
 		result_Or = printf("OR :%%p = *%p*\n", pointers[i]);
@@ -1056,7 +1056,7 @@ int main(void)
 		printf("result Ft = %d\n\n", result_Ft);
 	}
 
-/*
+
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%s   ---|||   *\n\n\n");
 
