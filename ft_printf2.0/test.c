@@ -1,24 +1,68 @@
-	#include <stdarg.h>
-	#include <unistd.h>
-	#include <stdio.h>
-	#include "libft/libft.h"
-	#include "printf/ft_printf.h"
+/*#include "../obligatory/printf/ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+    // Comparaison pour les entiers signés
+    printf("test 1 : Or INT_MAX: %d\n", INT_MAX);
+    ft_printf("test 1 : ft INT_MAX: %d\n\n", INT_MAX);
+    printf("test 2 : Or INT_MIN: %d\n", INT_MIN);
+    ft_printf("test 2 : ft INT_MIN: %d\n\n", INT_MIN);
+
+    // Comparaison pour les entiers non signés
+    printf("test 3 : Or UINT_MAX: %u\n", UINT_MAX);
+    ft_printf("test 3 : ft UINT_MAX: %u\n\n", UINT_MAX);
+
+    // Comparaison pour les pointeurs
+    void *ptr = (void *)ULONG_MAX;
+    printf("test 7 : Or Pointer: %p\n", ptr);
+    ft_printf("test 7 : ft Pointer: %p\n\n", ptr);
+
+    // Comparaison pour caractères et chaînes de caractères
+    printf("test 8 : Or Character: %c\n", 'A');
+    ft_printf("test 8 : ft Character: %c\n\n", 'A');
+    printf("test 9 : Or String: %s\n", "Test string");
+    ft_printf("test 9 : ft String: %s\n\n", "Test string");
+
+    // Comparaison pour les hexadécimaux
+    printf("test 10 : Or Hex (lowercase): %x\n", UINT_MAX);
+    ft_printf("test 10 : ft Hex (lowercase): %x\n\n", UINT_MAX);
+    printf("test 11 : Or Hex (uppercase): %X\n", UINT_MAX);
+    ft_printf("test 11 : ft Hex (uppercase): %X\n\n", UINT_MAX);
+
+    // Comparaison pour le pourcentage
+    printf("test 12 : Or Percent: %%\n");
+    ft_printf("test 12 : ft Percent: %%\n\n");
+
+    return 0;
+}
+
+*/
+
+
+#include <stdarg.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <limits.h>
+#include "libft/libft.h"
+#include "../obligatory/printf/ft_printf.h"
 
 int main(void)
 {
 	int result_Or = -1;
 	int result_Ft = -1;
-	int x = 1234567891;
+	int x = UINT_MAX;
 	int var1 = 42;
-	int n = 32;
-	int u = 32;
+	int n = INT_MAX;
+	int u = UINT_MAX;
 	char var2 = 'A';
 	float var3 = 3.14f;
 	double var4 = 6.28;
 	int array[5] = {1, 2, 3, 4, 5};
 	char *str = "Hello, world!";
 	char lettre = 'A';
-	char *ptr = &lettre;
+	char *ptr = (void *)ULONG_MAX;
 	char phrase[] = "la coccinelle de 3cm";
 	char *null_ptr = NULL;
 	void *pointers[] = 
@@ -381,8 +425,8 @@ int main(void)
 	result_Ft = ft_printf("FT :%%8.-5x = *%8.-5x*\n", x);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-*/
-/*
+
+
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%u   ---|||   *\n\n\n");
 
@@ -695,6 +739,11 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
+	result_Or = printf("OR :%% +8.5d = *% +8.5d*\n", n);
+	result_Ft = ft_printf("FT :%% +8.5d = *% +8.5d*\n", n);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
 	result_Or = printf("OR :%%# 8.5d = *%# 8.5d*\n", n);
 	result_Ft = ft_printf("FT :%%# 8.5d = *%# 8.5d*\n", n);
 	printf("result Or = %d\n", result_Or);
@@ -904,7 +953,7 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-
+*/
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%p   ---|||   *\n\n\n");
 
@@ -968,18 +1017,13 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-	result_Or = printf("OR :%%30.12p = *%30.12p*\n", ptr);
-	result_Ft = ft_printf("FT :%%30.12p = *%30.12p*\n", ptr);
-	printf("result Or = %d\n", result_Or);
-	printf("result Ft = %d\n\n", result_Ft);
-
 	result_Or = printf("OR :%%12.19p = *%12.19p*\n", ptr);
 	result_Ft = ft_printf("FT :%%12.19p = *%12.19p*\n", ptr);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-	result_Or = printf("OR :%%-30.19p = *%-30.19p*\n", ptr);
-	result_Ft = ft_printf("FT :%%-30.19p = *%-30.19p*\n", ptr);
+	result_Or = printf("OR :%%-32.21p = *%-30.21p*\n", ptr);
+	result_Ft = ft_printf("FT :%%-32.21p = *%-30.21p*\n", ptr);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
@@ -988,8 +1032,14 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-	result_Or = printf("OR :%%-30.12p = *%-30.12p*\n", ptr);
-	result_Ft = ft_printf("FT :%%-30.12p = *%-30.12p*\n", ptr);
+	result_Or = printf("OR :%%30.14p = *%30.14p*\n", ptr);
+	result_Ft = ft_printf("FT :%%30.14p = *%30.14p*\n", ptr);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+
+	result_Or = printf("OR :%%-30.8p = *%-30.8p*\n", ptr);
+	result_Ft = ft_printf("FT :%%-30.8p = *%-30.8p*\n", ptr);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
@@ -1006,7 +1056,7 @@ int main(void)
 		printf("result Ft = %d\n\n", result_Ft);
 	}
 
-
+/*
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%s   ---|||   *\n\n\n");
 
@@ -1099,7 +1149,7 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 	   
-*/
+
 	printf("\n\n  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   OBLIGATOIRE   ---|||   *\n\n\n");
 
@@ -1157,7 +1207,7 @@ int main(void)
 	result_Ft = ft_printf("FT :%%%% = *%%*\n");
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-/*
+
 	result_Or = printf("OR :%%c = *%c*\n");
 	result_Ft = ft_printf("FT :%%c = *%c*\n");
 	printf("result Or = %d\n", result_Or);
