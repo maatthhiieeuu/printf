@@ -16,6 +16,8 @@
 void	unsigned_integer_option_manager(const char *format, va_list args,
 		int *i, t_format *option)
 {
+	if (format == NULL || i == NULL || option == NULL)
+		return ;
 	option->unsigned_number = va_arg(args, unsigned int);
 	if (option->hash == true)
 		option->hash = false;

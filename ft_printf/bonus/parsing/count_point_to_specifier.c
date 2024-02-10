@@ -18,6 +18,8 @@ void	count_point_to_specifier(t_format *option, char *point_ptr)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL || point_ptr == NULL)
+		return ;
 	while (point_ptr[i] != option->specifier)
 	{
 		i++;

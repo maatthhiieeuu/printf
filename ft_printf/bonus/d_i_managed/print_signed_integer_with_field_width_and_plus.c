@@ -17,6 +17,8 @@ static void	print_spaces_for_field_width(t_format *option);
 
 void	print_signed_integer_with_field_width_and_plus(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	if (option->space == true)
 		putchar_bonus(option, ' ');
 	count_digits(option);
@@ -43,6 +45,8 @@ static void	print_spaces_for_field_width(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if ((option->zero == false) || (option->minus == true
 			&& option->zero == true))
 	{

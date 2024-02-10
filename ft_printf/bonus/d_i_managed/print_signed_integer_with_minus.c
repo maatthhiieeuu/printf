@@ -15,5 +15,7 @@
 
 void	print_signed_integer_with_minus(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	putnbr_bonus(option, option->signed_number);
 }

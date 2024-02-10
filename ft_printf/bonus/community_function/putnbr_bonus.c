@@ -17,6 +17,8 @@ void	putnbr_bonus(t_format *option, long long int n)
 {
 	char	c;
 
+	if (option == NULL)
+		return ;
 	if (n < 0)
 	{
 		write(1, "-", 1);

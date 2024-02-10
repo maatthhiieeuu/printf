@@ -20,6 +20,8 @@ void	print_character_with_space(va_list args, t_format *option)
 
 	j = 0;
 	character = va_arg(args, int);
+	if (option == NULL)
+		return;
 	if (option->minus == false)
 	{
 		while (j + 1 < option->space_array)

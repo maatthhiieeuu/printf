@@ -18,6 +18,8 @@ void	print_unsigned_int(va_list args, int *i, int *result)
 	long unsigned int	recovery_number;
 
 	recovery_number = va_arg(args, unsigned int);
+	if (i == NULL || result == NULL)
+		return ;
 	put_unbr(recovery_number, result);
 	*i += 1;
 }

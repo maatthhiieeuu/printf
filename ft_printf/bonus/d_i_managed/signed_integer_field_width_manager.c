@@ -15,6 +15,8 @@
 
 void	signed_integer_field_width_manager(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	if (option->plus == true && option->zero == true)
 		print_signed_integer_with_plus_and_zero(option);
 	else if (option->space_array > 0)

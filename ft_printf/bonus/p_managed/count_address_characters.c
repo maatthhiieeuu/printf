@@ -19,6 +19,8 @@ void	count_address_characters(t_format *option)
 	uintptr_t	recovery_address;
 
 	result = 0;
+	if (option == NULL)
+		return ;
 	recovery_address = option->address_int;
 	while (recovery_address > 0)
 	{

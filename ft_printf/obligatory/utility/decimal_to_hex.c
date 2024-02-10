@@ -20,6 +20,8 @@ void	decimal_to_hex(long long int num, char minmax, int *result)
 	char	table_hexadecimal[17];
 
 	i = 0;
+	if (result == NULL)
+		return ;
 	if (minmax == 'm')
 		ft_strlcpy(table_hexadecimal, "0123456789abcdef", 17);
 	else if (minmax == 'M')

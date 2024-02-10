@@ -15,6 +15,8 @@
 
 void	print_percent_sign(int *i, int *result)
 {
+	if (i == NULL || result == NULL)
+		return ;
 	ft_putchar_fd('%', 1);
 	*i += 1;
 	*result += 1;

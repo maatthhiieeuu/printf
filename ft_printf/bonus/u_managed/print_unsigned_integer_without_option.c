@@ -15,5 +15,7 @@
 
 void	print_unsigned_integer_without_option(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	putnbr_bonus(option, option->unsigned_number);
 }

@@ -18,6 +18,8 @@ void	print_signed_integer_with_precision(t_format *option)
 	int	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	count_digits(option);
 	while (option->number_size + i < option->precision_array)
 	{

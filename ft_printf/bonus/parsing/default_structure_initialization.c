@@ -15,6 +15,8 @@
 
 void	default_structure_initialization(t_format *option)
 {
+	if (option == NULL)
+		return;
 	option->specifier = 0;
 	option->space_array = 0;
 	option->precision_array = 0;

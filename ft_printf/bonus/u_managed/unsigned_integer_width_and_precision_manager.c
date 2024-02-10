@@ -15,6 +15,8 @@
 
 void	unsigned_integer_width_and_precision_manager(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	count_digits(option);
 	if (option->space_array > (option->number_size && option->precision_array)
 		&& option->minus == false)

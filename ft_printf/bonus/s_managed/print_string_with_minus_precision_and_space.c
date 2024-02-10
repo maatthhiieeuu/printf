@@ -19,6 +19,8 @@ void	print_string_with_minus_precision_and_space(t_format *option,
 	size_t	j;
 
 	j = 0;
+	if (option == NULL || string == NULL)
+		return ;
 	if (option->minus == true)
 	{
 		putnstr_bonus(option, string, option->precision_array);

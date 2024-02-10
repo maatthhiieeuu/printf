@@ -18,6 +18,8 @@ void	print_string_with_space(t_format *option, size_t size, char *string)
 	size_t	j;
 
 	j = 0;
+	if (option == NULL || string == NULL)
+		return ;
 	if (option->minus == false)
 	{
 		while (size + j < option->space_array)

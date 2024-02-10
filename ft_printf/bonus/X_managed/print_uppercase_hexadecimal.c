@@ -20,6 +20,8 @@ void	print_uppercase_hexadecimal(t_format *option)
 	char	table_hexadecimal[17];
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	ft_strlcpy(table_hexadecimal, "0123456789ABCDEF", 17);
 	while (option->signed_number != 0)
 	{

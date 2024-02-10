@@ -15,7 +15,7 @@
 
 static void	dispatch(const char *format, va_list args, int *i, int *result)
 {
-	if (!format)
+	if (format == NULL || i == NULL || result == NULL)
 		return ;
 	if (format[*i + 1] == 'c')
 		print_character(args, i, result);

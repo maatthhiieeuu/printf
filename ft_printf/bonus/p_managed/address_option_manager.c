@@ -15,6 +15,8 @@
 
 void	address_option_manager(va_list args, t_format *option)
 {
+	if (option == NULL)
+		return ;
 	option->address_int = va_arg(args, uintptr_t);
 	option->hash = false;
 	if (option->zero == true && option->space_array > 0

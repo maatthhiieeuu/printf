@@ -18,6 +18,8 @@ void	print_character(va_list args, int *i, int *result)
 	char	recovery_char;
 
 	recovery_char = va_arg(args, int);
+	if (i == NULL || result == NULL)
+		return ;
 	ft_putchar_fd(recovery_char, 1);
 	*i += 1;
 	*result += 1;

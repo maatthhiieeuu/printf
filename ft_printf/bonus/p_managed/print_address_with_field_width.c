@@ -18,6 +18,8 @@ void	print_address_with_field_width(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->space == true || option->zero == true)
 		putchar_bonus(option, ' ');
 	if ((option->specifier == 'p') && (option->address_int != 0))

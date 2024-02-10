@@ -15,7 +15,7 @@
 
 void	putstr_bonus(t_format *option, char *s)
 {
-	if (!s)
+	if (option == NULL || s == NULL)
 		return ;
 	while (*s != '\0')
 	{

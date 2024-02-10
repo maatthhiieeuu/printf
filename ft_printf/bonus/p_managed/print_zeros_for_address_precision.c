@@ -18,6 +18,8 @@ void	print_zeros_for_address_precision(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->zero == false && option->precision == true)
 	{
 		while (option->address_size + i - 3 < option->precision_array)

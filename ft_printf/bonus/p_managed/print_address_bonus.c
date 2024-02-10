@@ -20,6 +20,8 @@ void	print_address_bonus(uintptr_t num, t_format *option)
 	char	hexadecimal_min[17];
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	ft_strlcpy(hexadecimal_min, "0123456789abcdef", 17);
 	while (num != 0)
 	{

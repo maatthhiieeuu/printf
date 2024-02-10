@@ -18,6 +18,8 @@ void	print_signed_int(va_list args, int *i, int *result)
 	int	recovery_number;
 
 	recovery_number = va_arg(args, int);
+	if (i == NULL || result == NULL)
+		return ;
 	print_int_with_char_count(recovery_number, result);
 	*i += 1;
 }

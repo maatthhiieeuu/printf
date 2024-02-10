@@ -19,6 +19,8 @@ void	print_string_with_precision_and_space(t_format *option, char *string,
 	size_t	j;
 
 	j = 0;
+	if (option == NULL || string == NULL)
+		return ;
 	if (option->minus == false)
 	{
 		if (option->precision_array < size_string)

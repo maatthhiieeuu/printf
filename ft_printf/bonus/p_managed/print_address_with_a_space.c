@@ -15,6 +15,8 @@
 
 void	print_address_with_a_space(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	putchar_bonus(option, ' ');
 	print_address_bonus(option->address_int, option);
 }

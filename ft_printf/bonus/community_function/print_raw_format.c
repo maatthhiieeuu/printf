@@ -18,6 +18,8 @@ void	print_raw_format(const char *format, int *i, t_format *option)
 	size_t	j;
 
 	j = 0;
+	if (format == NULL || i == NULL || option == NULL)
+		return ;
 	*i -= option->digit_char_until_specifier;
 	while (j < option->digit_char_until_specifier)
 	{

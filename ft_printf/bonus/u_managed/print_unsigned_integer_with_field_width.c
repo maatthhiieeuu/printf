@@ -17,6 +17,8 @@ static void	print_field_width(t_format *option);
 
 void	print_unsigned_integer_with_field_width(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	count_digits(option);
 	if (option->minus == false)
 	{
@@ -35,6 +37,8 @@ static void	print_field_width(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if ((option->zero == false) || (option->minus == true
 			&& option->zero == true))
 	{

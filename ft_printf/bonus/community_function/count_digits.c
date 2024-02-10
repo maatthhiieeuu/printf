@@ -21,6 +21,8 @@ void	count_digits(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->specifier == 'd' || option->specifier == 'i')
 		count_signed_digits(option, &i);
 	if (option->specifier == 'u')
@@ -31,6 +33,8 @@ static void	count_signed_digits(t_format *option, size_t *i)
 {
 	long long int	number_cpy;
 
+	if (option == NULL || i == NULL)
+		return ;
 	number_cpy = option->signed_number;
 	while (number_cpy > 0)
 	{
@@ -44,6 +48,8 @@ static void	count_unsigned_digits(t_format *option, size_t *i)
 {
 	long long int	number_cpy;
 
+	if (option == NULL || i == NULL)
+		return ;
 	number_cpy = option->unsigned_number;
 	while (number_cpy > 0)
 	{

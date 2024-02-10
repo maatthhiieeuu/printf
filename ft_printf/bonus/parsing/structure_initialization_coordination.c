@@ -18,6 +18,8 @@ void	structure_initialization_coordination(const char *format, va_list args,
 {
 	t_format	option;
 
+	if (format == NULL || i == NULL || result == NULL)
+		return;
 	default_structure_initialization(&option);
 	specifier_search(format, *i, &option);
 	if (option.specifier != 0)

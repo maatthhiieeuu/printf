@@ -18,6 +18,8 @@ void	print_pointer(va_list args, int *i, int *result)
 	uintptr_t	recovery_address;
 
 	recovery_address = va_arg(args, uintptr_t);
+	if (i == NULL || result == NULL)
+		return ;
 	if (recovery_address == 0)
 	{
 		write(1, "(nil)", 5);

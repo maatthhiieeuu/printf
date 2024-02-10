@@ -20,6 +20,8 @@ void	print_address(uintptr_t num, int *result)
 	char	hexadecimal_min[17];
 
 	i = 0;
+	if (result == NULL)
+		return ;
 	ft_strlcpy(hexadecimal_min, "0123456789abcdef", 17);
 	while (num != 0)
 	{

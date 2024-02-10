@@ -21,6 +21,8 @@ void	precision_space_value_search(const char *format,
 
 	j = 0;
 	point_ptr = NULL;
+	if (format == NULL || option == NULL)
+		return;
 	count_percent_to_specifier(format + i, option);
 	point_ptr = ft_strnchr(format + i, '.', option->digit_char_until_specifier);
 	field_size_recovery(format + i, option);

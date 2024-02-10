@@ -17,6 +17,8 @@ void	print_int_with_char_count(int n, int *result)
 {
 	char	c;
 
+	if (result == NULL)
+		return ;
 	if (n < 0)
 	{
 		write(1, "-", 1);

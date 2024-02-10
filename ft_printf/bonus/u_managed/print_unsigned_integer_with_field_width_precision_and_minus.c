@@ -18,6 +18,8 @@ static void	print_field_width(t_format *option);
 
 void	print_unsigned_int_with_field_prec_minus(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	print_precision(option);
 	putnbr_bonus(option, option->unsigned_number);
 	print_field_width(option);
@@ -28,6 +30,8 @@ static void	print_precision(t_format *option)
 	int	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	while (option->number_size + i < option->precision_array)
 	{
 		putchar_bonus(option, '0');
@@ -40,6 +44,8 @@ static void	print_field_width(t_format *option)
 	int	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->number_size < option->precision_array)
 	{
 		while (option->precision_array + i < option->space_array)

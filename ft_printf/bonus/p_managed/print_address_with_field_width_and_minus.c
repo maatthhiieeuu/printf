@@ -18,6 +18,8 @@ void	print_address_with_field_width_and_minus(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if ((option->specifier == 'p') && (option->address_int != 0))
 	{
 		count_address_characters(option);

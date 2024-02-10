@@ -15,6 +15,8 @@
 
 void	print_integer_with_plus(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	putchar_bonus(option, '+');
 	putnbr_bonus(option, option->signed_number);
 }

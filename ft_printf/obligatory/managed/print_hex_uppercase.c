@@ -18,6 +18,8 @@ void	print_hex_uppercase(va_list args, int *i, int *result)
 	long long int	recovery_number;
 
 	recovery_number = va_arg(args, long long int);
+	if (i == NULL || result == NULL)
+		return ;
 	decimal_to_hex(recovery_number, 'M', result);
 	*i += 1;
 }

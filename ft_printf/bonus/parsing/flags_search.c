@@ -15,6 +15,8 @@
 
 void	flags_search(const char *format, int i, t_format *option)
 {
+	if (format == NULL || option == NULL)
+		return;
 	while (format[i] != option->specifier && format[i])
 	{
 		if (format[i] == '#')

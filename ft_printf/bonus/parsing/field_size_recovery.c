@@ -19,6 +19,8 @@ void	field_size_recovery(const char *s, t_format *option)
 
 	option->space_array = 0;
 	i = 0;
+	if (s == NULL || option == NULL)
+		return ;
 	while ((s[i] != option->specifier) && (s[i] != '.') && (s[i]))
 	{
 		if (s[i] >= '0' && s[i] <= '9')

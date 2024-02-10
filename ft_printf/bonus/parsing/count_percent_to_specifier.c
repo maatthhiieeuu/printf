@@ -18,6 +18,8 @@ void	count_percent_to_specifier(const char *format, t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (format == NULL || option == NULL)
+		return ;
 	while (format[i] != option->specifier)
 	{
 		i++;

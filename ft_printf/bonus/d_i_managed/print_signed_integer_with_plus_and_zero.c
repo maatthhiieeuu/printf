@@ -17,6 +17,8 @@ static void	print_zeros_for_field_width(t_format *option);
 
 void	print_signed_integer_with_plus_and_zero(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	count_digits(option);
 	if (option->plus == true)
 		option->space_array -= 1;
@@ -41,6 +43,8 @@ static void	print_zeros_for_field_width(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->zero == true && option->minus == false)
 	{
 		while (option->number_size + i < option->space_array)

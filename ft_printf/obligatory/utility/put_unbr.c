@@ -17,7 +17,9 @@ void	put_unbr(unsigned int n, int *result)
 {
 	char	c;
 
-	if (n > 9)
+	if (result == NULL)
+	return ;
+	else if (n > 9)
 		print_int_with_char_count(n / 10, result);
 	c = n % 10 + 48;
 	ft_putchar_fd(c, 1);

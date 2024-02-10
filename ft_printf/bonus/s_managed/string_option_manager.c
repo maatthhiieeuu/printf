@@ -24,6 +24,8 @@ void	string_option_manager(va_list args, t_format *option)
 	option->zero = false;
 	string = va_arg(args, char *);
 	size_string = ft_strlen(string);
+	if (option == NULL)
+		return ;
 	if (option->space_array > 0 && option->precision_array == 0)
 		print_string_with_space(option, size_string, string);
 	else if (option->space_array == 0 && option->precision_array > 0)

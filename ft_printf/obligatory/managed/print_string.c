@@ -15,6 +15,8 @@
 
 void	print_string(va_list args, int *i, int *result)
 {
+	if (i == NULL || result == NULL)
+		return ;
 	put_count_string(va_arg(args, char *), result);
 	*i += 1;
 }

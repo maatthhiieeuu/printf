@@ -15,6 +15,8 @@
 
 void	address_precision_manager(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	if (option->precision_array > 0 && option->zero == false)
 		print_address_with_precision(option);
 	else if (option->zero == true && option->precision == false)

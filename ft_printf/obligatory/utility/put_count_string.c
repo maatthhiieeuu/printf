@@ -15,7 +15,7 @@
 
 void	put_count_string(char *s, int *result)
 {
-	if (!s)
+	if (s == NULL || result == NULL)
 		return ;
 	while (*s != '\0')
 	{
