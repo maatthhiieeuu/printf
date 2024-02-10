@@ -21,11 +21,11 @@ void	putnbr_bonus(t_format *option, long long int n)
 		return ;
 	if (n < 0)
 	{
-		write(1, "-", 1);
+		check_write(write(1, "-", 1));
 		option->output += 1;
 		if (n == -2147483648)
 		{
-			write(1, "2", 1);
+			check_write(write(1, "2", 1));
 			option->output += 1;
 			n = -147483648;
 		}
@@ -36,6 +36,6 @@ void	putnbr_bonus(t_format *option, long long int n)
 		putnbr_bonus(option, n / 10);
 	}
 	c = n % 10 + 48;
-	write(1, &c, 1);
+	check_write(write(1, &c, 1));
 	option->output += 1;
 }

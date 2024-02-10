@@ -22,7 +22,7 @@ void	print_pointer(va_list args, int *i, int *result)
 		return ;
 	if (recovery_address == 0)
 	{
-		write(1, "(nil)", 5);
+		check_write(write(1, "(nil)", 5));
 		*i += 1;
 		*result += 5;
 	}

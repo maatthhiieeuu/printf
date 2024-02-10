@@ -53,32 +53,44 @@ int main(void)
 	int result_Or = -1;
 	int result_Ft = -1;
 	int x = UINT_MAX;
-	int var1 = 42;
-	int n = INT_MAX;
 	int u = UINT_MAX;
-	char var2 = 'A';
+	int n = INT_MAX;
+	char *ptr = (void *)ULONG_MAX;
+	int var1 = INT_MAX;
+	char var2 = ' ';
 	float var3 = 3.14f;
 	double var4 = 6.28;
 	int array[5] = {1, 2, 3, 4, 5};
-	char *str = "Hello, world!";
-	char lettre = 'A';
-	char *ptr = (void *)ULONG_MAX;
-	char phrase[] = "la coccinelle de 3cm";
-	char *null_ptr = NULL;
+	char *str = "la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.";
 	void *pointers[] = 
-    {
-		NULL,
-		&var1,
-		&var2,
-		&var3,
-		&var4,
-		array,
-		str,
-		&pointers,
-		main // Pointeur vers une fonction
-	};
+	    {
+			NULL,
+			&var1,
+			&var2,
+			&var3,
+			&var4,
+			array,
+			str,
+			&pointers,
+			main // Pointeur vers une fonction
+		};
 	size_t num_pointers = sizeof(pointers) / sizeof(void *);
-/**/
+	char lettre = '~';
+	char *null_ptr = NULL;
+	char phrase[] = "la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.";
+	int max = INT_MIN;
+
+	while(max < INT_MAX)
+	{
+		result_Or = printf("OR : *%d*\n", max);
+		result_Ft = ft_printf("FT : *%d*\n", max);
+		printf("result Or = %d\n", result_Or);
+		printf("result Ft = %d\n\n", result_Ft);
+		max++;
+	}
+		
+
+/*
 	printf("   _     _     _     _ \n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%X   ---|||   *\n\n\n");
 
@@ -252,7 +264,7 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-/*
+
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%x   ---|||   *\n\n\n");
 
@@ -1221,5 +1233,5 @@ int main(void)
 	result_Or = printf("", lettre);
 	result_Ft = ft_printf("", lettre);
 	printf("result Or = %d\n", result_Or);
-	printf("result Ft = %d\n\n", result_Ft);
-	*/}
+	printf("result Ft = %d\n\n", result_Ft);*/
+	}

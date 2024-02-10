@@ -14,11 +14,14 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	ssize_t	check;
 	if (!s)
 		return ;
 	while (*s != '\0')
 	{
-		write(fd, s, 1);
+		check = write(fd, s, 1);
+		if (check == -1)
+			return ;
 		s++;
 	}
 }

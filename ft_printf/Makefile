@@ -34,6 +34,7 @@ SRCS =  $(FT_PRINTF) \
 		$(MANAGED_DIR)print_signed_int.c \
 		$(MANAGED_DIR)print_string.c \
 		$(MANAGED_DIR)print_unsigned_int.c \
+		$(UTILITY_DIR)check_write.c \
 		$(UTILITY_DIR)decimal_to_hex.c \
 		$(UTILITY_DIR)print_address.c \
 		$(UTILITY_DIR)put_count_string.c \
@@ -52,6 +53,7 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(MANAGED_DIR)print_signed_int.c \
 			 $(MANAGED_DIR)print_string.c \
 			 $(MANAGED_DIR)print_unsigned_int.c \
+			 $(UTILITY_DIR)check_write.c \
 			 $(UTILITY_DIR)decimal_to_hex.c \
 			 $(UTILITY_DIR)print_address.c \
 			 $(UTILITY_DIR)put_count_string.c \

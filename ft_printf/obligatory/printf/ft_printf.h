@@ -60,6 +60,7 @@ void	print_int_with_char_count(int n, int *result);
 void	address_option_manager(va_list args, t_format *option);
 void	address_precision_manager(t_format *option);
 void	address_width_manager(t_format *option);
+void	check_write(ssize_t check);
 void	count_address_characters(t_format *option);
 void	count_digits(t_format *option);
 void	count_percent_to_specifier(const char *format, t_format *option);

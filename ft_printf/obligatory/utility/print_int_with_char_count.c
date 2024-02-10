@@ -21,11 +21,11 @@ void	print_int_with_char_count(int n, int *result)
 		return ;
 	if (n < 0)
 	{
-		write(1, "-", 1);
+		check_write(write(1, "-", 1));
 		*result += 1;
 		if (n == -2147483648)
 		{
-			write(1, "2", 1);
+			check_write(write(1, "2", 1));
 			n = -147483648;
 			*result += 1;
 		}
@@ -36,6 +36,6 @@ void	print_int_with_char_count(int n, int *result)
 		print_int_with_char_count(n / 10, result);
 	}
 	c = n % 10 + 48;
-	write(1, &c, 1);
+	check_write(write(1, &c, 1));
 	*result += 1;
 }
