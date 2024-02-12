@@ -30,6 +30,7 @@ void	specifier_search(const char *format, int i, t_format *option)
 			if (format[i] == tab_char[j])
 			{
 				option->specifier = tab_char[j];
+				option->specifier_ptr = (char *)format + i;
 				return ;
 			}
 			j++;

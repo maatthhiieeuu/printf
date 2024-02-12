@@ -9,10 +9,10 @@ int main(void)
 {
 	int result_Or = -1;
 	int result_Ft = -1;
-	int x = INT_MAX;
-	unsigned int u = UINT_MAX;
+	int x = 0;
+	unsigned int u = 0u;
 	int n = INT_MIN;
-	char *ptr = (void *)LONG_MAX;
+	char *ptr = (void *)LONG_MIN;
 	int var1 = INT_MAX;
 	char var2 = ' ';
 	float var3 = 3.14f;
@@ -32,14 +32,14 @@ int main(void)
 			main // Pointeur vers une fonction
 		};
 	size_t num_pointers = sizeof(pointers) / sizeof(void *);
-	char lettre = '~';
+	char lettre = 'n';
 	char *null_ptr = NULL;
 	char phrase[] = "la coccinelle de 3cm était toute petite, mais fortE courageusE devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.";
-	int max = INT_MAX;
+	int max = 0;
 
 	
 		
-
+/*
 
 	printf("   _     _     _     _ \n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%X   ---|||   *\n\n\n");
@@ -131,6 +131,11 @@ int main(void)
 
 	result_Or = printf("OR :%%#8.5X = *%#8.5X*\n", x);
 	result_Ft = ft_printf("FT :%%#8.5X = *%#8.5X*\n", x);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+	result_Or = printf("OR :%%#8.5X, %%-8.5X, %%8.5X = *%#8.5X*, *%-8.5X*, *%8.5X*\n", x, NULL, 9000);
+	result_Ft = ft_printf("FT :%%#8.5X, %%-8.5X, %%8.5X = *%#8.5X*, *%-8.5X*, *%8.5X*\n", x, NULL, 9000);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
@@ -228,6 +233,11 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
+	result_Or = printf("OR :%%#8.5x, %%-8.5x, %%8.5x = *%#8.5x*, *%-8.5x*, *%8.5x*\n", x, NULL, 9000);
+	result_Ft = ft_printf("FT :%%#8.5x, %%-8.5x, %%8.5x = *%#8.5x*, *%-8.5x*, *%8.5x*\n", x, NULL, 9000);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%u   ---|||   *\n\n\n");
 
@@ -298,6 +308,11 @@ int main(void)
 
 	result_Or = printf("OR :%%-8.5u = *%-8.5u*\n", u);
 	result_Ft = ft_printf("FT :%%-8.5u = *%-8.5u*\n", u);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+	result_Or = printf("OR :%%u, %%-8.5u, %%8.5u = *%u*, *%-8.5u*, *%8.5u*\n", u, u, u);
+	result_Ft = ft_printf("FT :%%u, %%-8.5u, %%8.5u = *%u*, *%-8.5u*, *%8.5u*\n", u, u, u);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
@@ -424,6 +439,10 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
+	result_Or = printf("OR :%%d, %%+d, %%-d, %% d, %%.d, %%0d, %%15d, %%+15d, %%-15d, %%.15d,  = *%d*, *%+d*, *%-d*, *% d*, *%.d*, *%0d*, *%15d*, *%+15d, *%-15d*, %.15d\n", n, n, n, n, n, n, n, n, n, n);
+	result_Ft = ft_printf("FT :%%d, %%+d, %%-d, %% d, %%.d, %%0d, %%15d, %%+15d, %%-15d, %%.15d,  = *%d*, *%+d*, *%-d*, *% d*, *%.d*, *%0d*, *%15d*, *%+15d, *%-15d*, %.15d\n", n, n, n, n, n, n, n, n, n, n);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
 
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%i   ---|||   *\n\n\n");
@@ -543,6 +562,13 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
+
+	result_Or = printf("OR :%%i, %%+i, %%-i, %% i, %%.i, %%0i, %%15i, %%+15i, %%-15i, %%.15i,  = *%i*, *%+i*, *%-i*, *% i*, *%.i*, *%0i*, *%15i*, *%+15i, *%-15i*, %.15i\n", n, n, n, n, n, n, n, n, n, n);
+	result_Ft = ft_printf("FT :%%i, %%+i, %%-i, %% i, %%.i, %%0i, %%15i, %%+15i, %%-15i, %%.15i,  = *%i*, *%+i*, *%-i*, *% i*, *%.i*, *%0i*, *%15i*, *%+15i, *%-15i*, %.15i\n", n, n, n, n, n, n, n, n, n, n);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%p   ---|||   *\n\n\n");
 
@@ -557,6 +583,10 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
+	result_Or = printf("OR :%%16p, %%-16p = *%16p*, *%-16p*\n", ptr, ptr);
+	result_Ft = ft_printf("FT :%%16p = *%16p*\n", ptr);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
 
 	for (size_t i = 0; i < num_pointers; i++) 
 	{
@@ -566,7 +596,7 @@ int main(void)
 		printf("result Ft = %d\n\n", result_Ft);
 	}
 
-
+*/
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%s   ---|||   *\n\n\n");
 
@@ -575,8 +605,8 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-	result_Or = printf("Or :%%19s: *%19s*\n", str);
-	result_Ft = ft_printf("Ft :%%19s: *%19s*\n", str);
+	result_Or = printf("Or :%%23s: *%23s*\n", "La petite fleur bleue.");
+	result_Ft = ft_printf("Ft :%%23s: *%23s*\n", "La petite fleur bleue.");
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
@@ -600,7 +630,11 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-
+	result_Or = printf("Or :%%s = *%s*, %%23s = *%23s*, %%.5s = *%.5s*, %%10.5s = *%10.5s*, %%-23s = *%-23s*, %%-10.5s = *%-10.5s*\n", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.");
+	result_Ft = ft_printf("Ft :%%s = *%s*, %%23s = *%23s*, %%.5s = *%.5s*, %%10.5s = *%10.5s*, %%-23s = *%-23s*, %%-10.5s = *%-10.5s*\n", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.", "La petite fleur bleue.");
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+/*
 	printf("  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   BONUS : %%c   ---|||   *\n\n\n");
 
@@ -619,7 +653,11 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-	   
+	result_Ft = ft_printf("FT :%%c, %%5c, %%-5c = *%c*, *%5c*, *%-5c*\n", ' ', lettre, 'A');
+	result_Or = printf("OR :%%c, %%5c, %%-5c = *%c*, *%5c*, *%-5c*\n", ' ', lettre, 'A');
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+	*//*   
 
 	printf("\n\n  ---   ---   ---   ---\n  |-|   |-|   |-|   |-|\n  |-|   |-|   |-|   |-|\n ----- ----- ----- -----\n  ---   ---   ---   ---\n   -     -     -     -\n\n");
 	printf("*   |||---   OBLIGATOIRE   ---|||   *\n\n\n");
@@ -768,8 +806,13 @@ int main(void)
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
-	result_Or = printf("OR :%%X = *%X*\n", ULONG_MAX);
-	result_Ft = ft_printf("FT :%%X = *%X*\n", ULONG_MAX);
+	result_Or = printf("OR :%%X = *%X*\n", INT_MIN);
+	result_Ft = ft_printf("FT :%%X = *%X*\n", INT_MIN);
+	printf("result Or = %d\n", result_Or);
+	printf("result Ft = %d\n\n", result_Ft);
+
+	result_Or = printf("OR :%%x = *%x*\n", INT_MAX);
+	result_Ft = ft_printf("FT :%%x = *%x*\n", INT_MAX);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
@@ -779,7 +822,7 @@ int main(void)
 	printf("result Ft = %d\n\n", result_Ft);
 
 	result_Or = printf("OR :%%p = *%p*\n", ULONG_MAX);
-	result_Ft = ft_printf("FT :%%p = *%p*\n", NULL);
+	result_Ft = ft_printf("FT :%%p = *%p*\n", ULONG_MAX);
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
 
@@ -822,6 +865,11 @@ int main(void)
 	result_Ft = ft_printf("FT :%%s, %%s, %%s, %%s, %%s, %%s = *%s*, *%s*, *%s*, *%s*, *%s*, *%s*\n", "", "", "", "", "", "");
 	printf("result Or = %d\n", result_Or);
 	printf("result Ft = %d\n\n", result_Ft);
-
+*/
 
 	}
+
+
+
+//Or :%s, %19s, %.5s, %10.5s, %-19s, %-10.5s: *la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.*, *la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.*, *la co*, *     la co*, *la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.*, *la co     *
+//Ft :%s, %19s, %.5s, %10.5s, %-19s, %-10.5s: *la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.*, *              la co*, *la co*, *     la co*, *la co              *, *la co     *

@@ -23,6 +23,7 @@
 typedef struct s_format
 {
 	char					specifier;
+	char					*specifier_ptr;
 	size_t					space_array;
 	size_t					precision_array;
 	size_t					digit_char_until_specifier;
@@ -52,7 +53,7 @@ void	print_pointer(va_list args, int *i, int *result);
 void	print_signed_int(va_list args, int *i, int *result);
 void	print_string(va_list args, int *i, int *result);
 void	print_unsigned_int(va_list args, int *i, int *result);
-void	decimal_to_hex(long long int num, char minmax, int *result);
+void	decimal_to_hex(unsigned int num, char minmax, int *result);
 void	print_address(uintptr_t num, int *result);
 void	put_count_string(char *s, int *result);
 void	put_unbr(unsigned int n, int *result);

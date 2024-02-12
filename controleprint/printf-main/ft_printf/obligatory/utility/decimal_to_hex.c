@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "../printf/ft_printf.h"
 
-void	decimal_to_hex(long long int num, char minmax, int *result)
+void	decimal_to_hex(unsigned int num, char minmax, int *result)
 {
 	int		i;
 	int		hexa_num[50];

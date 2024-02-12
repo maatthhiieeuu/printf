@@ -32,4 +32,9 @@ void	summary_distribution_coordination(const char *format, va_list args,
 		lowercase_hexadecimal_manager(format, args, i, option);
 	else if (option->specifier == 'X')
 		uppercase_hexadecimal_manager(format, args, i, option);
+	/*printf("\nTAT STRUCTURE DE DONNEE : \n");
+    printf("specifier  -  - = %c\n", option->specifier);
+    printf("space_array  -  = %zu\n", option->space_array);
+    printf("precision_array = %zu\n", option->precision_array);*/
+
 }
