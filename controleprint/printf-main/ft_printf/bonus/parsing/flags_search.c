@@ -15,17 +15,26 @@
 
 void	flags_search(const char *format, int i, t_format *option)
 {
+	int	flag;
+	int	flag_point;
+
+	flag = 0;
+	flag_point = 0;
 	if (format == NULL || option == NULL)
 		return ;
 	while (format[i] != option->specifier && format[i])
 	{
-		if (format[i] == '#')
+		if (format[i] != '0' && ft_isdigit(format[i]))
+			flag = 1;
+		if (format[i] == '.')
+			flag_point = 1;
+		else if (format[i] == '#')
 			option->hash = true;
 		else if (format[i] == '-')
 			option->minus = true;
 		else if (format[i] == '+')
 			option->plus = true;
-		else if (format[i] == '0')
+		else if (format[i] == '0' && flag == 0 && flag_point == 0)
 			option->zero = true;
 		else if (format[i] == ' ')
 			option->space = true;

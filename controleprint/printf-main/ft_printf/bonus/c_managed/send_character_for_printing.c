@@ -17,6 +17,7 @@ void	send_character_for_printing(va_list args, t_format *option)
 {
 	if (option == NULL)
 		return ;
+	//printf("\033[1;41mA\033[0m\n");
 	if (option->space_array > 0)
 		print_character_with_space(args, option);
 	else

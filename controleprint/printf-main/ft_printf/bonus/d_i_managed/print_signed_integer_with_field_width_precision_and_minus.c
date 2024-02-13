@@ -51,7 +51,7 @@ static void	print_field_width(t_format *option)
 	i = 0;
 	if (option == NULL)
 		return ;
-	if (option->number_size < option->precision_array)
+	if (option->number_size <= option->precision_array)
 	{
 		while (option->precision_array + i < option->space_array)
 		{

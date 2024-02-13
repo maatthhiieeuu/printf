@@ -13,10 +13,12 @@
 #include "libft.h"
 #include "../obligatory/printf/ft_printf.h"
 
+static void	print_zero(t_format *option);
+
 void	print_lowercase_hexadecimal(t_format *option)
 {
 	int		i;
-	int		hexa_num[50];
+	int		hexa_num[18];
 	char	table_hexadecimal[17];
 
 	i = 0;
@@ -29,12 +31,27 @@ void	print_lowercase_hexadecimal(t_format *option)
 		option->signed_number /= 16;
 		i++;
 	}
+	
 	i--;
 	if (option->hash == true)
-		putstr_bonus(option, "0X");
+		putstr_bonus(option, "0x");
+	if (option->zero == true)
+		print_zero(option);
 	while (i >= 0)
 	{
 		putchar_bonus(option, table_hexadecimal[hexa_num[i]]);
 		i--;
+	}
+}
+
+static void	print_zero(t_format *option)
+{
+	size_t	i;
+
+	i = 0;
+	while (option->number_size + i < option->space_array)
+	{
+		putchar_bonus(option, '0');
+		i++;
 	}
 }

@@ -52,4 +52,5 @@ static void	modify_parsing(t_format *option)
 		option->plus = false;
 	if (option->space == true && option->signed_number < 0)
 		option->space = false;
+
 }
