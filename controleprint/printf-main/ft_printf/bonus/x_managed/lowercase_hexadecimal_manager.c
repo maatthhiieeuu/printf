@@ -24,10 +24,18 @@ void	lowercase_hexadecimal_manager(const char *format, va_list args,
 	parsing_complement(option);
 	if (option->negative_precision == true)
 		print_raw_format(format, i, option);
-	else if(option->space_array > 0 && option->space == true)
-		print_lowercase_hexadecimal_with_field_space(option);
+	else if (option->space_array > 0 && option->precision_array > 0)
+		print_lowercase_hexadecimal_with_field_precision(option);
+	else if (option->space_array == 0 && option->precision_array > 0)
+		print_lowercase_hexadecimal_with_precision(option);
+	else if (option->space_array > 0 && option->precision_array == 0)
+		print_lowercase_hexadecimal_with_field(option);
 	else
+	{
+		if (option->hash == true)
+			putstr_bonus(option, "0x");
 		print_lowercase_hexadecimal(option);
+	}
 }
 
 static void	parsing_complement(t_format *option)
@@ -35,4 +43,8 @@ static void	parsing_complement(t_format *option)
 	count_digits_hex(option);
 	if (option->zero == true && option->space == true)
 		option->space = false;
+	if (option->signed_number == 0 && option->hash == true)
+		option->hash = false;
+	if (option->minus == true && option->zero == true)
+		option->zero = false;
 }

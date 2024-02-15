@@ -5,11 +5,19 @@
 #include "libft/libft.h"
 #include "../obligatory/printf/ft_printf.h"
 
+void fonctionSansRetourNiArguments(void);
+int fonctionAvecRetourEtSansArguments(void);
+char *fonctionAvecRetourEtAvecArguments(int, char);
+void maFonction(void); 
+
 int main(void) {
     int ret_printf, ret_ft_printf;
     char *str = "Test";
     char *null_ptr = NULL;
-/*
+    unsigned int test_vals[] = {0, 1, 42, UINT_MAX, 0x7FFFFFFF, 0x12345678};
+    int test_count = sizeof(test_vals) / sizeof(test_vals[0]);
+    int original, custom;
+
     // Tests simples sans flags
     printf("=== Tests 1 ===\n");
     ret_printf = printf("Char : *%c*, Chaine : *%s*, Pointeur : *%p*, Entier : *%d*, Non signé : *%u*, Hex minuscule : *%x*, Hex majuscule : *%X*, Pourcentage : *%%*\n", 'A', "test", str, 42, 42, 42, 42);
@@ -27,6 +35,7 @@ int main(void) {
     ret_ft_printf = ft_printf("Valeurs multiples : *%d* *%s* *%x* *%X* *%%*\n\n", 123, "abcd", 456, 789);
 
     // Tests des flags dans une phrase
+
     printf("\n=== Tests 4 ===\n");
     ret_printf = printf("Texte avec des flags, comme -123 et zéro *%05d*, au milieu.\n", 456);
     ret_ft_printf = ft_printf("Texte avec des flags, comme -123 et zéro *%05d*, au milieu.\n\n", 456);
@@ -165,63 +174,518 @@ int main(void) {
 	printf("\n=== Test 30 ===\n");
 	printf("Or = Longue chaîne: *%s*\n", "Ceci est une très longue chaîne de caractères pour tester la capacité de ft_printf à gérer de grands volumes de données sans problème.");
 	ft_printf("Ft = Longue chaîne: *%s*\n\n", "Ceci est une très longue chaîne de caractères pour tester la capacité de ft_printf à gérer de grands volumes de données sans problème.");
-*/
-	// Combinaisons complexes de flags pour les entiers
-	printf("Or = Mix: *%+08d*, *%-#10x*, *%+ .5i*\n", INT_MIN, 255, 42);
-	ft_printf("Ft = Mix: *%+08d*, *%-#10x*, *%+ .5i*\n\n", INT_MIN, 255, 42);
 
+	// Combinaisons complexes de flags pour les entiers
+	printf("Or = Mix: *%+08d*, *%%-#10x*: *%-#10x*, *%+ .5i*\n", INT_MIN, 255, 42);
+	ft_printf("Ft = Mix: *%+08d*, *%%-#10x*: *%-#10x*, *%+ .5i*\n\n", INT_MIN, 255, 42);
+
+    printf("Or = Mix: *%+ .5i*\n", 42);
+    ft_printf("Ft = Mix: *%+ .5i*\n", 42);
+
+    printf("Or = Pointeur avec flags: *%#p*\n", &ret_ft_printf);
+    ft_printf("Ft = Pointeur avec flags: *%#p*\n", &ret_ft_printf);
+    
 	// Combinaisons complexes de flags pour les chaînes et les pointeurs
 	printf("Or = Chaîne avec précision et largeur: *%-.10s*, Pointeur avec flags: *%#p*\n", "test", &ret_ft_printf);
 	ft_printf("Ft = Chaîne avec précision et largeur: *%-.10s*, Pointeur avec flags: *%#p*\n\n", "test", &ret_ft_printf);
-/*
+
 	// Longue chaîne de caractères
 	printf("Or = Longue chaîne: *%s*\n", "Ceci est une très longue chaîne de caractères pour tester la capacité de ft_printf à gérer des données importantes.");
 	ft_printf("Ft = Longue chaîne: *%s*\n\n", "Ceci est une très longue chaîne de caractères pour tester la capacité de ft_printf à gérer des données importantes.");
-*/
+
 	printf("\n=== Tests 31 ===\n");
 	printf("Or = Mix: *%+08d*, *%-#10x*, *%+ .5i*, *% 10.5u*\n", INT_MIN, 255, -42, UINT_MAX);
 	ft_printf("Ft = Mix: *%+08d*, *%-#10x*, *%+ .5i*, *% 10.5u*\n\n", INT_MIN, 255, -42, UINT_MAX);
-/*
+
 	printf("\n=== Test 32 ===\n");
 	printf("Or = Longue chaîne: *%s*\n", "Ceci est une très longue chaîne de caractères destinée à tester la capacité de ft_printf à gérer de grands volumes de données.");
 	ft_printf("Ft = Longue chaîne: *%s*\n\n", "Ceci est une très longue chaîne de caractères destinée à tester la capacité de ft_printf à gérer de grands volumes de données.");
-*/
+
 	// Test de combinaisons complexes de flags
 	printf("\n=== Test 34 ===\n");
 	printf("Or = Mix: *%+08d*, *%-#10x*, *% 10.5u*, *%+-10.5s*\n", INT_MIN, 255, UINT_MAX, "test");
 	ft_printf("Ft = Mix: *%+08d*, *%-#10x*, *% 10.5u*, *%+-10.5s*\n\n", INT_MIN, 255, UINT_MAX, "test");
 
+
+//{0, 1, 42, UINT_MAX, 0x7FFFFFFF, 0x12345678};
+
+// Test sans flags
+    printf("------------------------------------ Test sans flags ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%x*' = 				*%x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%x*' = 				*%x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '#'
+    printf("------------------------------------ Test avec flag '#' ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%#x*' = 				*%#x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#x*' = 				*%#x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '0'
+    printf("------------------------------------ Test avec flag '0' ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%08x*' = 				*%#08x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%08x*' = 				*%#08x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '-'
+    printf("------------------------------------ Test avec flag '-' ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%-8x*' = 				*%#-8x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-8x*' = 				*%#-8x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+        original = printf("Or: '*%%-08x*' = 			*%#-08x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-08x*' = 			*%#-08x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+        original = printf("Or: '*%%8x*' = 				*%#8x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%8x*' = 				*%#8x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+        original = printf("Or: '*%%08x*' = 				*%#08x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%08x*' = 				*%#08x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '.' (précision)
+    printf("------------------------------------ Test avec flag '.' (précision) ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%.25x*' = 				*%#.25x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%.25x*' = 				*%#.25x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+    printf("------------------------------------ Test avec flag 'xx' (Largeur de champs) ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%25x*' =          *%25x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%25x*' =          *%25x*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%025x*' =         *%025x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%025x*' =         *%025x*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-25x*' =         *%-25x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-25x*' =         *%-25x*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-025x*' =        *%-025x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-025x*' =        *%-025x*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%#25x*' =         *%#25x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#25x*' =         *%#25x*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%#025x*' =        *%#025x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#025x*' =        *%#025x*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-#25x*' =        *%-#25x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-#25x*' =        *%-#25x*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-#025x*' =       *%-#025x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-#025x*' =       *%-#025x*\n\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+	// Test avec flag 'xx.xx' (Largeur de champs et précision)
+    printf("------------------------------------ Test avec flag 'xx.xx' (Largeur de champs et précision) ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%#25.15x*' = 			*%#25.15x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#25.15x*' = 			*%#25.15x*\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%#-25.15x*' = 			*%#-25.15x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#-25.15x*' = 			*%#-25.15x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+    // Tests supplémentaires pour observer le comportement avec flags ' ' et '+'
+    // Remarque: Ces flags ne modifient pas la sortie pour '%x', mais sont inclus pour la complétude
+
+    // Test avec flag ' ' (espace)
+    printf("------------------------------------ Test avec flag ' ' (espace) ------------------------------------\n");
+    printf("Remarque: Le flag ' ' n'affecte pas les spécificateurs '%x'.\n\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%# 0x*' = 				*%# 0x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%# 0x*' = 				*%# 0x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%# 4x*' = 				*%# 4x*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%# 4x*' = 				*%# 4x*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+   printf("------------------------------------ Test sans flags ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%X*' =               *%X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%X*' =               *%X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '#'
+    printf("------------------------------------ Test avec flag '#' ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%#X*' =              *%#X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#X*' =              *%#X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '0'
+    printf("------------------------------------ Test avec flag '0' ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%08X*' =              *%#08X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%08X*' =              *%#08X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '-'
+    printf("------------------------------------ Test avec flag '-' ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%-8X*' =              *%#-8X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-8X*' =              *%#-8X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+        original = printf("Or: '*%%-08X*' =             *%#-08X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-08X*' =             *%#-08X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+        original = printf("Or: '*%%8X*' =               *%#8X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%8X*' =               *%#8X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+        original = printf("Or: '*%%08X*' =              *%#08X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%08X*' =              *%#08X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag '.' (précision)
+    printf("------------------------------------ Test avec flag '.' (précision) ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%.25X*' =                *%#.25X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%.25X*' =                *%#.25X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+    printf("------------------------------------ Test avec flag 'xx' (Largeur de champs) ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%25X*' =          *%25X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%25X*' =          *%25X*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%025X*' =         *%025X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%025X*' =         *%025X*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-25X*' =         *%-25X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-25X*' =         *%-25X*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-025X*' =        *%-025X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-025X*' =        *%-025X*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%#25X*' =         *%#25X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#25X*' =         *%#25X*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%#025X*' =        *%#025X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#025X*' =        *%#025X*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-#25X*' =        *%-#25X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-#25X*' =        *%-#25X*\n\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%-#025X*' =       *%-#025X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%-#025X*' =       *%-#025X*\n\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    // Test avec flag 'xx.xx' (Largeur de champs et précision)
+    printf("------------------------------------ Test avec flag 'xx.xx' (Largeur de champs et précision) ------------------------------------\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%#25.15X*' =             *%#25.15X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#25.15X*' =             *%#25.15X*\n", test_vals[i], test_vals[i]);
+        original = printf("Or: '*%%#-25.15X*' =            *%#-25.15X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%#-25.15X*' =            *%#-25.15X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+    // Tests supplémentaires pour observer le comportement avec flags ' ' et '+'
+    // Remarque: Ces flags ne modifient pas la sortie pour '%x', mais sont inclus pour la complétude
+
+    // Test avec flag ' ' (espace)
+    printf("------------------------------------ Test avec flag ' ' (espace) ------------------------------------\n");
+    printf("Remarque: Le flag ' ' n'affecte pas les spécificateurs '%x'.\n\n");
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%# 0X*' =                *%# 0X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%# 0X*' =                *%# 0X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }
+
+    for (int i = 0; i < test_count; i++) {
+        original = printf("Or: '*%%# 4X*' =                *%# 4X*\n", test_vals[i], test_vals[i]);
+        custom = ft_printf("Ft: '*%%# 4X*' =                *%# 4X*\n", test_vals[i], test_vals[i]);
+        printf("Length: Or = %d, Ft = %d\n\n", original, custom);
+    }// Exemples de variables pour les tests
+    int entier = 42;
+    char caractere = 'A';
+    float flottant = 3.14f;
+    int tableau[5] = {1, 2, 3, 4, 5};
+    int *ptr_entier = &entier;
+    char *ptr_caractere = &caractere;
+    float *ptr_flottant = &flottant;
+    int *ptr_tableau = tableau; // Pointe vers le premier élément du tableau
+    void *ptr_null = NULL;
+
+    printf("\n\nOr:     *%%p* = *%p*\n", 0);
+    ft_printf("Ft:     *%%p* = *%p*\n\n", 0);
+
+    printf("Or:     *%%p* = *%p*\n", ptr_entier);
+    ft_printf("Ft:     *%%p* = *%p*\n\n", ptr_entier);
+
+    printf("Or:     *%% p* = *% p*\n", ptr_entier);
+    ft_printf("Ft:     *%% p* = *% p*\n\n", ptr_entier);
+
+    printf("Or:     *%% 20p* = *% 20p*\n", ptr_entier);
+    ft_printf("Ft:     *%% 20p* = *% 20p*\n\n", ptr_entier);
+
+    printf("Or:    *%%-p* = *%-p*\n", ptr_entier);
+    ft_printf("Ft:    *%%-p* = *%-p*\n\n", ptr_entier);
+    
+    printf("Or:    *%%+p* = *%+p*\n", ptr_entier);
+    ft_printf("Ft:    *%%+p* = *%+p*\n\n", ptr_entier);
+    
+    printf("Or:    *%%#p* = *%#p*\n", ptr_entier);
+    ft_printf("Ft:    *%%#p* = *%#p*\n\n", ptr_entier);
+    
+    printf("Or:   *%%20p* = *%20p*\n", ptr_entier);
+    ft_printf("Ft:   *%%20p* = *%20p*\n\n", ptr_entier);
+    
+    printf("Or:  *%%.20p* = *%.20p*\n", ptr_entier);
+    ft_printf("Ft:  *%%.20p* = *%.20p*\n\n", ptr_entier);
+    
+    printf("Or:*%%20.19p* = *%20.19p*\n", ptr_entier);
+    ft_printf("Ft:*%%20.19p* = *%20.19p*\n\n", ptr_entier);
+
+    printf("Or:  *%%-20p* = *%-20p*\n", ptr_entier);
+    ft_printf("Ft:  *%%-20p* = *%-20p*\n\n", ptr_entier);
+    
+    printf("Or: *%%-.20p* = *%-.20p*\n", ptr_entier);
+    ft_printf("Ft: *%%-.20p* = *%-.20p*\n\n", ptr_entier);
+    
+    printf("Or: *%%0p* = *%0p*\n", ptr_entier);
+    ft_printf("Ft: *%%0p* = *%0p*\n\n", ptr_entier);
+   
+    printf("Or:  *%%020p* = *%020p*\n", ptr_entier);
+    ft_printf("Ft:  *%%020p* = *%020p*\n\n", ptr_entier);
+
+    printf("Or: *%%0.20p* = *%0.20p*\n", ptr_entier);
+    ft_printf("Ft: *%%0.20p* = *%0.20p*\n\n", ptr_entier);
+    
+    
+    // Tests de base pour %p
+    printf("------------------------------------ Test basique pour %%p ------------------------------------\n");
+    printf("Or: '*%%p*' = *%p*\n", (void*)ptr_entier);
+    ft_printf("Ft: '*%%p*' = *%p*\n\n", (void*)ptr_entier);
+
+    printf("------------------------------------ Test avec différentes variables ------------------------------------\n");
+    printf("Or: Entier '*%%p*', Caractere '*%%p*', Flottant '*%%p*', Tableau '*%%p*'\n",
+           (void*)ptr_entier, (void*)ptr_caractere, (void*)ptr_flottant, (void*)ptr_tableau);
+    ft_printf("Ft: Entier '*%%p*', Caractere '*%%p*', Flottant '*%%p*', Tableau '*%%p*'\n\n",
+              (void*)ptr_entier, (void*)ptr_caractere, (void*)ptr_flottant, (void*)ptr_tableau);
+
+    printf("------------------------------------ Test avec pointeur nul ------------------------------------\n");
+    printf("Or: '*%%p*' = *%p*\n", ptr_null);
+    ft_printf("Ft: '*%%p*' = *%p*\n\n", ptr_null);
+
+    // Tests avec largeur de champs
+    printf("------------------------------------ Test avec largeur de champs ------------------------------------\n");
+    printf("Or: '*%%20p*' = *%20p*\n", (void*)ptr_entier);
+    ft_printf("Ft: '*%%20p*' = *%20p*\n\n", (void*)ptr_entier);
+
+    printf("------------------------------------ Test avec alignement à gauche ------------------------------------\n");
+    printf("Or: '*%%-20p*' = *%-20p*\n", (void*)ptr_entier);
+    ft_printf("Ft: '*%%-20p*' = *%-20p*\n\n", (void*)ptr_entier);
+ 
+    printf("Or: 'Texte avant %p et texte après'\n", (void*)ptr_entier);
+    ft_printf("Ft: 'Texte avant %p et texte après'\n\n", (void*)ptr_entier);
+    
+    void maFonction() {}
+    printf("Or: Fonction '%p'\n", (void*)&maFonction);
+    ft_printf("Ft: Fonction '%p'\n\n", (void*)&maFonction);
+    
+    printf("Or: '%p %p %p'\n", (void*)ptr_entier, (void*)ptr_caractere, (void*)ptr_tableau);
+    ft_printf("Ft: '%p %p %p'\n\n", (void*)ptr_entier, (void*)ptr_caractere, (void*)ptr_tableau);
+     
+    printf("Or: Entier '%d', Pointeur '%p'\n", entier, (void*)ptr_entier);
+    ft_printf("Ft: Entier '%d', Pointeur '%p'\n\n", entier, (void*)ptr_entier);
+   
+    int **ptr_ptr_entier = &ptr_entier;
+    printf("Or: Pointeur vers pointeur '%p'\n", (void*)ptr_ptr_entier);
+    ft_printf("Ft: Pointeur vers pointeur '%p'\n\n", (void*)ptr_ptr_entier);
+    
+    void fonctionSansRetourNiArguments() {}
+    int fonctionAvecRetourEtSansArguments() { return 0; }
+    char *fonctionAvecRetourEtAvecArguments(int a, char b) { return NULL; }
+    
+    printf("Or: Fonction sans retour ni arguments '%p'\n", (void*)&fonctionSansRetourNiArguments);
+    ft_printf("Ft: Fonction sans retour ni arguments '%p'\n\n", (void*)&fonctionSansRetourNiArguments);
+   
+    printf("Or: Fonction avec retour et sans arguments '%p'\n", (void*)&fonctionAvecRetourEtSansArguments);
+    ft_printf("Ft: Fonction avec retour et sans arguments '%p'\n\n", (void*)&fonctionAvecRetourEtSansArguments);
+    
+    printf("Or: Fonction avec retour et avec arguments '%p'\n", (void*)&fonctionAvecRetourEtAvecArguments);
+    ft_printf("Ft: Fonction avec retour et avec arguments '%p'\n\n", (void*)&fonctionAvecRetourEtAvecArguments);
+
+    struct MaStructure { int entier; char caractere; };
+    union MonUnion { int entier; char caractere; };
+    
+    struct MaStructure exempleStructure;
+    union MonUnion exempleUnion;
+    
+    printf("Or: Structure '%p'\n", (void*)&exempleStructure);
+    ft_printf("Ft: Structure '%p'\n\n", (void*)&exempleStructure);
+    
+    printf("Or: Union '%p'\n", (void*)&exempleUnion);
+    ft_printf("Ft: Union '%p'\n\n", (void*)&exempleUnion);
+    
+    int *tableauDePointeurs[3] = {&entier, ptr_tableau, NULL};
+
+    printf("Or: Tableau de pointeurs '%p %p %p'\n", (void*)tableauDePointeurs[0], (void*)tableauDePointeurs[1], (void*)tableauDePointeurs[2]);
+    ft_printf("Ft: Tableau de pointeurs '%p %p %p'\n\n", (void*)tableauDePointeurs[0], (void*)tableauDePointeurs[1], (void*)tableauDePointeurs[2]);
+    
+    int ***ptr_ptr_ptr_entier = &ptr_ptr_entier;
+    
+    printf("Or: Pointeur vers pointeur de pointeur '%p'\n", (void*)ptr_ptr_ptr_entier);
+    ft_printf("Ft: Pointeur vers pointeur de pointeur '%p'\n\n", (void*)ptr_ptr_ptr_entier);
+    
+    printf("Or: 'Texte %p texte %p texte'\n", (void*)ptr_entier, (void*)ptr_caractere);
+    ft_printf("Ft: 'Texte %p texte %p texte'\n\n", (void*)ptr_entier, (void*)ptr_caractere);
+    
+    printf("Or: '%%p avec texte avant et après %p'\n", (void*)ptr_tableau);
+    ft_printf("Ft: '%%p avec texte avant et après %p'\n\n", (void*)ptr_tableau);
+    
+    int locale = 10;
+    printf("Or: Adresse d'une variable locale '%p'\n", (void*)&locale);
+    ft_printf("Ft: Adresse d'une variable locale '%p'\n\n", (void*)&locale);
+    
+    struct Exemple {
+        int valeur;
+        int (*fonction)(int);
+    };
+    
+    struct Exemple exemple;
+    printf("Or: Pointeur sur membre de structure '%p'\n", (void*)&exemple.valeur);
+    ft_printf("Ft: Pointeur sur membre de structure '%p'\n\n", (void*)&exemple.valeur);
+    
+    int variableGlobale = 42;
+    printf("Or: Adresse d'une variable globale '%p'\n", (void*)&variableGlobale);
+    ft_printf("Ft: Adresse d'une variable globale '%p'\n\n", (void*)&variableGlobale);
+    
+    int *ptrDynamique = malloc(sizeof(int));
+    printf("Or: Pointeur vers mémoire allouée dynamiquement '%p'\n", (void*)ptrDynamique);
+    ft_printf("Ft: Pointeur vers mémoire allouée dynamiquement '%p'\n\n", (void*)ptrDynamique);
+    free(ptrDynamique);
+   
+    printf("Or: Pointeur avec zero padding '%020p'\n", (void*)ptr_entier);
+    ft_printf("Ft: Pointeur avec zero padding '%020p'\n\n", (void*)ptr_entier);
+ 
+    double nombre = 42.42;
+    printf("Or: Conversion explicite de type '%p'\n", (void*)&nombre);
+    ft_printf("Ft: Conversion explicite de type '%p'\n\n", (void*)&nombre);
+    
+    struct ComplexeStruct {
+        char id[10];
+        int data[5];
+    };
+    
+    union ComplexeUnion {
+        struct ComplexeStruct cs;
+        char nom[20];
+    };
+    
+    struct ComplexeStruct cs;
+    union ComplexeUnion cu;
+    
+    printf("Or: Structure complexe '%p'\n", (void*)&cs);
+    ft_printf("Ft: Structure complexe '%p'\n\n", (void*)&cs);
+    
+    printf("Or: Union complexe '%p'\n", (void*)&cu);
+    ft_printf("Ft: Union complexe '%p'\n\n", (void*)&cu);
+    
+    printf("Or: Pointeur avec padding et alignement gauche '%-20p'\n", (void*)ptr_entier);
+    ft_printf("Ft: Pointeur avec padding et alignement gauche '%-20p'\n\n", (void*)ptr_entier);
+    
+    printf("Or: Pointeur avec padding de zéros '%020p'\n", (void*)ptr_entier);
+    ft_printf("Ft: Pointeur avec padding de zéros '%020p'\n\n", (void*)ptr_entier);
+ 
+    char **ptr_ptr_char = &ptr_caractere;
+    printf("Or: Pointeur vers pointeur de char '%p'\n", (void*)ptr_ptr_char);
+    ft_printf("Ft: Pointeur vers pointeur de char '%p'\n\n", (void*)ptr_ptr_char);
+    
+    int (*ptr_fonction)(void) = fonctionAvecRetourEtSansArguments;
+    printf("Or: Pointeur vers fonction '%p'\n", (void*)ptr_fonction);
+    ft_printf("Ft: Pointeur vers fonction '%p'\n\n", (void*)ptr_fonction);
+    
+    volatile int vi = 10;
+    printf("Or: Pointeur vers variable volatile '%p'\n", (void*)&vi);
+    ft_printf("Ft: Pointeur vers variable volatile '%p'\n\n", (void*)&vi);
+    
+    printf("Or: Pointeur vers pointeur de char '%p'\n", (void*)ptr_ptr_char);
+    ft_printf("Ft: Pointeur vers pointeur de char '%p'\n\n", (void*)ptr_ptr_char);
+    
+    ptr_fonction = fonctionAvecRetourEtSansArguments;
+    printf("Or: Pointeur vers fonction '%p'\n", (void*)ptr_fonction);
+    ft_printf("Ft: Pointeur vers fonction '%p'\n\n", (void*)ptr_fonction);
+    
+    // Test avec un pointeur sur une fonction ayant plusieurs arguments
+    void *ptr_fonction_multiple_args = (void*)malloc(sizeof(int));
+    printf("Or: Pointeur vers fonction avec plusieurs arguments '%p'\n", ptr_fonction_multiple_args);
+    ft_printf("Ft: Pointeur vers fonction avec plusieurs arguments '%p'\n\n", ptr_fonction_multiple_args);
+ 
+    // Test avec un pointeur sur une chaîne de caractères littérale
+    const char *ptr_chaine = "Exemple de chaîne littérale";
+   printf("Or: Pointeur vers chaîne littérale '%p'\n", (void*)ptr_chaine);
+    ft_printf("Ft: Pointeur vers chaîne littérale '%p'\n\n", (void*)ptr_chaine);
+    
+    // Test avec un pointeur sur un pointeur vers une variable statique
+    static int var_statique = 42;
+    int *ptr_var_statique = &var_statique;
+    int **ptr_ptr_var_statique = &ptr_var_statique;
+    printf("Or: Pointeur vers pointeur vers variable statique '%p'\n", (void*)ptr_ptr_var_statique);
+    ft_printf("Ft: Pointeur vers pointeur vers variable statique '%p'\n\n", (void*)ptr_ptr_var_statique);
+    
+    // Test avec un pointeur sur un tableau de caractères statiques
+    static char tableau_statique[10] = "Bonjour";
+    printf("Or: Pointeur vers tableau statique '%p'\n", (void*)tableau_statique);
+    ft_printf("Ft: Pointeur vers tableau statique '%p'\n\n", (void*)tableau_statique);
+    
+    // Test avec un pointeur vers un type volatile
+    volatile int var_volatile = 10;
+    printf("Or: Pointeur vers variable volatile '%p'\n", (void*)&var_volatile);
+    ft_printf("Ft: Pointeur vers variable volatile '%p'\n\n", (void*)&var_volatile);
+    
+    // Test avec un pointeur vers un type const
+    const int var_const = 100;
+    printf("Or: Pointeur vers variable const '%p'\n", (void*)&var_const);
+    ft_printf("Ft: Pointeur vers variable const '%p'\n\n", (void*)&var_const);
+    
+    // Test d'affichage de l'adresse d'une variable automatique (locale) d'une autre fonction
+    int (*fonction_locale)(void) = fonctionAvecRetourEtSansArguments;
+    printf("Or: Pointeur vers fonction locale '%p'\n", (void*)fonction_locale);
+    ft_printf("Ft: Pointeur vers fonction locale '%p'\n\n", (void*)fonction_locale);
+
+    // Test avec un formatage complexe incluant des pointeurs
+    printf("Or: '%-20p*%020p*%p'\n", (void*)ptr_chaine, (void*)&var_const, 10, (void*)&var_volatile);
+    ft_printf("Ft: '%-20p*%020p*%p'\n\n", (void*)ptr_chaine, (void*)&var_const, 10, (void*)&var_volatile);
+
+    free(ptr_fonction_multiple_args);
+
     return 0;
 }
 
+    void fonctionSansRetourNiArguments() {}
+    int fonctionAvecRetourEtSansArguments() { return 0; }
+    char *fonctionAvecRetourEtAvecArguments(int a, char b) { return NULL; }
+    
 
-
-
-
-
-
-
-
-
-/*
-int main(void)
-{
-	int result_Or = -1;
-	int result_Ft = -1;
-	int x = 0;
-	unsigned int u = 0u;
-	int n = INT_MIN;
-	char *ptr = (void *)LONG_MIN;
-	int var1 = INT_MAX;
-	char var2 = ' ';
-	float var3 = 3.14f;
-	double var4 = 6.28;
-	int array[5] = {1, 2, 3, 4, 5};
-	char *str = "la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.";
-	void *pointers[] = 
-	    {
-			NULL,
-			&var1,
+    
+    
+    
+    
+    
+    
+    
+/*  
+in  t main(void)
+{   
+    	int result_Or = -1;
+    	int result_Ft = -1;
+    	int x = 0;
+    	unsigned int u = 0u;
+    	int n = INT_MIN;
+    	char *ptr = (void *)LONG_MIN;
+    	int var1 = INT_MAX;
+    	char var2 = ' ';
+    	float var3 = 3.14f;
+    	double var4 = 6.28;
+    	int array[5] = {1, 2, 3, 4, 5};
+    	char *str = "la coccinelle de 3cm était toute petite, mais fort courageus devant des punaise à peine plus grande qu'elle. C'est pourquoi elle n'avait pas peur de grimper pour chercher les pucerons qui était à sa portée.";
+    	void *pointers[] = 
+    	    {
+    			NULL,
+    			&var1,
 			&var2,
 			&var3,
 			&var4,

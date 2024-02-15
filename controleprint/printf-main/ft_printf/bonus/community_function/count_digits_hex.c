@@ -7,8 +7,11 @@ void	count_digits_hex(t_format *option)
 	char	table_hexadecimal[17];
 	long long int signed_number_cpy;
 
-	signed_number_cpy = option->signed_number;
 	i = 0;
+	if (option->specifier == 'x' || option->specifier == 'X')
+		signed_number_cpy = option->signed_number;
+	else if (option->specifier == 'p')
+		signed_number_cpy = option->address_int;
 	if (option == NULL)
 		return ;
 	ft_strlcpy(table_hexadecimal, "0123456789abcdef", 17);
@@ -17,7 +20,12 @@ void	count_digits_hex(t_format *option)
 		signed_number_cpy /= 16;
 		i++;
 	}
-	if (option->hash == true)
+	if (option->hash == true || option->specifier == 'p')
 		i += 2;
-	option->number_size = i;
+	if (option->signed_number == 0 && option->address_int == 0)
+		i = 1;
+	if (option->specifier == 'x' || option->specifier == 'X')
+		option->number_size = i;
+	else if (option->specifier == 'p')
+		option->address_size = i;
 }

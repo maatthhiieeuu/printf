@@ -17,10 +17,13 @@ void	address_width_manager(t_format *option)
 {
 	if (option == NULL)
 		return ;
-	if (option->space_array > 0 && option->minus == false)
+	if (option->space_array > 0 && option->minus == false){//printf("\033[1;31mI\033[0m\n");
 		print_address_with_field_width(option);
-	else if (option->space_array > 0 && option->minus == true)
+	}
+	else if (option->space_array > 0 && option->minus == true){//printf("\033[1;31mJ\033[0m\n");
 		print_address_with_field_width_and_minus(option);
-	else if (option->space == true && option->space_array == 0)
+	}
+	else if (option->space == true && option->space_array == 0){//printf("\033[1;31mK\033[0m\n");
 		print_address_with_a_space(option);
+	}
 }

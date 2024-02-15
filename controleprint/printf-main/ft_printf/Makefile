@@ -85,7 +85,9 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(C_MANAGED_DIR)print_character_without_flag.c \
 			 $(C_MANAGED_DIR)print_character_with_space.c \
 			 $(LOWER_X_MANAGED_DIR)print_lowercase_hexadecimal.c \
-			 $(LOWER_X_MANAGED_DIR)print_lowercase_hexadecimal_with_field_space.c \
+			 $(LOWER_X_MANAGED_DIR)print_lowercase_hexadecimal_with_field.c \
+			 $(LOWER_X_MANAGED_DIR)print_lowercase_hexadecimal_with_precision.c \
+			 $(LOWER_X_MANAGED_DIR)print_lowercase_hexadecimal_with_field_precision.c \
 			 $(COMMUNITY_FUNCTION_DIR)print_raw_format.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_width_and_plus.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_width_and_precision.c \
@@ -106,7 +108,9 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(U_MANAGED_DIR)print_unsigned_integer_without_option.c \
 			 $(U_MANAGED_DIR)print_unsigned_integer_with_precision.c \
 			 $(UPPER_X_MANAGED_DIR)print_uppercase_hexadecimal.c \
-			 $(UPPER_X_MANAGED_DIR)print_uppercase_hexadecimal_with_field_space.c \
+			 $(UPPER_X_MANAGED_DIR)print_uppercase_hexadecimal_with_field.c \
+			 $(UPPER_X_MANAGED_DIR)print_uppercase_hexadecimal_with_field_precision.c \
+			 $(UPPER_X_MANAGED_DIR)print_uppercase_hexadecimal_with_precision.c \
 			 $(P_MANAGED_DIR)print_zeros_for_address_precision.c \
 			 $(COMMUNITY_FUNCTION_DIR)putchar_bonus.c \
 			 $(COMMUNITY_FUNCTION_DIR)putnbr_bonus.c \

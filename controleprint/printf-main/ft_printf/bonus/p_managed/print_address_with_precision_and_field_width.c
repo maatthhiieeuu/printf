@@ -22,10 +22,12 @@ void	print_address_with_precision_and_field_width(t_format *option)
 	if (option == NULL)
 		return ;
 	count_address_characters(option);
-	if (option->minus == false)
+	if (option->minus == false){
 		without_minus(option);
-	else if (option->minus == true)
+	}
+	else if (option->minus == true){
 		with_minus(option);
+	}
 }
 
 static void	write_space(t_format *option)
