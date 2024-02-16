@@ -27,4 +27,5 @@ void	field_size_recovery(const char *s, t_format *option)
 			option->space_array = (option->space_array * 10) + (s[i] - 48);
 		i++;
 	}
+	//printf("field = %lu\n", option->space_array);
 }

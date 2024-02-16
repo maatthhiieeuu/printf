@@ -89,10 +89,11 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(LOWER_X_MANAGED_DIR)print_lowercase_hexadecimal_with_precision.c \
 			 $(LOWER_X_MANAGED_DIR)print_lowercase_hexadecimal_with_field_precision.c \
 			 $(COMMUNITY_FUNCTION_DIR)print_raw_format.c \
-			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_width_and_plus.c \
-			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_width_and_precision.c \
+			 $(D_I_MANAGED_DIR)print_signed_integer_with_field.c \
+			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_precision.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_width_precision_and_minus.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_minus.c \
+			 $(D_I_MANAGED_DIR)print_signed_integer_with_flag.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_without_option.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_plus_and_zero.c \
 			 $(COMMUNITY_FUNCTION_DIR)print_integer_with_plus.c \

@@ -14,6 +14,7 @@
 #include "../obligatory/printf/ft_printf.h"
 
 static void	modify_parsing(t_format *option);
+static bool	check_flag(t_format *option);
 
 void	signed_integer_option_manager(const char *format, va_list args,
 		int *i, t_format *option)
@@ -24,20 +25,33 @@ void	signed_integer_option_manager(const char *format, va_list args,
 	modify_parsing(option);
 	if (option->negative_precision == true)
 		print_raw_format(format, i, option);
-	else if (option->space_array > 0 && option->precision_array > 0)
-		signed_integer_width_and_precision_manager(option);
-	else if (option->space_array > 0 && option->precision_array == 0)
-		signed_integer_field_width_manager(option);
-	else if (option->plus == true && option->space_array == 0)
-		print_integer_with_plus(option);
-	else if (option->minus == true && option->space_array == 0)
-		print_signed_integer_with_minus(option);
-	else if (option->space == true && option->space_array == 0)
-		print_signed_integer_with_space(option);
-	else if (option->precision_array > 0 && option->space_array == 0)
+	else if (option->space_array > 0 && option->precision == true){//printf("\033[1m\033[42m A\033[0m");
+		print_signed_integer_with_field_precision(option);
+	}
+	else if (option->space_array > 0 && option->precision_array == 0 && option->precision_zero == false){//printf("\033[1m\033[42m B\033[0m");
+
+		print_signed_integer_with_field(option);
+	}
+	else if (option->space_array == 0 && option->precision_array > 0 && option->precision_zero == false){//printf("\033[1m\033[42m C\033[0m");
+
 		print_signed_integer_with_precision(option);
-	else
+	}
+	else if (check_flag(option) && option->precision_zero == false){
+		print_signed_integer_with_flag(option);
+	}
+	else if (option->precision_zero == false)
+	{//printf("\033[1m\033[42m D\033[0m");
 		print_signed_integer_without_option(option);
+	}
+}
+
+static bool	check_flag(t_format *option)
+{
+	if (option->plus == true || option->minus == true || option->hash == true)
+		return (true);
+	else if (option->zero == true || option->space == true)
+		return (true);
+	return (false);
 }
 
 static void	modify_parsing(t_format *option)
@@ -52,5 +66,7 @@ static void	modify_parsing(t_format *option)
 		option->plus = false;
 	if (option->space == true && option->signed_number < 0)
 		option->space = false;
+	
 
+	
 }

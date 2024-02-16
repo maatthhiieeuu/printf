@@ -27,6 +27,8 @@ void	count_digits(t_format *option)
 		count_signed_digits(option, &i);
 	if (option->specifier == 'u')
 		count_unsigned_digits(option, &i);
+	if (option->signed_number == 0 && option->precision_zero == true && (option->specifier == 'd' || option->specifier == 'i'))
+		option->number_size = 0;
 }
 
 static void	count_signed_digits(t_format *option, size_t *i)
@@ -46,6 +48,8 @@ static void	count_signed_digits(t_format *option, size_t *i)
 		*i += 1;
 		number_cpy /= 10;
 	}
+	if (option->signed_number == 0)
+		*i = 1;
 	option->number_size = *i;
 }
 

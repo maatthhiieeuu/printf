@@ -52,7 +52,7 @@ static void	print_field_width(t_format *option)
 	if (option == NULL)
 		return ;
 	if (option->number_size <= option->precision_array)
-	{
+	{//printf("\033[1m\033[42m L, \033[0m\n");
 		while (option->precision_array + i < option->space_array)
 		{
 			putchar_bonus(option, ' ');
@@ -60,7 +60,7 @@ static void	print_field_width(t_format *option)
 		}
 	}
 	else if (option->number_size > option->precision_array)
-	{
+	{//printf("\033[1m\033[42m M, \033[0m\n");
 		while (option->number_size + i < option->space_array)
 		{
 			putchar_bonus(option, ' ');

@@ -29,6 +29,7 @@ void	default_structure_initialization(t_format *option)
 	option->signed_number = 0;
 	option->unsigned_number = 0;
 	option->precision = false;
+	option->precision_zero = false;
 	option->negative_precision = false;
 	option->space = false;
 	option->zero = false;

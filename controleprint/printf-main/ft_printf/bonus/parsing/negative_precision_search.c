@@ -15,16 +15,16 @@
 
 void	negative_precision_search(const char *point_ptr, t_format *option)
 {
-	size_t	j;
+	size_t	i;
 
-	j = 0;
+	i = 0;
 	if (point_ptr == NULL || option == NULL)
 		return ;
-	while (j < option->digit_point_until_specifier
+	while (i < option->digit_point_until_specifier
 		&& option->negative_precision == false)
 	{
-		if (ft_atoi(point_ptr + j) < 0)
+		if (ft_atoi(point_ptr + i) < 0)
 			option->negative_precision = true;
-		j++;
+		i++;
 	}
 }

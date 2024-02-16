@@ -35,12 +35,14 @@ typedef struct s_format
 	long long int			signed_number;
 	long long unsigned int	unsigned_number;
 	bool					precision;
+	bool					precision_zero;
 	bool					negative_precision;
 	bool					space;
 	bool					zero;
 	bool					hash;
 	bool					minus;
 	bool					plus;
+
 }t_format;
 
 int		ft_printf(const char *format, ...);
@@ -90,10 +92,11 @@ void	print_lowercase_hexadecimal_with_field(t_format *option);
 void	print_lowercase_hexadecimal_with_precision(t_format *option);
 void	print_lowercase_hexadecimal_with_field_precision(t_format *option);
 void	print_raw_format(const char *format, int *i, t_format *option);
-void	print_signed_integer_with_field_width_and_plus(t_format *option);
-void	print_signed_integer_with_field_width_and_precision(t_format *option);
+void	print_signed_integer_with_field(t_format *option);
+void	print_signed_integer_with_field_precision(t_format *option);
 void	print_signed_int_with_field_prec_minus(t_format *option);
 void	print_signed_integer_with_minus(t_format *option);
+void	print_signed_integer_with_flag(t_format *option);
 void	print_integer_with_plus(t_format *option);
 void	print_signed_integer_with_plus_and_zero(t_format *option);
 void	print_signed_integer_with_precision(t_format *option);

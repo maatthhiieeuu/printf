@@ -17,7 +17,304 @@ int main(void) {
     unsigned int test_vals[] = {0, 1, 42, UINT_MAX, 0x7FFFFFFF, 0x12345678};
     int test_count = sizeof(test_vals) / sizeof(test_vals[0]);
     int original, custom;
+    int original_return;
+    int ft_return;
 
+    printf("\nTest : 1\n");
+    original_return = printf("Or :   |% i|\n", 42);
+    ft_return = ft_printf("Ft :   |% i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+
+    printf("\nTest : 2\n");
+    original_return = printf("Or :   |%+i|\n", 42);
+    ft_return = ft_printf("Ft :   |%+i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+
+    printf("\nTest : 3\n");
+    original_return = printf("Or :   |%-10i|\n", 42);
+    ft_return = ft_printf("Ft :   |%-10i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+
+    printf("\nTest : 4\n");
+    original_return = printf("Or :   |%010i|\n", 42);
+    ft_return = ft_printf("Ft :   |%010i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 5\n");
+    original_return = printf("Or :   |%10i|\n", 42);
+    ft_return = ft_printf("Ft :   |%10i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 6\n");
+    original_return = printf("Or :   |%.5i|\n", 42);
+    ft_return = ft_printf("Ft :   |%.5i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 7\n");
+    original_return = printf("Or :   |% 0+-10.5i|\n", 42);
+    ft_return = ft_printf("Ft :   |% 0+-10.5i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 8\n");
+    original_return = printf("Or :   |%+10i|\n", INT_MAX);
+    ft_return = ft_printf("Ft :   |%+10i|\n", INT_MAX);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 9\n");
+    original_return = printf("Or :   |%-10i|\n", INT_MIN);
+    ft_return = ft_printf("Ft :   |%-10i|\n", INT_MIN);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+     printf("\nTest : 10\n");
+    original_return = printf("Or :   |% i|\n", 0);
+    ft_return = ft_printf("Ft :   |% i|\n", 0);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 11\n");
+    original_return = printf("Or :   |%+i|\n", -42);
+    ft_return = ft_printf("Ft :   |%+i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 12\n");
+    original_return = printf("Or :   |% i|\n", -42);
+    ft_return = ft_printf("Ft :   |% i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 13\n");
+    original_return = printf("Or :   |%010i|\n", -42);
+    ft_return = ft_printf("Ft :   |%010i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 14\n");
+    original_return = printf("Or :   |%.5i|\n", -42);
+    ft_return = ft_printf("Ft :   |%.5i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 15\n");
+    original_return = printf("Or :   |%10.5i|\n", 42);
+    ft_return = ft_printf("Ft :   |%10.5i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 16\n");
+    original_return = printf("Or :   |%-10.5i|\n", 42);
+    ft_return = ft_printf("Ft :   |%-10.5i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\n\nTest : 17\n");
+    original_return = printf("Or :   |%i|\n", -2147483648 - 1);
+    ft_return = ft_printf("Ft :   |%i|\n", -2147483648 - 1);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 18\n");
+    original_return = printf("Or :   |%.10i|\n", 0);
+    ft_return = ft_printf("Ft :   |%.10i|\n", 0);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 19\n");
+    original_return = printf("Or :   |%10.0i|\n", 0);
+    ft_return = ft_printf("Ft :   |%10.0i|\n", 0);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 20\n");
+    original_return = printf("Or :   |%010.5i|\n", -42);
+    ft_return = ft_printf("Ft :   |%010.5i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 21\n");
+    original_return = printf("Or :   |% +i|\n", 42);
+    ft_return = ft_printf("Ft :   |% +i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 22\n");
+    original_return = printf("Or :   |% +i|\n", -42);
+    ft_return = ft_printf("Ft :   |% +i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 23\n");
+    original_return = printf("Or :   |%-+10i|\n", 42);
+    ft_return = ft_printf("Ft :   |%-+10i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 24\n");
+    original_return = printf("Or :   |%0+10i|\n", -42);
+    ft_return = ft_printf("Ft :   |%0+10i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 25\n");
+    original_return = printf("Or :   |%-10.5i|\n", -42);
+    ft_return = ft_printf("Ft :   |%-10.5i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 26\n");
+    original_return = printf("Or :   |%.0i|\n", 0);
+    ft_return = ft_printf("Ft :   |%.0i|\n", 0);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 27\n");
+    original_return = printf("Or :   |%-10i|\n", 42);
+    ft_return = ft_printf("Ft :   |%-10i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 28\n");
+    original_return = printf("Or :   |%i|\n", 2147483647);
+    ft_return = ft_printf("Ft :   |%i|\n", 2147483647);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 29\n");
+    original_return = printf("Or :   |%i|\n", -2147483648);
+    ft_return = ft_printf("Ft :   |%i|\n", -2147483648);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 30\n");
+    original_return = printf("Or :   |%-0+10i|\n", 42);
+    ft_return = ft_printf("Ft :   |%-0+10i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 31\n");
+    original_return = printf("Or :   |%0-+10.5i|\n", 42);
+    ft_return = ft_printf("Ft :   |%0-+10.5i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 32\n");
+    original_return = printf("Or :   |%.10i|\n", 42);
+    ft_return = ft_printf("Ft :   |%.10i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    // Assure-toi que tous les tests affichent à la fois le résultat de printf et de ft_printf, ainsi que le nombre de caractères retournés par chaque fonction pour faciliter la comparaison et le débogage.
+
+    printf("\nTest : 33\n");
+    original_return = printf("Or :   |%0- 10.5i|\n", 42);
+    ft_return = ft_printf("Ft :   |%0- 10.5i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 34\n");
+    original_return = printf("Or :   |%*.5i|\n", 50, 42);
+    ft_return = ft_printf("Ft :   |%*.5i|\n", 50, 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 35\n");
+    original_return = printf("Or :   |%+i|\n", 0);
+    ft_return = ft_printf("Ft :   |%+i|\n", 0);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 36\n");
+    long long big_number = (long long)INT_MAX + 1;
+    original_return = printf("Or :   |%lli|\n", big_number);
+    ft_return = ft_printf("Ft :   |%lli|\n", big_number);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 37\n");
+    long long small_number = (long long)INT_MIN - 1;
+    original_return = printf("Or :   |%lli|\n", small_number);
+    ft_return = ft_printf("Ft :   |%lli|\n", small_number);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 38\n");
+    original_return = printf("Or :   |%.20i|\n", 42);
+    ft_return = ft_printf("Ft :   |%.20i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 39\n");
+    original_return = printf("Or :   |%0+- 20.10i|\n", -42);
+    ft_return = ft_printf("Ft :   |%0+- 20.10i|\n", -42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 40\n");
+    original_return = printf("Or :   |%#i|\n", 42);
+    ft_return = ft_printf("Ft :   |%#i|\n", 42);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 41\n");
+    original_return = printf("Or :   |%i|\n", 2147483647);
+    ft_return = ft_printf("Ft :   |%i|\n", 2147483647);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 42\n");
+    original_return = printf("Or :   |%i|\n", -2147483648);
+    ft_return = ft_printf("Ft :   |%i|\n", -2147483648);
+    printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+ 
+    printf("\nTest : 43\n");
+int width = 10, precision = 5;
+original_return = printf("Or :   |%*.*i|\n", width, precision, 42);
+ft_return = ft_printf("Ft :   |%*.*i|\n", width, precision, 42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 44\n");
+long long ll_max = (long long)INT_MAX + 1, ll_min = (long long)INT_MIN - 1;
+original_return = printf("Or :   |%lld|\n", ll_max);
+ft_return = ft_printf("Ft :   |%lld|\n", ll_max);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 45\n");
+original_return = printf("Or :   |%lld|\n", ll_min);
+ft_return = ft_printf("Ft :   |%lld|\n", ll_min);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 46\n");
+original_return = printf("Or :   |%.20i|\n", 42);
+ft_return = ft_printf("Ft :   |%.20i|\n", 42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 47\n");
+original_return = printf("Or :   |%+- 0*i|\n", 10, 42);
+ft_return = ft_printf("Ft :   |%+- 0*i|\n", 10, 42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+// Assure-toi de vérifier si ta fonction peut gérer correctement chaque cas.
+
+    printf("\nTest : 48\n");
+original_return = printf("Or :   |% 0+-#10.5d|\n", 42);
+ft_return = ft_printf("Ft :   |% 0+-#10.5d|\n", 42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 49\n");
+original_return = printf("Or :   |% 0+-#10.5d|\n", -42);
+ft_return = ft_printf("Ft :   |% 0+-#10.5d|\n", -42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 50\n");
+original_return = printf("Or :   |%*.*d|\n", 10, 5, 42);
+ft_return = ft_printf("Ft :   |%*.*d|\n", 10, 5, 42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 51\n");
+original_return = printf("Or :   |%*.*d|\n", 10, 5, -42);
+ft_return = ft_printf("Ft :   |%*.*d|\n", 10, 5, -42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 52\n");
+original_return = printf("Or :   |%0*d|\n", 10, 42);
+ft_return = ft_printf("Ft :   |%0*d|\n", 10, 42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 53\n");
+original_return = printf("Or :   |%0*d|\n", 10, -42);
+ft_return = ft_printf("Ft :   |%0*d|\n", 10, -42);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 54\n");
+original_return = printf("Or :   |%.*d|\n", 0, 0);
+ft_return = ft_printf("Ft :   |%.*d|\n", 0, 0);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 55\n");
+original_return = printf("Or :   |%+.*d|\n", 0, 0);
+ft_return = ft_printf("Ft :   |%+.*d|\n", 0, 0);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+    printf("\nTest : 56\n");
+void *null_p = NULL;
+original_return = printf("Or :   |%p|\n", null_p);
+ft_return = ft_printf("Ft :   |%p|\n", null_p);
+printf("Or: %d\nFT: %d\n\n", original_return, ft_return);
+
+// Ces tests sont conçus pour vérifier la conformité de ta fonction ft_printf avec des cas spécifiques et parfois complexes de la fonction printf originale. Il est crucial de comparer les résultats de sortie et le nombre de caractères retournés par chaque fonction pour identifier les différences et ajuster ton implémentation en conséquence.
+
+/*
     // Tests simples sans flags
     printf("=== Tests 1 ===\n");
     ret_printf = printf("Char : *%c*, Chaine : *%s*, Pointeur : *%p*, Entier : *%d*, Non signé : *%u*, Hex minuscule : *%x*, Hex majuscule : *%X*, Pourcentage : *%%*\n", 'A', "test", str, 42, 42, 42, 42);
@@ -651,7 +948,7 @@ int main(void) {
     ft_printf("Ft: '%-20p*%020p*%p'\n\n", (void*)ptr_chaine, (void*)&var_const, 10, (void*)&var_volatile);
 
     free(ptr_fonction_multiple_args);
-
+*/
     return 0;
 }
 

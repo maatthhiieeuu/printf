@@ -17,5 +17,6 @@ void	print_signed_integer_with_minus(t_format *option)
 {
 	if (option == NULL)
 		return ;
+	//printf("\033[1m\033[42m V, \033[0m\n");
 	putnbr_bonus(option, option->signed_number);
 }
