@@ -91,14 +91,10 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(COMMUNITY_FUNCTION_DIR)print_raw_format.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_field.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_precision.c \
-			 $(D_I_MANAGED_DIR)print_signed_integer_with_field_width_precision_and_minus.c \
-			 $(D_I_MANAGED_DIR)print_signed_integer_with_minus.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_flag.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_without_option.c \
-			 $(D_I_MANAGED_DIR)print_signed_integer_with_plus_and_zero.c \
 			 $(COMMUNITY_FUNCTION_DIR)print_integer_with_plus.c \
 			 $(D_I_MANAGED_DIR)print_signed_integer_with_precision.c \
-			 $(D_I_MANAGED_DIR)print_signed_integer_with_space.c \
 			 $(S_MANAGED_DIR)print_string_with_minus_precision_and_space.c \
 			 $(S_MANAGED_DIR)print_string_with_precision_and_space.c \
 			 $(S_MANAGED_DIR)print_string_with_space.c \
@@ -118,9 +114,7 @@ BONUS_SRCS = $(FT_PRINTF_BONUS) \
 			 $(COMMUNITY_FUNCTION_DIR)putnstr_bonus.c \
 			 $(COMMUNITY_FUNCTION_DIR)putstr_bonus.c \
 			 $(C_MANAGED_DIR)send_character_for_printing.c \
-			 $(D_I_MANAGED_DIR)signed_integer_field_width_manager.c \
 			 $(D_I_MANAGED_DIR)signed_integer_option_manager.c \
-			 $(D_I_MANAGED_DIR)signed_integer_width_and_precision_manager.c \
 			 $(PARSING_DIR)specifier_search.c \
 			 $(S_MANAGED_DIR)string_option_manager.c \
 			 $(PARSING_DIR)structure_initialization_coordination.c \

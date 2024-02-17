@@ -94,13 +94,9 @@ void	print_lowercase_hexadecimal_with_field_precision(t_format *option);
 void	print_raw_format(const char *format, int *i, t_format *option);
 void	print_signed_integer_with_field(t_format *option);
 void	print_signed_integer_with_field_precision(t_format *option);
-void	print_signed_int_with_field_prec_minus(t_format *option);
-void	print_signed_integer_with_minus(t_format *option);
 void	print_signed_integer_with_flag(t_format *option);
 void	print_integer_with_plus(t_format *option);
-void	print_signed_integer_with_plus_and_zero(t_format *option);
 void	print_signed_integer_with_precision(t_format *option);
-void	print_signed_integer_with_space(t_format *option);
 void	print_signed_integer_without_option(t_format *option);
 void	print_string_with_minus_precision_and_space(t_format *option,
 			char *string, size_t size_string);
@@ -123,10 +119,8 @@ void	putnbr_bonus(t_format *option, long long int n);
 void	putnstr_bonus(t_format *option, char *s, int n);
 void	putstr_bonus(t_format *option, char *s);
 void	send_character_for_printing(va_list args, t_format *option);
-void	signed_integer_field_width_manager(t_format *option);
 void	signed_integer_option_manager(const char *format,
 			va_list args, int *i, t_format *option);
-void	signed_integer_width_and_precision_manager(t_format *option);
 void	specifier_search(const char *format, int i, t_format *option);
 void	string_option_manager(va_list args, t_format *option);
 void	structure_initialization_coordination(const char *format,
