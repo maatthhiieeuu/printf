@@ -35,6 +35,7 @@ void	unsigned_integer_option_manager(const char *format, va_list args,
 		print_unsigned_integer_with_minus(option);
 	else if (option->precision_array > 0 && option->space_array == 0)
 		print_unsigned_integer_with_precision(option);
-	else
+	else{
 		print_unsigned_integer_without_option(option);
+	}
 }

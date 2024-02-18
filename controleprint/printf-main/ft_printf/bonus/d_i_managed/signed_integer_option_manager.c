@@ -25,25 +25,22 @@ void	signed_integer_option_manager(const char *format, va_list args,
 	modify_parsing(option);
 	if (option->negative_precision == true)
 		print_raw_format(format, i, option);
-	else if (option->space_array > 0 && option->precision == true){//printf("\033[1m\033[41mA\033[0m");
+	else if (option->space_array > 0 && option->precision == true)
 		print_signed_integer_with_field_precision(option);
-	}
-	else if (option->space_array > 0 && option->precision_array == 0 && option->precision_zero == false){//printf("\033[1m\033[41mB\033[0m");
+	else if (option->space_array > 0 && option->precision_array == 0 && option->precision_zero == false)
 		print_signed_integer_with_field(option);
-	}
-	else if (option->space_array == 0 && option->precision_array > 0 && option->precision_zero == false){//printf("\033[1m\033[41mC\033[0m");
+	else if (option->space_array == 0 && option->precision_array > 0 && option->precision_zero == false)
 		print_signed_integer_with_precision(option);
-	}
-	else if (check_flag(option) && option->precision_zero == false){//printf("\033[1m\033[41mD\033[0m");
+	else if (check_flag(option) && option->precision_zero == false)
 		print_signed_integer_with_flag(option);
-	}
-	else if (option->precision_zero == false){//printf("\033[1m\033[41mE\033[0m");
+	else if (option->precision_zero == false && check_flag(option) == false)
 		print_signed_integer_without_option(option);
-	}
 }
 
 static bool	check_flag(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	if (option->plus == true)
 		return (true);
 	else if (option->minus == true)

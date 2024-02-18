@@ -32,6 +32,8 @@ static void	print_without_minus(t_format *option, size_t size, char *string)
 	size_t	j;
 
 	j = 0;
+	if (option == NULL || string == NULL)
+		return ;
 	while (size + j < option->space_array)
 	{
 		putchar_bonus(option, ' ');
@@ -45,6 +47,8 @@ static void	print_with_minus(t_format *option, size_t size, char *string)
 	size_t	j;
 
 	j = 0;
+	if (option == NULL || string == NULL)
+		return ;
 	putstr_bonus(option, string);
 	while (size + j < option->space_array)
 	{

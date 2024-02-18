@@ -5,6 +5,8 @@ static void	print_precision(t_format *option);
 
 void	print_uppercase_hexadecimal_with_precision(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	if (option->hash == true)
 	{
 		option->precision_array += 2;
@@ -24,6 +26,8 @@ static void	print_precision(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	while (option->number_size + i < option->precision_array)
 	{
 		putchar_bonus(option, '0');

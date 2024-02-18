@@ -42,6 +42,7 @@ typedef struct s_format
 	bool					hash;
 	bool					minus;
 	bool					plus;
+	bool					value_precision;
 
 }t_format;
 

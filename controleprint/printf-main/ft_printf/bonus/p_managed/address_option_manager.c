@@ -21,15 +21,12 @@ void	address_option_manager(va_list args, t_format *option)
 		return ;
 	option->address_int = va_arg(args, uintptr_t);
 	parsing_complement(option);
-	if (option->space_array > 0 && option->precision_array > 0){
+	if (option->space_array > 0 && option->precision_array > 0)
 		print_address_with_precision_and_field_width(option);
-	}
-	else if (option->space_array > 0 && option->precision_array == 0){
+	else if (option->space_array > 0 && option->precision_array == 0)
 		print_address_with_field_width(option);
-	}
-	else if (option->space_array == 0 && option->precision_array > 0){
+	else if (option->space_array == 0 && option->precision_array > 0)
 		print_address_with_precision(option);
-	}
 	else{
 		if (option->space == true)
 			putchar_bonus(option, ' ');

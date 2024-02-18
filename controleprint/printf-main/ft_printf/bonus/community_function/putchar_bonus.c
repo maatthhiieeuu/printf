@@ -17,6 +17,6 @@ void	putchar_bonus(t_format *option, char c)
 {
 	if (option == NULL)
 		return ;
-	option->output += 1;
 	check_write(write(1, &c, 1));
+	option->output += 1;
 }

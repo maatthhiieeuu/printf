@@ -32,6 +32,8 @@ static void	with_minus(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->space_array > 0)
 	{
 		print_address_bonus(option->address_int, option);
@@ -48,6 +50,8 @@ static void	without_minus(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if ((option->address_int != 0))
 	{
 		if (option->space_array > 0 && option->minus == false)

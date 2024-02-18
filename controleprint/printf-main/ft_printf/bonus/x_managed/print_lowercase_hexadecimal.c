@@ -17,9 +17,11 @@ static void	print_number(t_format *option);
 
 void	print_lowercase_hexadecimal(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	if (option->signed_number != 0)
 		print_number(option);
-	else if (option->signed_number == 0)
+	else if (option->signed_number == 0 && !(option->precision == true && option->value_precision == false))
 		putchar_bonus(option, '0');
 }
 

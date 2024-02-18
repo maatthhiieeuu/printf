@@ -22,7 +22,6 @@ void	count_percent_to_specifier(const char *format, t_format *option)
 		return ;
 	while (format[i] != option->specifier)
 	{
-		//printf(" i = %zu ", i);
 		i++;
 	}
 	option->digit_char_until_specifier = i;

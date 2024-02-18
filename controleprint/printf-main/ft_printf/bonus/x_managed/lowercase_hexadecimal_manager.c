@@ -40,6 +40,8 @@ void	lowercase_hexadecimal_manager(const char *format, va_list args,
 
 static void	parsing_complement(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	count_digits_hex(option);
 	if (option->zero == true && option->space == true)
 		option->space = false;

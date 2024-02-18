@@ -8,12 +8,12 @@ void	count_digits_hex(t_format *option)
 	long long int signed_number_cpy;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->specifier == 'x' || option->specifier == 'X')
 		signed_number_cpy = option->signed_number;
 	else if (option->specifier == 'p')
 		signed_number_cpy = option->address_int;
-	if (option == NULL)
-		return ;
 	ft_strlcpy(table_hexadecimal, "0123456789abcdef", 17);
 	while (signed_number_cpy != 0)
 	{

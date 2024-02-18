@@ -36,4 +36,5 @@ void	default_structure_initialization(t_format *option)
 	option->hash = false;
 	option->minus = false;
 	option->plus = false;
+	option->dont_value_precision = false;
 }

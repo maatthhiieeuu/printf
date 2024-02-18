@@ -19,7 +19,7 @@ void	print_hex_uppercase(va_list args, int *i, int *result)
 
 	recovery_number = va_arg(args, unsigned int);
 	if (i == NULL || result == NULL)
-			return ;
+		return ;
 	else if (recovery_number == 0)
 	{
 		ft_putchar_fd('0', 1);

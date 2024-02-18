@@ -6,6 +6,8 @@ static void	print_precision(t_format *option);
 
 void	print_uppercase_hexadecimal_with_field_precision(t_format *option)
 {
+	if (option == NULL)
+		return ;
 	if (option->minus == false)
 	{
 		print_field(option);
@@ -35,6 +37,8 @@ static void	print_field(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->hash == true && option->minus == false)
 			option->space_array -= 2;
 	if (option->number_size > option->precision_array)
@@ -60,6 +64,8 @@ static void	print_precision(t_format *option)
 	size_t	i;
 
 	i = 0;
+	if (option == NULL)
+		return ;
 	if (option->number_size < option->precision_array)
 	{
 		while (option->number_size + i < option->precision_array)

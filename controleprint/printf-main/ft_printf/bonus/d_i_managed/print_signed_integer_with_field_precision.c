@@ -51,7 +51,9 @@ static void	print_field_width(t_format *option)
 	i = 0;
 	if (option == NULL)
 		return ;
-	if (option->number_size < option->space_array)
+	if (option->signed_number < 0)
+		option->space_array += 1;
+	if (option->number_size <= option->precision_array)
 	{
 		if (option->plus == true && option->signed_number >= 0)
 			option->space_array -= 1;
@@ -61,7 +63,7 @@ static void	print_field_width(t_format *option)
 			i++;
 		}
 	}
-	else if (option->number_size > option->space_array)
+	else if (option->number_size > option->precision_array)
 	{
 		while (option->number_size + i < option->space_array)
 		{
@@ -81,10 +83,7 @@ static void	print_precision(t_format *option)
 	if (option->plus == true && option->signed_number >= 0)
 		putchar_bonus(option, '+');
 	else if (option->signed_number < 0)
-	{
 		putchar_bonus(option, '-');
-		option->number_size -= 1;
-	}
 	while (option->number_size + i < option->precision_array)
 	{
 		putchar_bonus(option, '0');

@@ -64,8 +64,9 @@ static void	count_unsigned_digits(t_format *option, size_t *i)
 	while (number_cpy > 0)
 	{
 		number_cpy /= 10;
-
 		*i += 1;
 	}
+	if (option->unsigned_number == 0)
+		*i = 1;
 	option->number_size = *i;
 }

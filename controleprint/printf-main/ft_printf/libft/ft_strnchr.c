@@ -18,6 +18,8 @@ char	*ft_strnchr(const char *s, int c, char *ptr_end)
     unsigned char	value;
 
     value = (unsigned char)c;
+    if (s == NULL || ptr_end == NULL)
+        return (NULL);
     while (s < ptr_end && *s != '\0')
     {
         if (value == *s)
