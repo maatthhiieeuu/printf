@@ -22,7 +22,7 @@ void	print_zeros_for_address_precision(t_format *option)
 		return ;
 	if (option->zero == false && option->precision == true)
 	{
-		while (option->address_size + i - 3 < option->precision_array)
+		while (option->address_size + i - 2 < option->precision_array)
 		{
 			putchar_bonus(option, '0');
 			i++;
@@ -30,7 +30,7 @@ void	print_zeros_for_address_precision(t_format *option)
 	}
 	else if (option->zero == true && option->precision == false)
 	{
-		while (option->address_size + i - 3 < option->precision_array)
+		while (option->address_size + i < option->precision_array)
 		{
 			putchar_bonus(option, '0');
 			i++;

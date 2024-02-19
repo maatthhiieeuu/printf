@@ -1,37 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_signed_integer_with_precision.c              :+:      :+:    :+:   */
+/*   print_lowercase_hexadecimal_with_precisio          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 14:09:03 by mboegler          #+#    #+#             */
-/*   Updated: 2024/02/07 14:09:04 by mboegler         ###   ########.fr       */
+/*   Created: 2024/02/19 08:51:06 by mboegler          #+#    #+#             */
+/*   Updated: 2024/02/19 08:51:10 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../obligatory/printf/ft_printf.h"
 
-void	print_signed_integer_with_precision(t_format *option)
+static void	print_precision(t_format *option);
+
+void	print_lowercase_hexadecimal_with_precision(t_format *option)
+{
+	if (option == NULL)
+		return ;
+	if (option->hash == true)
+	{
+		option->precision_array += 2;
+		putstr_bonus(option, "0x");
+	}
+	if (option->precision_array > option->number_size)
+	{
+		print_precision(option);
+		print_lowercase_hexadecimal(option);
+	}
+	else
+		print_lowercase_hexadecimal(option);
+}
+
+static void	print_precision(t_format *option)
 {
 	size_t	i;
 
 	i = 0;
 	if (option == NULL)
 		return ;
-	count_digits(option);
-	if (option->signed_number < 0)
-	{
-		putchar_bonus(option, '-');
-		option->signed_number *= -1;
-	}
-	if (option->plus == true && option->signed_number >= 0)
-		putchar_bonus(option, '+');
 	while (option->number_size + i < option->precision_array)
 	{
 		putchar_bonus(option, '0');
-		i++;
+		i += 1;
 	}
-	putnbr_bonus(option, option->signed_number);
 }

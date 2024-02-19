@@ -25,4 +25,5 @@ void	count_percent_to_specifier(const char *format, t_format *option)
 		i++;
 	}
 	option->digit_char_until_specifier = i;
+	option->specifier_ptr = (char *)format + i;
 }

@@ -18,7 +18,7 @@ void	print_character_without_flag(va_list args, t_format *option)
 	char	recovery_char;
 
 	if (option == NULL)
-		return;
+		return ;
 	if (option->specifier == 'c')
 	{
 		recovery_char = va_arg(args, int);

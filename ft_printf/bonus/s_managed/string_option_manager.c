@@ -13,17 +13,18 @@
 #include "libft.h"
 #include "../obligatory/printf/ft_printf.h"
 
+static void	complement_parsing(t_format *option);
+
 void	string_option_manager(va_list args, t_format *option)
 {
 	size_t	size_string;
 	char	*string;
 
-	option->hash = false;
-	option->space = false;
-	option->plus = false;
-	option->zero = false;
+	complement_parsing(option);
 	string = va_arg(args, char *);
 	size_string = ft_strlen(string);
+	if (string == NULL)
+		putstr_bonus(option, "(null)");
 	if (option == NULL)
 		return ;
 	if (option->space_array > 0 && option->precision_array == 0)
@@ -39,4 +40,12 @@ void	string_option_manager(va_list args, t_format *option)
 			print_string_with_precision_and_space(option,
 				string, ft_strlen(string));
 	}
+}
+
+static void	complement_parsing(t_format *option)
+{
+	option->hash = false;
+	option->space = false;
+	option->plus = false;
+	option->zero = false;
 }

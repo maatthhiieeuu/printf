@@ -20,7 +20,7 @@ void	precision_size_recovery(const char *point_ptr, t_format *option)
 
 	i = 0;
 	precision_size = 0;
-	if (point_ptr == NULL)
+	if (option == NULL || point_ptr == NULL)
 		return ;
 	while (point_ptr[i] != option->specifier)
 	{
@@ -29,4 +29,6 @@ void	precision_size_recovery(const char *point_ptr, t_format *option)
 		i++;
 	}
 	option->precision_array = precision_size;
+	if (option->precision == true && option->precision_array == 0)
+		option->precision_zero = true;
 }

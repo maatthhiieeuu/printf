@@ -12,16 +12,29 @@
 
 #include "libft.h"
 
+static int	conversion(const char *s, int *sign, int *result);
+
 int	ft_atoi(const char *s)
 {
-	int	i;
 	int	sign;
 	int	result;
 
 	result = 0;
 	sign = 1;
+	if (s == NULL)
+		return (-1);
+	conversion(s, &sign, &result);
+	return (result * sign);
+}
+
+static int	conversion(const char *s, int *sign, int *result)
+{
+	int	i;
+
 	i = 0;
-	while (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
+	if (s == NULL || sign == NULL || result == NULL)
+		return (-1);
+	while (!ft_isdigit(s[i]))
 	{
 		i++;
 	}
@@ -29,14 +42,14 @@ int	ft_atoi(const char *s)
 	{
 		if (s[i] == '-')
 		{
-			sign *= -1;
+			*sign *= -1;
 		}
 		i++;
 	}
 	while (s[i] >= '0' && s[i] <= '9')
 	{
-		result = (result * 10) + (s[i] - 48);
+		*result = (*result * 10) + (s[i] - 48);
 		i++;
 	}
-	return (result * sign);
+	return (*result * *sign);
 }

@@ -17,5 +17,7 @@ void	print_signed_integer_without_option(t_format *option)
 {
 	if (option == NULL)
 		return ;
+	if (option->signed_number < 0)
+		putchar_bonus(option, '-');
 	putnbr_bonus(option, option->signed_number);
 }

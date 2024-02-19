@@ -23,6 +23,7 @@
 typedef struct s_format
 {
 	char					specifier;
+	char					*specifier_ptr;
 	size_t					space_array;
 	size_t					precision_array;
 	size_t					digit_char_until_specifier;
@@ -34,12 +35,15 @@ typedef struct s_format
 	long long int			signed_number;
 	long long unsigned int	unsigned_number;
 	bool					precision;
+	bool					precision_zero;
 	bool					negative_precision;
 	bool					space;
 	bool					zero;
 	bool					hash;
 	bool					minus;
 	bool					plus;
+	bool					value_precision;
+
 }t_format;
 
 int		ft_printf(const char *format, ...);
@@ -52,7 +56,7 @@ void	print_pointer(va_list args, int *i, int *result);
 void	print_signed_int(va_list args, int *i, int *result);
 void	print_string(va_list args, int *i, int *result);
 void	print_unsigned_int(va_list args, int *i, int *result);
-void	decimal_to_hex(long long int num, char minmax, int *result);
+void	decimal_to_hex(unsigned int num, char minmax, int *result);
 void	print_address(uintptr_t num, int *result);
 void	put_count_string(char *s, int *result);
 void	put_unbr(unsigned int n, int *result);
@@ -63,6 +67,7 @@ void	address_width_manager(t_format *option);
 void	check_write(ssize_t check);
 void	count_address_characters(t_format *option);
 void	count_digits(t_format *option);
+void	count_digits_hex(t_format *option);
 void	count_percent_to_specifier(const char *format, t_format *option);
 void	count_point_to_specifier(t_format *option, char *point_ptr);
 void	default_structure_initialization(t_format *option);
@@ -84,15 +89,15 @@ void	print_address_with_precision_and_field_width(t_format *option);
 void	print_character_with_space(va_list args, t_format *option);
 void	print_character_without_flag(va_list args, t_format *option);
 void	print_lowercase_hexadecimal(t_format *option);
+void	print_lowercase_hexadecimal_with_field(t_format *option);
+void	print_lowercase_hexadecimal_with_precision(t_format *option);
+void	print_lowercase_hexadecimal_with_field_precision(t_format *option);
 void	print_raw_format(const char *format, int *i, t_format *option);
-void	print_signed_integer_with_field_width_and_plus(t_format *option);
-void	print_signed_integer_with_field_width_and_precision(t_format *option);
-void	print_signed_int_with_field_prec_minus(t_format *option);
-void	print_signed_integer_with_minus(t_format *option);
+void	print_signed_integer_with_field(t_format *option);
+void	print_signed_integer_with_field_precision(t_format *option);
+void	print_signed_integer_with_flag(t_format *option);
 void	print_integer_with_plus(t_format *option);
-void	print_signed_integer_with_plus_and_zero(t_format *option);
 void	print_signed_integer_with_precision(t_format *option);
-void	print_signed_integer_with_space(t_format *option);
 void	print_signed_integer_without_option(t_format *option);
 void	print_string_with_minus_precision_and_space(t_format *option,
 			char *string, size_t size_string);
@@ -106,16 +111,17 @@ void	print_unsigned_integer_with_minus(t_format *option);
 void	print_unsigned_integer_with_precision(t_format *option);
 void	print_unsigned_integer_without_option(t_format *option);
 void	print_uppercase_hexadecimal(t_format *option);
+void	print_uppercase_hexadecimal_with_field(t_format *option);
+void	print_uppercase_hexadecimal_with_field_precision(t_format *option);
+void	print_uppercase_hexadecimal_with_precision(t_format *option);
 void	print_zeros_for_address_precision(t_format *option);
 void	putchar_bonus(t_format *option, char c);
 void	putnbr_bonus(t_format *option, long long int n);
 void	putnstr_bonus(t_format *option, char *s, int n);
 void	putstr_bonus(t_format *option, char *s);
 void	send_character_for_printing(va_list args, t_format *option);
-void	signed_integer_field_width_manager(t_format *option);
 void	signed_integer_option_manager(const char *format,
 			va_list args, int *i, t_format *option);
-void	signed_integer_width_and_precision_manager(t_format *option);
 void	specifier_search(const char *format, int i, t_format *option);
 void	string_option_manager(va_list args, t_format *option);
 void	structure_initialization_coordination(const char *format,

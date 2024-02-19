@@ -1,53 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_lowercase_hexadecimal.c                      :+:      :+:    :+:   */
+/*   count_digits_hex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboegler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 14:06:14 by mboegler          #+#    #+#             */
-/*   Updated: 2024/02/07 14:06:14 by mboegler         ###   ########.fr       */
+/*   Created: 2024/02/19 09:08:30 by mboegler          #+#    #+#             */
+/*   Updated: 2024/02/19 09:08:33 by mboegler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../obligatory/printf/ft_printf.h"
 
-static void	print_number(t_format *option);
-
-void	print_lowercase_hexadecimal(t_format *option)
-{
-	if (option == NULL)
-		return ;
-	if (option->signed_number != 0)
-		print_number(option);
-	else if (option->signed_number == 0 && !(option->precision == true
-			&& option->value_precision == false))
-		putchar_bonus(option, '0');
-}
-
-static void	print_number(t_format *option)
+void	count_digits_hex(t_format *option)
 {
 	int				i;
-	int				hexa_num[18];
 	char			table_hexadecimal[17];
 	long long int	signed_number_cpy;
 
 	i = 0;
-	signed_number_cpy = option->signed_number;
 	if (option == NULL)
 		return ;
+	if (option->specifier == 'x' || option->specifier == 'X')
+		signed_number_cpy = option->signed_number;
+	else if (option->specifier == 'p')
+		signed_number_cpy = option->address_int;
 	ft_strlcpy(table_hexadecimal, "0123456789abcdef", 17);
 	while (signed_number_cpy != 0)
 	{
-		hexa_num[i] = signed_number_cpy % 16;
 		signed_number_cpy /= 16;
 		i++;
 	}
-	i--;
-	while (i >= 0)
-	{
-		putchar_bonus(option, table_hexadecimal[hexa_num[i]]);
-		i--;
-	}
+	if (option->hash == true || option->specifier == 'p')
+		i += 2;
+	if (option->signed_number == 0 && option->address_int == 0)
+		i = 1;
+	if (option->specifier == 'x' || option->specifier == 'X')
+		option->number_size = i;
+	else if (option->specifier == 'p')
+		option->address_size = i;
 }

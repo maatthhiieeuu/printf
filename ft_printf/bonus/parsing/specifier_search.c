@@ -21,7 +21,7 @@ void	specifier_search(const char *format, int i, t_format *option)
 	j = 0;
 	ft_strlcpy(tab_char, "cspdiuxX", 9);
 	if (format == NULL || option == NULL)
-		return;
+		return ;
 	while (format[i] != '\0')
 	{
 		j = 0;
@@ -30,6 +30,7 @@ void	specifier_search(const char *format, int i, t_format *option)
 			if (format[i] == tab_char[j])
 			{
 				option->specifier = tab_char[j];
+				option->specifier_ptr = (char *)format + i;
 				return ;
 			}
 			j++;

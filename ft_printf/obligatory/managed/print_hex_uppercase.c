@@ -15,11 +15,20 @@
 
 void	print_hex_uppercase(va_list args, int *i, int *result)
 {
-	long long int	recovery_number;
+	unsigned int	recovery_number;
 
-	recovery_number = va_arg(args, long long int);
+	recovery_number = va_arg(args, unsigned int);
 	if (i == NULL || result == NULL)
 		return ;
-	decimal_to_hex(recovery_number, 'M', result);
-	*i += 1;
+	else if (recovery_number == 0)
+	{
+		ft_putchar_fd('0', 1);
+		*result += 1;
+		*i += 1;
+	}
+	else
+	{
+		decimal_to_hex(recovery_number, 'M', result);
+		*i += 1;
+	}
 }

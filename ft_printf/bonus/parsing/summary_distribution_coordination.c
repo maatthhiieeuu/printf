@@ -17,7 +17,7 @@ void	summary_distribution_coordination(const char *format, va_list args,
 		int *i, t_format *option)
 {
 	if (format == NULL || i == NULL || option == NULL)
-		return;
+		return ;
 	if (option->specifier == 'c')
 		send_character_for_printing(args, option);
 	else if (option->specifier == 's')

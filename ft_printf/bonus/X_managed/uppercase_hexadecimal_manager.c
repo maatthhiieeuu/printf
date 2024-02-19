@@ -13,14 +13,40 @@
 #include "libft.h"
 #include "../obligatory/printf/ft_printf.h"
 
-void	uppercase_hexadecimal_manager(const char *format,
-		va_list args, int *i, t_format *option)
+static void	parsing_complement(t_format *option);
+
+void	uppercase_hexadecimal_manager(const char *format, va_list args,
+		int *i, t_format *option)
 {
 	if (format == NULL || i == NULL || option == NULL)
 		return ;
 	option->signed_number = va_arg(args, long long int);
+	parsing_complement(option);
 	if (option->negative_precision == true)
 		print_raw_format(format, i, option);
+	else if (option->space_array > 0 && option->precision_array > 0)
+		print_uppercase_hexadecimal_with_field_precision(option);
+	else if (option->space_array == 0 && option->precision_array > 0)
+		print_uppercase_hexadecimal_with_precision(option);
+	else if (option->space_array > 0 && option->precision_array == 0)
+		print_uppercase_hexadecimal_with_field(option);
 	else
+	{
+		if (option->hash == true)
+			putstr_bonus(option, "0X");
 		print_uppercase_hexadecimal(option);
+	}
+}
+
+static void	parsing_complement(t_format *option)
+{
+	if (option == NULL)
+		return ;
+	count_digits_hex(option);
+	if (option->zero == true && option->space == true)
+		option->space = false;
+	if (option->signed_number == 0 && option->hash == true)
+		option->hash = false;
+	if (option->minus == true && option->zero == true)
+		option->zero = false;
 }

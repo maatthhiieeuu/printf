@@ -15,6 +15,7 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	ssize_t	check;
+
 	if (!s)
 		return ;
 	while (*s != '\0')

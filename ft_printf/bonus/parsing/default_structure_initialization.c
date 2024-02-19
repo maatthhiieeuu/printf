@@ -16,7 +16,7 @@
 void	default_structure_initialization(t_format *option)
 {
 	if (option == NULL)
-		return;
+		return ;
 	option->specifier = 0;
 	option->space_array = 0;
 	option->precision_array = 0;
@@ -29,10 +29,12 @@ void	default_structure_initialization(t_format *option)
 	option->signed_number = 0;
 	option->unsigned_number = 0;
 	option->precision = false;
+	option->precision_zero = false;
 	option->negative_precision = false;
 	option->space = false;
 	option->zero = false;
 	option->hash = false;
 	option->minus = false;
 	option->plus = false;
+	option->value_precision = false;
 }

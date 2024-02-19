@@ -15,8 +15,13 @@
 
 void	print_string(va_list args, int *i, int *result)
 {
+	char	*string;
+
 	if (i == NULL || result == NULL)
 		return ;
-	put_count_string(va_arg(args, char *), result);
+	string = va_arg(args, char *);
+	if (string == NULL)
+		put_count_string("(null)", result);
+	put_count_string(string, result);
 	*i += 1;
 }

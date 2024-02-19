@@ -12,28 +12,24 @@
 
 #include "libft.h"
 
-char	*ft_strnchr(const char *s, int c, int n)
+char	*ft_strnchr(const char *s, int c, char *ptr_end)
 {
 	unsigned char	value;
-	int				i;
 
 	value = (unsigned char)c;
-	i = 0;
-	while (*s != '\0' && i < n)
+	if (s == NULL || ptr_end == NULL)
+		return (NULL);
+	while (s < ptr_end && *s != '\0')
 	{
 		if (value == *s)
 		{
 			return ((char *)s);
 		}
 		s++;
-		n++;
 	}
-	if (value == '\0')
+	if (value == '\0' && s == ptr_end)
 	{
 		return ((char *)s);
 	}
-	else
-	{
-		return (NULL);
-	}
+	return (NULL);
 }

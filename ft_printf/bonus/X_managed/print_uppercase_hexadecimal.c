@@ -13,25 +13,38 @@
 #include "libft.h"
 #include "../obligatory/printf/ft_printf.h"
 
+static void	print_number(t_format *option);
+
 void	print_uppercase_hexadecimal(t_format *option)
 {
-	int		i;
-	int		hexa_num[50];
-	char	table_hexadecimal[17];
+	if (option == NULL)
+		return ;
+	if (option->signed_number != 0)
+		print_number(option);
+	else if (option->signed_number == 0 && !(option->precision == true
+			&& option->value_precision == false))
+		putchar_bonus(option, '0');
+}
+
+static void	print_number(t_format *option)
+{
+	int				i;
+	int				hexa_num[18];
+	char			table_hexadecimal[17];
+	long long int	signed_number_cpy;
 
 	i = 0;
+	signed_number_cpy = option->signed_number;
 	if (option == NULL)
 		return ;
 	ft_strlcpy(table_hexadecimal, "0123456789ABCDEF", 17);
-	while (option->signed_number != 0)
+	while (signed_number_cpy != 0)
 	{
-		hexa_num[i] = option->signed_number % 16;
-		option->signed_number /= 16;
+		hexa_num[i] = signed_number_cpy % 16;
+		signed_number_cpy /= 16;
 		i++;
 	}
 	i--;
-	if (option->hash == true)
-		putstr_bonus(option, "0X");
 	while (i >= 0)
 	{
 		putchar_bonus(option, table_hexadecimal[hexa_num[i]]);

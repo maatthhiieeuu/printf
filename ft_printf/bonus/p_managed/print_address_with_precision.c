@@ -22,7 +22,7 @@ void	print_address_with_precision(t_format *option)
 	i = 0;
 	if (option == NULL)
 		return ;
-	count_address_characters(option);
+	count_digits_hex(option);
 	ft_strlcpy(hexadecimal_min, "0123456789abcdef", 17);
 	while (option->address_int != 0)
 	{

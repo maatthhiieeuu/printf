@@ -17,5 +17,9 @@ void	print_unsigned_integer_without_option(t_format *option)
 {
 	if (option == NULL)
 		return ;
-	putnbr_bonus(option, option->unsigned_number);
+	if (option->signed_number != 0)
+		putnbr_bonus(option, option->unsigned_number);
+	else if (option->signed_number == 0 && !(option->precision == true
+			&& option->value_precision == false))
+		putchar_bonus(option, '0');
 }
